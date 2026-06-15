@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Build Intel — Week of June 14, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0f0f0f;
+    --bg-2: #1a1a1a;
+    --bg-3: #222222;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dim: rgba(201,168,76,0.15);
+    --white: #f0f0f0;
+    --muted: #9a9a9a;
+    --border: rgba(201,168,76,0.25);
+    --red: #e05252;
+    --red-bg: rgba(224,82,82,0.12);
+    --amber: #d48c3a;
+    --amber-bg: rgba(212,140,58,0.12);
+    --green: #4caf7d;
+    --green-bg: rgba(76,175,125,0.12);
+    --blue: #5b9bd5;
+    --blue-bg: rgba(91,155,213,0.12);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--white); line-height: 1.6; }
+  a { color: var(--gold); text-decoration: none; }
+  a:hover { color: var(--gold-light); text-decoration: underline; }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+  /* HEADER */
+  .site-header { background: var(--bg); border-bottom: 2px solid var(--gold); padding: 2rem 1.5rem 1.5rem; text-align: center; margin-bottom: 2rem; }
+  .site-name { font-family: 'Oswald', sans-serif; font-size: clamp(36px, 7vw, 64px); font-weight: 700; color: var(--white); letter-spacing: 0.06em; text-transform: uppercase; line-height: 1; margin-bottom: 6px; }
+  .site-name span { color: var(--gold); }
+  .site-tagline { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+  .edition-bar { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 1rem; }
+  .edition-bar strong { color: var(--gold); }
+
+  /* DISCLAIMER */
+  .disclaimer { background: var(--blue-bg); border-left: 3px solid var(--blue); padding: 10px 16px; font-size: 12px; color: var(--muted); line-height: 1.6; margin-bottom: 2rem; border-radius: 0 4px 4px 0; }
+
+  /* SECTION */
+  .section { margin-bottom: 2.5rem; }
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 1.25rem; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+  .section-icon { font-size: 20px; }
+  .section-title { font-family: 'Oswald', sans-serif; font-size: 20px; font-weight: 600; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* EXEC BOX */
+  .exec-box { background: var(--bg-2); border: 1px solid var(--border); border-left: 4px solid var(--gold); padding: 1.25rem 1.5rem; border-radius: 0 6px 6px 0; font-size: 15px; line-height: 1.8; color: var(--white); }
+
+  /* METRICS */
+  .metrics-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 1.25rem; }
+  .metric-card { background: var(--bg-2); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; text-align: center; }
+  .metric-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+  .metric-value { font-family: 'Oswald', sans-serif; font-size: 30px; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 4px; }
+  .metric-sub { font-size: 11px; color: var(--muted); }
+
+  /* DATA LIST */
+  .data-list { background: var(--bg-2); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+  .data-row { display: flex; align-items: flex-start; gap: 14px; padding: 14px 16px; border-bottom: 1px solid var(--border); }
+  .data-row:last-child { border-bottom: none; }
+  .data-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 7px; }
+  .data-body { flex: 1; }
+  .data-label { font-weight: 600; font-size: 13px; color: var(--white); margin-bottom: 5px; display: flex; align-items: center; flex-wrap: wrap; gap: 6px; line-height: 1.4; }
+  .data-detail { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* BADGES */
+  .badge { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 99px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .badge-red { background: var(--red-bg); color: var(--red); }
+  .badge-amber { background: var(--amber-bg); color: var(--amber); }
+  .badge-green { background: var(--green-bg); color: var(--green); }
+  .badge-blue { background: var(--blue-bg); color: var(--blue); }
+
+  /* SOURCE LINKS */
+  .src-link { display: inline-flex; align-items: center; gap: 3px; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 99px; background: var(--gold-dim); color: var(--gold); text-decoration: none; white-space: nowrap; }
+  .src-link:hover { background: rgba(201,168,76,0.3); color: var(--gold-light); text-decoration: none; }
+
+  /* ALERT */
+  .alert-box { background: var(--amber-bg); border-left: 3px solid var(--amber); padding: 10px 16px; font-size: 13px; color: var(--amber); line-height: 1.6; margin-top: 10px; border-radius: 0 4px 4px 0; }
+  .alert-box strong { color: var(--gold-light); font-weight: 600; }
+
+  /* PIPELINE GRID */
+  .pipeline-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+  .pipeline-card { background: var(--bg-2); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; }
+  .pipeline-name { font-weight: 600; font-size: 13px; color: var(--white); margin-bottom: 6px; display: flex; align-items: center; flex-wrap: wrap; gap: 6px; line-height: 1.4; }
+  .pipeline-detail { font-size: 12px; color: var(--muted); line-height: 1.6; margin-bottom: 8px; }
+
+  /* STATE GRID */
+  .state-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(185px, 1fr)); gap: 8px; }
+  .state-card { background: var(--bg-2); border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; }
+  .state-name { font-family: 'Oswald', sans-serif; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 5px; }
+  .state-detail { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+  /* TAKEAWAYS */
+  .takeaway-list { display: flex; flex-direction: column; gap: 12px; }
+  .takeaway-item { background: var(--bg-2); border: 1px solid var(--border); border-radius: 6px; padding: 18px 20px; display: flex; gap: 18px; align-items: flex-start; }
+  .takeaway-num { font-family: 'Oswald', sans-serif; font-size: 40px; font-weight: 700; color: var(--gold-dim); line-height: 1; flex-shrink: 0; width: 36px; }
+  .takeaway-body { flex: 1; }
+  .takeaway-text { font-size: 14px; color: var(--white); line-height: 1.7; margin-bottom: 10px; }
+  .takeaway-sources { display: flex; gap: 6px; flex-wrap: wrap; }
+
+  /* SOURCE FOOTER */
+  .sources-footer { background: var(--bg-2); border: 1px solid var(--border); border-radius: 6px; padding: 1.25rem 1.5rem; margin-top: 2rem; }
+  .sources-title { font-family: 'Oswald', sans-serif; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 12px; }
+  .source-item { font-size: 12px; color: var(--muted); margin-bottom: 6px; line-height: 1.5; }
+  .source-item a { color: var(--gold); }
+  .source-item a:hover { color: var(--gold-light); }
+
+  /* DIVIDER */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+
+  /* FOOTER */
+  .page-footer { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 2px solid var(--gold); font-size: 12px; color: var(--muted); text-align: center; line-height: 1.8; letter-spacing: 0.04em; }
+  .page-footer strong { color: var(--gold); }
+
+  @media (max-width: 600px) {
+    .metrics-row { grid-template-columns: repeat(2, 1fr); }
+    .takeaway-num { font-size: 28px; width: 26px; }
+    .site-name { font-size: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="site-header">
+  <h1 class="site-name">The <span>Build</span> Intel</h1>
+  <p class="site-tagline">West Region Construction Intelligence</p>
+  <div class="edition-bar">
+    <span><strong>Edition #1 v1.1</strong></span>
+    <span>Week of June 14, 2026</span>
+    <span>Compiled by <strong>Matt Pound</strong></span>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="disclaimer">
+    This report summarizes publicly available construction market data for informational purposes only. All sources are linked inline and credited at the bottom of this report. Data reflects information available as of June 14, 2026. This is not financial, legal, or contractual advice. Readers should independently verify data before making business decisions.
+  </div>
+
+  <!-- SECTION 1 — EXEC SUMMARY -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⚡</span>
+      <h2 class="section-title">Executive Summary</h2>
+    </div>
+    <div class="exec-box">
+      Construction input prices surged 2.6% in May alone — now nearly 10% above year-ago levels — driven by steel tariffs and energy costs with no near-term relief in sight. Labor shortages remain structurally broken: the industry needs 349,000 net new workers in 2026 and wages are rising 4–10%+ across firms, hitting western markets hardest. The data center pipeline is enormous ($130B+) but community opposition is blocking or delaying 75+ projects — contractors with public engagement experience have a real edge. Regulatory tailwinds are emerging via EPA and Army Corps streamlining, but the 30–60 day bid environment looks squeezed on all fronts.
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 2 — MATERIAL COSTS / PRICING WATCH -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">$</span>
+      <h2 class="section-title">Pricing Watch — Material Costs</h2>
+    </div>
+    <div class="metrics-row">
+      <div class="metric-card"><p class="metric-label">Input prices MoM</p><p class="metric-value">+2.6%</p><p class="metric-sub">May 2026</p></div>
+      <div class="metric-card"><p class="metric-label">Nonresidential MoM</p><p class="metric-value">+2.4%</p><p class="metric-sub">May 2026</p></div>
+      <div class="metric-card"><p class="metric-label">Materials YoY</p><p class="metric-value">~10%</p><p class="metric-sub">Year over year</p></div>
+      <div class="metric-card"><p class="metric-label">Steel tariffs</p><p class="metric-value">50%</p><p class="metric-sub">Persistent pressure</p></div>
+    </div>
+    <div class="data-list">
+      <div class="data-row">
+        <div class="data-dot"></div>
+        <div class="data-body">
+          <p class="data-label">Concrete and cement <span class="badge badge-amber">Watch</span> <a class="src-link" href="https://www.abc.org/News-Media/News-Releases/abc-construction-materials-prices-surge-26-in-may-up-nearly-10-year-over-year" target="_blank">ABC ↗</a></p>
+          <p class="data-detail">Energy costs (40–45% of production) driving persistent upward pressure. Fuel surcharges embedded in delivery. Expect continued modest gains throughout Q3.</p>
+        </div>
+      </div>
+      <div class="data-row">
+        <div class="data-dot"></div>
+        <div class="data-body">
+          <p class="data-label">Structural steel <span class="badge badge-red">High risk</span> <a class="src-link" href="https://www.enr.com/articles/63148-construction-materials-prices-jump-26-in-may-up-nearly-10-year-over-year" target="_blank">ENR ↗</a></p>
+          <p class="data-detail">Up to 50% tariffs on imports sustaining elevated prices. Mill products and fabricated metals saw significant YoY increases with no pullback forecast through H2 2026.</p>
+        </div>
+      </div>
+      <div class="data-row">
+        <div class="data-dot"></div>
+        <div class="data-body">
+          <p class="data-label">Diesel and crude oil <span class="badge badge-red">High risk</span> <a class="src-link" href="https://www.enr.com/articles/63148-construction-materials-prices-jump-26-in-may-up-nearly-10-year-over-year" target="_blank">ENR ↗</a></p>
+          <p class="data-detail">Geopolitical factors keeping diesel elevated. PPI shows notable rises in processed energy goods — compounding transport and equipment operating costs on every job.</p>
+        </div>
+      </div>
+    </div>
+    <div class="alert-box"><strong>Bid exposure:</strong> Any project bidding in the next 30–60 days should carry a minimum 3–5% materials escalation buffer. Steel-heavy work may require more. Lock in supplier pricing wherever possible.</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 3 — LABOR / DEMAND SIGNAL -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📍</span>
+      <h2 class="section-title">Demand Signal — Labor Market</h2>
+    </div>
+    <div class="data-list">
+      <div class="data-row">
+        <div class="data-dot"></div>
+        <div class="data-body">
+          <p class="data-label">Wages rising fast <span class="badge badge-red">High impact</span> <a class="src-link" href="https://www.constructiondive.com/news/construction-costs-surged-may-fastest-annual-rate-since-pandemic/822763/" target="_blank">Construction Dive ↗</a></p>
+          <p class="data-detail">Average hourly earnings in construction running $38+. Many firms reporting 4–10%+ wage increases YoY amid acute competition for skilled trades. Western markets (CA, AZ) among the most affected.</p>
+        </div>
+      </div>
+      <div class="data-row">
+        <div class="data-dot"></div>
+        <div class="data-body">
+          <p class="data-label">349,000 net new workers needed in 2026 <span class="badge badge-red">Critical</span> <a class="src-link" href="https://finance.yahoo.com/news/abc-construction-industry-must-attract-120000799.html" target="_blank">ABC via Yahoo Finance ↗</a></p>
+          <p class="data-detail">The industry must attract 349,000 net new workers this year — rising to 456,000 in 2027. Shortages sharpest in specialized trades and data center construction work.</p>
+        </div>
+      </div>
+      <div class="data-row">
+        <div class="data-dot"></div>
+        <div class="data-body">
+          <p class="data-label">Immigration enforcement adding pressure in CA and AZ</p>
+          <p class="data-detail">Workforce disruptions being reported in California tied to immigration enforcement, compounding existing skilled trade gaps. AZ also seeing wage-driven competition.</p>
+        </div>
+      </div>
+    </div>
+    <div class="alert-box"><strong>Takeaway:</strong> Build labor cost contingency into every bid — 5–8% minimum in CA and AZ. Lock crew commitments before award on large projects; the open market will only get tighter.</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 4 — PIPELINE -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🏗</span>
+      <h2 class="section-title">Project Pipeline — What's Moving</h2>
+    </div>
+    <div class="pipeline-grid">
+      <div class="pipeline-card">
+        <p class="pipeline-name">Data centers / chip factories <span class="badge badge-amber">Opportunity + risk</span></p>
+        <p class="pipeline-detail">75+ projects totaling $130B blocked or delayed by opposition. Army Corps 2026 NWPs now explicitly include data centers — reducing permitting friction. Contractors with community engagement track records best positioned.</p>
+        <a class="src-link" href="https://www.nbcnews.com/tech/tech-news/data-center-opposition-sharply-rising-2026-study-finds-rcna349728" target="_blank">NBC News ↗</a>
+      </div>
+      <div class="pipeline-card">
+        <p class="pipeline-name">Water treatment <span class="badge badge-green">Active awards</span></p>
+        <p class="pipeline-detail">Bureau of Reclamation awarded $75.5M for Navajo-Gallup pipeline components serving AZ/NM. Additional Reclamation awards ongoing across the Colorado River basin.</p>
+        <a class="src-link" href="https://www.usbr.gov/newsroom/" target="_blank">USBR ↗</a>
+      </div>
+      <div class="pipeline-card">
+        <p class="pipeline-name">Highway / freeway <span class="badge badge-green">Steady</span></p>
+        <p class="pipeline-detail">Infrastructure awards continuing at a steady pace across western states. Civil/highway remains one of the more stable pipeline categories heading into H2 2026.</p>
+      </div>
+      <div class="pipeline-card">
+        <p class="pipeline-name">Housing <span class="badge badge-amber">Mixed</span></p>
+        <p class="pipeline-detail">Permits mixed due to cost and labor pressures. Some regulatory easing providing modest pipeline support but cost escalation compressing feasibility for SF and MF projects.</p>
+      </div>
+      <div class="pipeline-card">
+        <p class="pipeline-name">Military and FAA <span class="badge badge-green">Ongoing</span></p>
+        <p class="pipeline-detail">Awards and planning continuing. Data center-related military infrastructure studies adding to the federal pipeline, particularly in western states with existing installation footprints.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 5 — REGULATORY -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⚖️</span>
+      <h2 class="section-title">Regulatory Radar</h2>
+    </div>
+    <div class="data-list">
+      <div class="data-row">
+        <div class="data-dot"></div>
+        <div class="data-body">
+          <p class="data-label">EPA NSR rule — comment deadline June 29 <span class="badge badge-red">Act now</span> <a class="src-link" href="https://www.epa.gov/newsreleases/epa-proposes-redefining-begin-actual-construction-remove-unnecessary-impediments" target="_blank">EPA.gov ↗</a> <a class="src-link" href="https://perkinscoie.com/insights/update/accelerating-ai-infrastructure-what-epas-new-nsr-proposal-means-developers" target="_blank">Perkins Coie ↗</a></p>
+          <p class="data-detail">Proposed NSR revision allows non-emitting construction to begin before air permits are issued — reducing preconstruction delays on qualifying projects. Docket ID: EPA-HQ-OAR-2025-0618. Submit comments by June 29.</p>
+        </div>
+      </div>
+      <div class="data-row">
+        <div class="data-dot"></div>
+        <div class="data-body">
+          <p class="data-label">Army Corps 2026 nationwide permits include data centers <span class="badge badge-green">Favorable</span></p>
+          <p class="data-detail">Data centers now explicitly eligible under Army Corps NWPs — potentially accelerating timelines on wetland/waterway adjacent sites.</p>
+        </div>
+      </div>
+      <div class="data-row">
+        <div class="data-dot"></div>
+        <div class="data-body">
+          <p class="data-label">Permitting Council — $14M technology investment <a class="src-link" href="https://www.permits.performance.gov" target="_blank">Permitting.gov ↗</a></p>
+          <p class="data-detail">Federal investment in permitting process technology for critical infrastructure. Intended to accelerate review timelines for data centers and energy projects.</p>
+        </div>
+      </div>
+      <div class="data-row">
+        <div class="data-dot"></div>
+        <div class="data-body">
+          <p class="data-label">Colorado River water reduction plans <span class="badge badge-amber">Watch</span> <a class="src-link" href="https://www.usbr.gov/newsroom/" target="_blank">USBR ↗</a></p>
+          <p class="data-detail">Bureau of Reclamation reduction plans affecting project feasibility and site selection in AZ, CA, and NV. Water availability constraints increasingly relevant for large industrial and data center site planning.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 6 — WEST REGION -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🗺</span>
+      <h2 class="section-title">West Region Spotlight</h2>
+    </div>
+    <div class="state-grid">
+      <div class="state-card"><p class="state-name">Arizona</p><p class="state-detail">Navajo-Gallup $75.5M water pipeline is the headline. Labor shortages acute with immigration enforcement compounding gaps. Data center opposition emerging.</p></div>
+      <div class="state-card"><p class="state-name">California</p><p class="state-detail">Worst labor crunch in the West. Immigration enforcement disrupting workforces. Sharp wage competition. Data center opposition strong in multiple counties.</p></div>
+      <div class="state-card"><p class="state-name">Nevada</p><p class="state-detail">Colorado River allocation reductions affecting large industrial site planning. Water constraints now a material factor in site selection.</p></div>
+      <div class="state-card"><p class="state-name">Utah</p><p class="state-detail">Data center pushback at local level. Infrastructure and highway activity steady. Water constraints relevant for large campus projects.</p></div>
+      <div class="state-card"><p class="state-name">Colorado</p><p class="state-detail">Colorado River negotiation participant. Infrastructure/civil pipeline active. Water reduction plans adding complexity to western CO project planning.</p></div>
+      <div class="state-card"><p class="state-name">Washington / Oregon</p><p class="state-detail">Infrastructure and data center activity continuing. No major disruptive announcements. Labor shortages consistent with regional trend.</p></div>
+      <div class="state-card"><p class="state-name">Idaho / Wyoming</p><p class="state-detail">Quieter week. General infrastructure and civil activity ongoing. Labor availability comparatively better than CA/AZ but tightening.</p></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 7 — TAKEAWAYS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🎯</span>
+      <h2 class="section-title">Week in Review — Top 3 Takeaways</h2>
+    </div>
+    <div class="takeaway-list">
+      <div class="takeaway-item">
+        <div class="takeaway-num">1</div>
+        <div class="takeaway-body">
+          <p class="takeaway-text">Reprice your bids now. A 2.6% single-month input cost surge — with materials up ~10% year-over-year — means any bid priced on data more than 45–60 days old is likely underpriced. Steel and diesel are the sharpest exposures. Add escalation buffers and push for material price adjustment clauses on longer-duration contracts.</p>
+          <div class="takeaway-sources"><a class="src-link" href="https://www.abc.org/News-Media/News-Releases/abc-construction-materials-prices-surge-26-in-may-up-nearly-10-year-over-year" target="_blank">ABC Materials Report ↗</a></div>
+        </div>
+      </div>
+      <div class="takeaway-item">
+        <div class="takeaway-num">2</div>
+        <div class="takeaway-body">
+          <p class="takeaway-text">Crew availability is your real schedule risk. With 349,000 workers still needed nationally and wages climbing 4–10%+, the labor market isn't loosening. In CA and AZ add workforce contingency to every bid, secure crew commitments early, and expect delays if relying on the open market for specialized trades.</p>
+          <div class="takeaway-sources"><a class="src-link" href="https://finance.yahoo.com/news/abc-construction-industry-must-attract-120000799.html" target="_blank">ABC Workforce Report ↗</a></div>
+        </div>
+      </div>
+      <div class="takeaway-item">
+        <div class="takeaway-num">3</div>
+        <div class="takeaway-body">
+          <p class="takeaway-text">The data center gold rush has a community problem. $130B in projects blocked by local opposition is a structural shift — not a blip. Contractors pursuing this sector need to factor public acceptance risk into go/no-go decisions. EPA and Army Corps reforms are creating genuine permitting speed advantages for projects that do get local buy-in.</p>
+          <div class="takeaway-sources">
+            <a class="src-link" href="https://www.nbcnews.com/tech/tech-news/data-center-opposition-sharply-rising-2026-study-finds-rcna349728" target="_blank">NBC News ↗</a>
+            <a class="src-link" href="https://www.epa.gov/newsreleases/epa-proposes-redefining-begin-actual-construction-remove-unnecessary-impediments" target="_blank">EPA Permitting Reform ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOURCE INDEX -->
+  <div class="sources-footer">
+    <p class="sources-title">Source Index</p>
+    <p class="source-item">Material costs PPI May 2026: <a href="https://www.abc.org/News-Media/News-Releases/abc-construction-materials-prices-surge-26-in-may-up-nearly-10-year-over-year" target="_blank">ABC.org</a> · <a href="https://www.constructiondive.com/news/construction-costs-surged-may-fastest-annual-rate-since-pandemic/822763/" target="_blank">Construction Dive</a> · <a href="https://www.enr.com/articles/63148-construction-materials-prices-jump-26-in-may-up-nearly-10-year-over-year" target="_blank">Engineering News-Record</a></p>
+    <p class="source-item">Labor shortage 349k workers: <a href="https://finance.yahoo.com/news/abc-construction-industry-must-attract-120000799.html" target="_blank">ABC via Yahoo Finance</a></p>
+    <p class="source-item">Data center opposition $130B: <a href="https://www.nbcnews.com/tech/tech-news/data-center-opposition-sharply-rising-2026-study-finds-rcna349728" target="_blank">NBC News</a> · <a href="https://thenextweb.com/news/data-center-opposition-75-projects-blocked-q1-2026" target="_blank">The Next Web</a></p>
+    <p class="source-item">EPA NSR proposed rule: <a href="https://www.epa.gov/newsreleases/epa-proposes-redefining-begin-actual-construction-remove-unnecessary-impediments" target="_blank">EPA.gov</a> · <a href="https://perkinscoie.com/insights/update/accelerating-ai-infrastructure-what-epas-new-nsr-proposal-means-developers" target="_blank">Perkins Coie</a> · <a href="https://www.gibsondunn.com/epa-continues-push-to-streamline-clean-air-act-major-source-permitting-process/" target="_blank">Gibson Dunn</a></p>
+    <p class="source-item">Water / Navajo-Gallup pipeline: <a href="https://www.usbr.gov/newsroom/" target="_blank">Bureau of Reclamation</a></p>
+    <p class="source-item">Federal permitting investment: <a href="https://www.permits.performance.gov" target="_blank">Permitting Council</a></p>
+  </div>
+
+  <div class="page-footer">
+    <strong>The Build Intel</strong> · West Region Construction Intelligence<br>
+    Edition #1 v1.1 · Week of June 14, 2026 · Compiled by Matt Pound<br>
+    Data sourced from ABC, AGC, USBR, EPA, and Permitting Council · For informational purposes only
+  </div>
+
+</div>
+</body>
+</html>
