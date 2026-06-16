@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Build Intel — Week of June 15, 2026</title>
+<title>The Build Intel — Edition 3 — Week of June 15, 2026</title>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z19PER48KL"></script>
 <script>
@@ -12,125 +12,209 @@
   gtag('js', new Date());
   gtag('config', 'G-Z19PER48KL');
 </script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Georgia:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-  :root{--bg:#0f0f0f;--bg-2:#1a1a1a;--bg-3:#222;--gold:#c9a84c;--gold-light:#e8c97a;--gold-dim:rgba(201,168,76,0.15);--white:#f0f0f0;--muted:#9a9a9a;--border:rgba(201,168,76,0.25);--red:#e05252;--red-bg:rgba(224,82,82,0.12);--amber:#d48c3a;--amber-bg:rgba(212,140,58,0.12);--green:#4caf7d;--green-bg:rgba(76,175,125,0.12);--blue:#5b9bd5;--blue-bg:rgba(91,155,213,0.12);}
-  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);line-height:1.6;}
-  a{color:var(--gold);text-decoration:none;}
-  a:hover{color:var(--gold-light);}
-  .page{max-width:900px;margin:0 auto;padding:0 1.5rem 4rem;}
-  .site-header{background:var(--bg);border-bottom:2px solid var(--gold);padding:2rem 1.5rem 1.5rem;text-align:center;margin-bottom:2rem;}
-  .site-name{font-family:'Georgia',serif;font-size:clamp(32px,6vw,56px);font-weight:700;color:var(--white);letter-spacing:0.04em;text-transform:uppercase;line-height:1;margin-bottom:6px;}
-  .site-name span{color:var(--gold);}
-  .site-tagline{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;}
-  .edition-bar{display:flex;justify-content:center;flex-wrap:wrap;gap:16px;font-size:12px;color:var(--muted);border-top:1px solid var(--border);padding-top:1rem;}
-  .edition-bar strong{color:var(--gold);}
-  .disclaimer{background:var(--blue-bg);border-left:3px solid var(--blue);padding:10px 16px;font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:1.5rem;border-radius:0 4px 4px 0;}
-  .deadline-box{border-left:3px solid var(--red);padding:10px 14px;font-size:13px;color:var(--red);line-height:1.6;margin-bottom:1.5rem;border-radius:0 4px 4px 0;background:var(--red-bg);font-weight:500;}
-  .section{margin-bottom:2.5rem;}
-  .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:10px;border-bottom:1px solid var(--border);}
-  .section-icon{font-size:18px;}
-  .section-title{font-family:'Georgia',serif;font-size:18px;font-weight:700;color:var(--gold);letter-spacing:0.06em;text-transform:uppercase;}
-  .divider{border:none;border-top:1px solid var(--border);margin:1.5rem 0;}
-  .kpi-wrap{background:var(--bg-2);border:1px solid var(--border);border-radius:6px;overflow:hidden;}
+  :root{
+    --hbg:#0f0f0f;
+    --gold:#c9a84c;
+    --gold-light:#e8c97a;
+    --gold-dim:rgba(201,168,76,0.12);
+    --bg:#faf9f7;
+    --surf:#ffffff;
+    --surf2:#f4f1ec;
+    --ink:#1a1208;
+    --ink2:#3d3020;
+    --ink3:#7a6a55;
+    --bdr:#e8e2d9;
+    --red:#b52a1c;
+    --red-bg:#fdf2f0;
+    --amber:#8a4e00;
+    --amber-bg:#fdf5e8;
+    --green:#1a5c32;
+    --green-bg:#edf7f1;
+    --blue:#1a3f72;
+    --blue-bg:#eef3fb;
+  }
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;}
+  a{color:var(--blue);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  /* MASTHEAD */
+  .masthead{background:var(--hbg);}
+  .masthead-top{padding:1.75rem 2rem 1.25rem;text-align:center;border-bottom:1px solid rgba(201,168,76,0.25);}
+  .pub-name{font-family:'Playfair Display',serif;font-size:clamp(34px,6vw,68px);font-weight:900;color:#fff;letter-spacing:0.02em;line-height:1;margin-bottom:6px;}
+  .pub-name span{color:var(--gold);}
+  .pub-rule{width:60px;height:2px;background:var(--gold);margin:10px auto 10px;}
+  .pub-tagline{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#888;}
+  .masthead-bar{display:flex;justify-content:space-between;align-items:center;padding:8px 2rem;flex-wrap:wrap;gap:8px;}
+  .masthead-meta{font-size:11px;color:#aaa;}
+  .masthead-meta strong{color:var(--gold);}
+  .masthead-sub{font-size:11px;color:var(--gold);border:1px solid rgba(201,168,76,0.35);padding:4px 14px;border-radius:99px;}
+  .masthead-sub:hover{background:rgba(201,168,76,0.1);text-decoration:none;}
+  .edition-stripe{background:var(--gold);padding:6px 2rem;text-align:center;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#0f0f0f;}
+
+  /* PAGE */
+  .page{max-width:900px;margin:0 auto;padding:2rem 1.5rem 4rem;}
+
+  /* NOTICES */
+  .notice-bar{background:var(--red-bg);border:1px solid #e8c0bc;border-radius:3px;padding:10px 16px;font-size:12px;color:var(--red);margin-bottom:1.25rem;font-weight:500;line-height:1.5;}
+  .notice-bar a{color:var(--red);font-weight:700;text-decoration:underline;}
+  .disclaimer{font-size:11px;color:var(--ink3);line-height:1.5;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--bdr);}
+
+  /* SECTION HEADERS */
+  .section-wrap{margin-bottom:2.5rem;}
+  .section-rule{display:flex;align-items:center;gap:12px;margin-bottom:1rem;}
+  .srl{flex:1;height:2px;background:var(--ink);}
+  .srt{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink);white-space:nowrap;}
+  .srl-thin{flex:1;height:1px;background:var(--bdr);}
+  .divider{border:none;border-top:1px solid var(--bdr);margin:2rem 0;}
+
+  /* KPI TABLE */
+  .kpi-wrap{border:1px solid var(--bdr);overflow:hidden;}
   .kpi-table{width:100%;border-collapse:collapse;font-size:12px;}
-  .kpi-table thead th{background:var(--bg-3);color:var(--gold);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;font-size:10px;padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);}
-  .kpi-table tbody tr{border-bottom:0.5px solid var(--border);}
+  .kpi-table thead th{background:var(--hbg);color:#fff;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;padding:9px 12px;text-align:left;}
+  .kpi-table thead th:first-child{color:var(--gold);}
+  .kpi-table tbody tr{border-bottom:1px solid var(--bdr);}
+  .kpi-table tbody tr:nth-child(even){background:var(--bg);}
   .kpi-table tbody tr:last-child{border-bottom:none;}
-  .kpi-table tbody tr:hover{background:var(--bg-3);}
-  .kpi-table td{padding:9px 12px;color:var(--white);vertical-align:middle;}
-  .kpi-table td:first-child{color:var(--muted);font-size:11px;}
-  .kpi-table td:nth-child(2){font-weight:600;color:var(--gold);}
-  .kpi-table td:nth-child(3){font-size:11px;}
+  .kpi-table td{padding:8px 12px;}
+  .kpi-table td:first-child{font-family:'Source Serif 4',serif;font-size:12px;color:var(--ink2);}
+  .kpi-table td:nth-child(2){font-weight:600;color:var(--ink);}
   .up{color:var(--red);}
   .down{color:var(--green);}
-  .stable{color:var(--muted);}
-  .exec-box{background:var(--bg-2);border:1px solid var(--border);border-left:4px solid var(--gold);padding:1.25rem 1.5rem;border-radius:0 6px 6px 0;font-size:14px;line-height:1.8;color:var(--white);}
-  .commodity-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:8px;}
-  .commodity-card{background:var(--bg-2);border:1px solid var(--border);border-radius:6px;padding:14px 16px;}
-  .commodity-name{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:8px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
-  .price-main{font-size:20px;font-weight:700;color:var(--white);line-height:1;}
-  .price-unit{font-size:11px;color:var(--muted);}
-  .price-changes{display:flex;gap:8px;margin:6px 0;flex-wrap:wrap;}
-  .price-change{font-size:11px;padding:2px 7px;border-radius:99px;}
-  .pc-up{background:var(--red-bg);color:var(--red);}
-  .pc-down{background:var(--green-bg);color:var(--green);}
-  .pc-stable{background:rgba(255,255,255,0.05);color:var(--muted);}
-  .outlook-row{font-size:11px;margin-bottom:8px;}
-  .outlook-rising{color:var(--red);font-weight:500;}
-  .outlook-stable{color:var(--muted);font-weight:500;}
-  .commodity-note{font-size:11px;color:var(--muted);line-height:1.5;margin-bottom:6px;}
-  .src-link{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:500;padding:2px 7px;border-radius:99px;background:var(--gold-dim);color:var(--gold);text-decoration:none;margin-right:4px;}
-  .src-link:hover{background:rgba(201,168,76,0.3);}
-  .badge{display:inline-block;font-size:10px;font-weight:600;padding:2px 7px;border-radius:99px;text-transform:uppercase;letter-spacing:0.04em;}
-  .badge-red{background:var(--red-bg);color:var(--red);}
-  .badge-amber{background:var(--amber-bg);color:var(--amber);}
-  .badge-green{background:var(--green-bg);color:var(--green);}
-  .alert-box{border-left:3px solid var(--amber);padding:10px 14px;font-size:12px;color:var(--amber);line-height:1.6;margin-top:8px;border-radius:0 4px 4px 0;background:var(--amber-bg);}
-  .alert-box strong{color:var(--gold-light);}
-  .high-impact-box{border-left:3px solid var(--red);padding:10px 14px;font-size:12px;color:var(--red);line-height:1.6;margin-top:8px;border-radius:0 4px 4px 0;background:var(--red-bg);}
-  .high-impact-box strong{color:#ff8080;}
-  .data-list{background:var(--bg-2);border:1px solid var(--border);border-radius:6px;overflow:hidden;}
-  .data-row{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border-bottom:0.5px solid var(--border);}
+  .stable{color:var(--ink3);}
+
+  /* EXEC SUMMARY */
+  .lede{font-family:'Source Serif 4',serif;font-size:18px;line-height:1.7;color:var(--ink);margin-bottom:1rem;font-weight:600;}
+  .body-text{font-family:'Source Serif 4',serif;font-size:14px;line-height:1.8;color:var(--ink2);margin-bottom:1rem;}
+  .pull-quote{border-left:4px solid var(--gold);padding:10px 20px;margin:1.25rem 0;background:var(--surf);}
+  .pull-quote-text{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--ink);line-height:1.5;font-style:italic;}
+
+  /* COMMODITY EDITORIAL GRID */
+  .commodity-editorial{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:0;border:1px solid var(--bdr);}
+  .ce-item{padding:16px 18px;border-right:1px solid var(--bdr);border-bottom:1px solid var(--bdr);}
+  .ce-item:nth-child(2n){border-right:none;}
+  @media(min-width:750px){.commodity-editorial{grid-template-columns:repeat(3,1fr);}.ce-item:nth-child(2n){border-right:1px solid var(--bdr);}.ce-item:nth-child(3n){border-right:none;}}
+  .ce-name{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:var(--ink3);margin-bottom:6px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+  .ce-price{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--ink);line-height:1;margin-bottom:3px;}
+  .ce-unit{font-size:11px;color:var(--ink3);font-family:'Inter',sans-serif;font-weight:400;}
+  .ce-changes{display:flex;gap:5px;margin:5px 0;flex-wrap:wrap;}
+  .ce-change{font-size:10px;padding:2px 7px;border-radius:2px;font-family:'Inter',sans-serif;}
+  .cc-up{background:var(--red-bg);color:var(--red);}
+  .cc-down{background:var(--green-bg);color:var(--green);}
+  .cc-stable{background:var(--surf2);color:var(--ink3);}
+  .ce-outlook{font-size:11px;color:var(--ink3);margin-bottom:6px;font-family:'Inter',sans-serif;}
+  .ce-note{font-family:'Source Serif 4',serif;font-size:12px;color:var(--ink2);line-height:1.6;margin-bottom:6px;}
+
+  /* SOURCE LINKS */
+  .src-link{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:500;padding:2px 7px;border-radius:2px;background:var(--blue-bg);color:var(--blue);text-decoration:none;font-family:'Inter',sans-serif;margin-right:3px;}
+  .src-link:hover{text-decoration:none;background:#dce8f5;}
+
+  /* BADGES */
+  .badge{display:inline-block;font-size:9px;font-weight:700;padding:2px 6px;text-transform:uppercase;letter-spacing:0.06em;font-family:'Inter',sans-serif;}
+  .badge-red{background:var(--red);color:#fff;}
+  .badge-amber{background:var(--amber);color:#fff;}
+  .badge-green{background:var(--green);color:#fff;}
+  .badge-blue{background:var(--blue);color:#fff;}
+
+  /* ALERT BOXES */
+  .alert-box{background:var(--amber-bg);border-top:2px solid var(--amber);border-bottom:2px solid var(--amber);padding:10px 16px;font-size:13px;color:var(--amber);line-height:1.6;margin-top:10px;font-family:'Inter',sans-serif;}
+  .alert-box strong{font-weight:700;}
+  .high-impact-box{background:var(--red-bg);border-top:2px solid var(--red);border-bottom:2px solid var(--red);padding:10px 16px;font-size:13px;color:var(--red);line-height:1.6;margin-top:10px;font-family:'Inter',sans-serif;}
+  .high-impact-box strong{font-weight:700;}
+  .high-impact-box a{color:var(--red);font-weight:600;}
+
+  /* DATA LIST */
+  .data-list{border:1px solid var(--bdr);overflow:hidden;background:var(--surf);}
+  .data-row{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border-bottom:1px solid var(--bdr);}
   .data-row:last-child{border-bottom:none;}
   .data-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:7px;}
   .data-body{flex:1;}
-  .data-label{font-weight:600;font-size:13px;color:var(--white);margin-bottom:4px;display:flex;align-items:center;flex-wrap:wrap;gap:5px;}
-  .data-detail{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:4px;}
-  .pipeline-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;}
-  .pipeline-card{background:var(--bg-2);border:1px solid var(--border);border-radius:6px;padding:12px 14px;}
-  .pipeline-name{font-size:12px;font-weight:600;color:var(--white);margin-bottom:5px;display:flex;align-items:center;flex-wrap:wrap;gap:5px;}
-  .pipeline-detail{font-size:11px;color:var(--muted);line-height:1.6;margin-bottom:6px;}
-  .water-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:8px;}
-  .water-card{background:var(--bg-2);border:1px solid var(--border);border-radius:6px;padding:10px 12px;}
-  .water-city{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--blue);margin-bottom:4px;}
-  .water-status{font-size:11px;color:var(--muted);line-height:1.5;}
-  .sub-region{background:var(--bg-2);border:1px solid var(--border);border-radius:6px;padding:14px 16px;margin-bottom:8px;}
-  .sub-region-name{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
-  .sub-region-priority{font-size:10px;font-weight:600;padding:2px 7px;border-radius:99px;background:var(--red-bg);color:var(--red);}
-  .sub-region-dollar{font-size:11px;font-weight:600;color:var(--green);margin-bottom:6px;}
-  .sub-region-text{font-size:12px;color:var(--muted);line-height:1.6;}
-  .takeaway-list{display:flex;flex-direction:column;gap:10px;}
-  .takeaway-item{background:var(--bg-2);border:1px solid var(--border);border-radius:6px;padding:16px 18px;display:flex;gap:16px;}
-  .takeaway-num{font-family:'Georgia',serif;font-size:36px;font-weight:700;color:var(--gold-dim);line-height:1;flex-shrink:0;width:32px;}
-  .takeaway-body{flex:1;}
-  .takeaway-text{font-size:13px;color:var(--white);line-height:1.7;margin-bottom:8px;}
-  .takeaway-sources{display:flex;gap:5px;flex-wrap:wrap;}
-  .subscribe-box{background:var(--gold-dim);border:1px solid var(--gold);border-radius:6px;padding:1.25rem 1.5rem;margin-top:2rem;text-align:center;}
-  .subscribe-title{font-family:'Georgia',serif;font-size:16px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;}
-  .subscribe-text{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:12px;}
-  .subscribe-btn{display:inline-block;background:var(--gold);color:#0f0f0f;font-size:13px;font-weight:600;padding:10px 24px;border-radius:99px;text-decoration:none;letter-spacing:0.04em;}
-  .subscribe-btn:hover{background:var(--gold-light);color:#0f0f0f;}
-  .sources-footer{background:var(--bg-2);border:1px solid var(--border);border-radius:6px;padding:1.25rem 1.5rem;margin-top:2rem;}
-  .sources-title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:10px;}
-  .source-item{font-size:11px;color:var(--muted);margin-bottom:5px;line-height:1.5;}
-  .source-item a{color:var(--gold);}
-  .page-footer{margin-top:2rem;padding-top:1.25rem;border-top:2px solid var(--gold);font-size:11px;color:var(--muted);text-align:center;line-height:1.8;}
+  .data-label{font-weight:600;font-size:13px;color:var(--ink);margin-bottom:4px;display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-family:'Inter',sans-serif;}
+  .data-detail{font-family:'Source Serif 4',serif;font-size:13px;color:var(--ink2);line-height:1.6;margin-bottom:4px;}
+
+  /* PIPELINE */
+  .pipeline-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:0;border:1px solid var(--bdr);}
+  .pipeline-card{padding:14px 16px;border-right:1px solid var(--bdr);border-bottom:1px solid var(--bdr);background:var(--surf);}
+  .pipeline-name{font-size:12px;font-weight:600;color:var(--ink);margin-bottom:5px;display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-family:'Inter',sans-serif;}
+  .pipeline-detail{font-family:'Source Serif 4',serif;font-size:12px;color:var(--ink2);line-height:1.6;margin-bottom:6px;}
+
+  /* WATER */
+  .water-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:0;margin-top:10px;border:1px solid var(--bdr);}
+  .water-card{padding:12px 14px;border-right:1px solid var(--bdr);border-bottom:1px solid var(--bdr);background:var(--surf);}
+  .water-city{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--blue);margin-bottom:4px;font-family:'Inter',sans-serif;}
+  .water-status{font-family:'Source Serif 4',serif;font-size:12px;color:var(--ink2);line-height:1.5;}
+
+  /* SUB REGIONS */
+  .sub-region{background:var(--surf);border:1px solid var(--bdr);border-left:3px solid var(--gold);padding:16px 18px;margin-bottom:8px;}
+  .sub-region-name{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink);margin-bottom:4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:'Inter',sans-serif;}
+  .sub-region-priority{font-size:9px;font-weight:700;padding:2px 7px;background:var(--red);color:#fff;letter-spacing:0.06em;}
+  .sub-region-dollar{font-size:11px;font-weight:600;color:var(--green);margin-bottom:6px;font-family:'Inter',sans-serif;}
+  .sub-region-text{font-family:'Source Serif 4',serif;font-size:13px;color:var(--ink2);line-height:1.7;}
+
+  /* TAKEAWAYS */
+  .takeaway-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--bdr);}
+  .takeaway-item{display:flex;gap:0;border-bottom:1px solid var(--bdr);}
+  .takeaway-item:last-child{border-bottom:none;}
+  .t-num{background:var(--hbg);color:var(--gold);font-family:'Playfair Display',serif;font-size:26px;font-weight:900;padding:16px 18px;display:flex;align-items:flex-start;justify-content:center;min-width:54px;}
+  .t-body{padding:16px 18px;flex:1;background:var(--surf);}
+  .t-text{font-family:'Source Serif 4',serif;font-size:14px;color:var(--ink);line-height:1.7;margin-bottom:8px;}
+  .t-sources{display:flex;gap:5px;flex-wrap:wrap;}
+
+  /* SUBSCRIBE */
+  .subscribe-box{background:var(--hbg);padding:2rem;text-align:center;margin-top:2rem;}
+  .sub-pub{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:#fff;margin-bottom:4px;}
+  .sub-pub span{color:var(--gold);}
+  .sub-text{font-size:13px;color:#aaa;margin-bottom:14px;line-height:1.6;font-family:'Inter',sans-serif;}
+  .sub-btn{display:inline-block;background:var(--gold);color:#0f0f0f;font-size:12px;font-weight:700;padding:10px 28px;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;}
+  .sub-btn:hover{background:var(--gold-light);text-decoration:none;}
+
+  /* SOURCES */
+  .sources-footer{border-top:2px solid var(--bdr);padding-top:1.5rem;margin-top:2rem;}
+  .sources-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--ink3);margin-bottom:10px;font-family:'Inter',sans-serif;}
+  .source-item{font-size:11px;color:var(--ink3);margin-bottom:4px;line-height:1.5;font-family:'Inter',sans-serif;}
+  .source-item a{color:var(--blue);}
+
+  /* FOOTER */
+  .page-footer{background:var(--hbg);padding:1.5rem 2rem;text-align:center;font-size:11px;color:#888;line-height:1.8;margin-top:2rem;font-family:'Inter',sans-serif;}
   .page-footer strong{color:var(--gold);}
-  @media(max-width:600px){.commodity-grid{grid-template-columns:1fr;}.kpi-table td,.kpi-table th{padding:7px 8px;}}
+  .page-footer a{color:var(--gold);}
+
+  @media(max-width:600px){
+    .masthead-bar{justify-content:center;}
+    .commodity-editorial{grid-template-columns:1fr;}
+    .ce-item{border-right:none;}
+    .pipeline-grid{grid-template-columns:1fr;}
+    .water-grid{grid-template-columns:repeat(2,1fr);}
+  }
 </style>
 </head>
 <body>
-<div class="site-header">
-  <h1 class="site-name">The <span>Build</span> Intel</h1>
-  <p class="site-tagline">West Region Construction Intelligence</p>
-  <div class="edition-bar">
-    <span><strong>Edition #3</strong></span>
-    <span>Week of June 15, 2026</span>
-    <span>Compiled by <strong>Matt Pound</strong></span>
-    <span><a href="https://thebuildintel.substack.com/" style="color:var(--gold)">Subscribe for free weekly delivery &rarr;</a></span>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-top">
+    <h1 class="pub-name">The <span>Build</span> Intel</h1>
+    <div class="pub-rule"></div>
+    <p class="pub-tagline">West Region Construction Intelligence</p>
+  </div>
+  <div class="masthead-bar">
+    <span class="masthead-meta">Edition #3 &nbsp;&middot;&nbsp; Week of June 15, 2026 &nbsp;&middot;&nbsp; Compiled by <strong>Matt Pound</strong></span>
+    <a class="masthead-sub" href="https://thebuildintel.substack.com/" target="_blank">Subscribe Free &rarr;</a>
   </div>
 </div>
+<div class="edition-stripe">Western US Construction Market Intelligence &mdash; Commodity Prices &middot; Project Pipeline &middot; Sub-Regional Spotlights &middot; Water Watch &middot; Regulatory Radar</div>
 
 <div class="page">
-  <div class="disclaimer">This report summarizes publicly available construction market data for informational purposes only. All sources are linked inline and credited at the bottom. Data reflects information available as of June 15, 2026. This is not financial, legal, or contractual advice. Readers should independently verify data before making business decisions.</div>
 
-  <div class="deadline-box">&#9888; ACTION REQUIRED &mdash; EPA NSR comment deadline is June 29, 2026 &mdash; 8 days away. If air permits affect your project starts, <a href="https://www.bdlaw.com/publications/epa-proposes-rule-to-redefine-begin-actual-construction-under-the-nsr-preconstruction-permitting-program/" target="_blank" style="color:#ff8080">review the proposed rule and submit comments now.</a> Docket ID: EPA-HQ-OAR-2025-0618.</div>
+  <div class="notice-bar">&#9888; ACTION REQUIRED &mdash; EPA NSR comment deadline June 29, 2026 &mdash; 8 days away. If air permits affect your project starts, <a href="https://www.bdlaw.com/publications/epa-proposes-rule-to-redefine-begin-actual-construction-under-the-nsr-preconstruction-permitting-program/" target="_blank">review the proposed rule and submit comments now.</a> Docket ID: EPA-HQ-OAR-2025-0618.</div>
 
-  <!-- KPI TABLE -->
-  <div class="section">
-    <div class="section-header"><span class="section-icon">&#128202;</span><h2 class="section-title">Weekly KPI Snapshot</h2></div>
+  <p class="disclaimer">This report summarizes publicly available construction market data for informational purposes only. All sources are linked inline and credited below. Data reflects information available as of June 15, 2026. This is not financial, legal, or contractual advice. Readers should independently verify data before making business decisions.</p>
+
+  <!-- KPI SNAPSHOT -->
+  <div class="section-wrap">
+    <div class="section-rule"><div class="srl"></div><span class="srt">Weekly Market Snapshot</span><div class="srl"></div></div>
     <div class="kpi-wrap">
       <table class="kpi-table">
         <thead><tr><th>Metric</th><th>Current Value</th><th>Change</th></tr></thead>
@@ -155,188 +239,242 @@
   <div class="divider"></div>
 
   <!-- EXEC SUMMARY -->
-  <div class="section">
-    <div class="section-header"><span class="section-icon">&#9889;</span><h2 class="section-title">Executive Summary</h2></div>
-    <div class="exec-box">California lost 17% of its refining capacity with the closures of Phillips 66 Wilmington and Valero Benicia &mdash; and the numbers are showing up at the pump, with California diesel now at $6.94/gallon versus a $5.21 national average, a $1.73/gallon premium that hits every contractor operating west of the Rockies. Asphalt oil binder hit $565/ton in June, up from $557 in May and trending higher tied directly to crude oil and refinery capacity &mdash; every paving bid in CA, AZ, and NV is exposed. Aggregates are rising in urban western markets with crushed stone running $25&ndash;45/ton and constrained supply from zoning and land restrictions compounding fuel-driven transport costs. The data center pipeline remains the single largest demand driver for construction materials in the West but $130B in projects remain stalled &mdash; the contractors building community engagement capability now will win the work when opposition is resolved.</div>
+  <div class="section-wrap">
+    <div class="section-rule"><div class="srl"></div><span class="srt">This Week</span><div class="srl"></div></div>
+    <p class="lede">California lost 17% of its refining capacity. Diesel is $6.94/gallon. Asphalt binder hit $565/ton. Every paving bid in the western US written more than 30 days ago is likely underpriced.</p>
+    <p class="body-text">The closures of Phillips 66 Wilmington and Valero Benicia have removed roughly 290,000 barrels per day of California refining capacity &mdash; and the market is responding. The $1.73/gallon premium California contractors are now paying over the national average is structural, not temporary. No new refining capacity is coming online. The binder market is following crude oil higher. Every paving contractor in CA, AZ, and NV needs to revisit open bids and add escalation clauses to active contracts before the next price move.</p>
+    <div class="pull-quote"><p class="pull-quote-text">"The data center pipeline is enormous &mdash; $130B in the West alone &mdash; but community opposition is the variable that determines who wins the work. Contractors building public engagement capability today are building a competitive moat."</p></div>
+    <p class="body-text">Aggregates are rising in every urban western market, driven by zoning constraints limiting new quarry permits and fuel costs compounding transport prices. The 30-60 day outlook across aggregates, ready-mix, and cement is Rising. Labor is not loosening &mdash; 349,000 net new workers still needed in 2026 and wages climbing 6-8% in western markets. The water situation in Arizona, Nevada, and Colorado is becoming a go/no-go factor for large projects &mdash; not just an environmental consideration.</p>
   </div>
 
   <div class="divider"></div>
 
   <!-- COMMODITY PRICING -->
-  <div class="section">
-    <div class="section-header"><span class="section-icon">$</span><h2 class="section-title">Commodity Pricing Watch</h2></div>
-    <div class="commodity-grid">
-      <div class="commodity-card">
-        <p class="commodity-name">Crushed Stone <span class="badge badge-amber">Rising</span></p>
-        <p class="price-main">$25&ndash;45<span class="price-unit"> /ton western avg</span></p>
-        <div class="price-changes"><span class="price-change pc-up">&#9650; +5&ndash;10% MoM urban</span><span class="price-change pc-up">&#9650; +10&ndash;20% YoY constrained markets</span></div>
-        <div class="outlook-row">30-60 day: <span class="outlook-rising">Rising</span> &mdash; urban zoning constraints + infrastructure demand</div>
-        <p class="commodity-note">CA urban delivered prices running $30&ndash;50+/ton. Data center and infrastructure demand compounding supply constraints from permit restrictions on new quarry sites.</p>
+  <div class="section-wrap">
+    <div class="section-rule"><div class="srl"></div><span class="srt">Commodity Pricing Watch</span><div class="srl"></div></div>
+    <div class="commodity-editorial">
+      <div class="ce-item">
+        <p class="ce-name">Crushed Stone <span class="badge badge-amber">Rising</span></p>
+        <p class="ce-price">$25&ndash;45 <span class="ce-unit">/ton western avg</span></p>
+        <div class="ce-changes"><span class="ce-change cc-up">&#9650; +5&ndash;10% MoM urban</span><span class="ce-change cc-up">&#9650; +10&ndash;20% YoY</span></div>
+        <div class="ce-outlook">30-60 day: Rising &mdash; zoning constraints + infrastructure demand</div>
+        <p class="ce-note">CA urban delivered prices running $30&ndash;50+/ton. Data center and infrastructure demand compounding supply constraints from permit restrictions on new quarry sites.</p>
         <a class="src-link" href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-stone-crushed.pdf" target="_blank">USGS &#8599;</a>
       </div>
-      <div class="commodity-card">
-        <p class="commodity-name">Sand and Gravel <span class="badge badge-amber">Rising</span></p>
-        <p class="price-main">$20&ndash;40<span class="price-unit"> /ton western avg</span></p>
-        <div class="price-changes"><span class="price-change pc-up">&#9650; +3&ndash;8% MoM</span><span class="price-change pc-up">&#9650; +5&ndash;15% YoY regional divergence</span></div>
-        <div class="outlook-row">30-60 day: <span class="outlook-rising">Rising</span> &mdash; metro supply constraints + transport costs</div>
-        <p class="commodity-note">CA Central Valley bulk running ~$20&ndash;35/ton. Urban markets higher with transport premium. Supply constrained by land use restrictions in western metropolitan areas.</p>
+      <div class="ce-item">
+        <p class="ce-name">Sand and Gravel <span class="badge badge-amber">Rising</span></p>
+        <p class="ce-price">$20&ndash;40 <span class="ce-unit">/ton western avg</span></p>
+        <div class="ce-changes"><span class="ce-change cc-up">&#9650; +3&ndash;8% MoM</span><span class="ce-change cc-up">&#9650; +5&ndash;15% YoY</span></div>
+        <div class="ce-outlook">30-60 day: Rising &mdash; metro supply constraints + transport costs</div>
+        <p class="ce-note">CA Central Valley bulk running ~$20&ndash;35/ton. Urban markets higher with transport premium. Land use restrictions limiting supply in western metropolitan areas.</p>
         <a class="src-link" href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-sand-gravel.pdf" target="_blank">USGS &#8599;</a>
       </div>
-      <div class="commodity-card">
-        <p class="commodity-name">Asphalt Oil Binder <span class="badge badge-red">High impact</span></p>
-        <p class="price-main">$565.20<span class="price-unit"> /ton CA statewide</span></p>
-        <div class="price-changes"><span class="price-change pc-up">&#9650; +$7.90 MoM (+1.4%)</span><span class="price-change pc-up">&#9650; Trending up YoY</span></div>
-        <div class="outlook-row">30-60 day: <span class="outlook-rising">Rising</span> &mdash; crude oil futures + CA refinery capacity loss</div>
-        <p class="commodity-note">4 weeks ago: $557.30/ton. Rising for second consecutive month. CA refinery closures removing domestic production. Every paving contractor in CA, AZ, and NV is exposed.</p>
+      <div class="ce-item">
+        <p class="ce-name">Asphalt Oil Binder <span class="badge badge-red">High impact</span></p>
+        <p class="ce-price">$565.20 <span class="ce-unit">/ton CA statewide</span></p>
+        <div class="ce-changes"><span class="ce-change cc-up">&#9650; +$7.90 MoM (+1.4%)</span><span class="ce-change cc-up">&#9650; Trending up YoY</span></div>
+        <div class="ce-outlook">30-60 day: Rising &mdash; crude oil futures + CA refinery capacity loss</div>
+        <p class="ce-note">4 weeks ago: $557.30/ton. Rising second consecutive month. CA refinery closures removing domestic production &mdash; binder supply increasingly import-dependent. Every paving contractor in CA, AZ, and NV is exposed.</p>
         <a class="src-link" href="https://dot.ca.gov/programs/construction/california-statewide-crude-oil-price-index" target="_blank">Caltrans &#8599;</a>
       </div>
-      <div class="commodity-card">
-        <p class="commodity-name">Ready-Mix Concrete <span class="badge badge-amber">Rising</span></p>
-        <p class="price-main">$160&ndash;180<span class="price-unit"> /CY western avg</span></p>
-        <div class="price-changes"><span class="price-change pc-up">&#9650; +2&ndash;5% MoM</span><span class="price-change pc-up">&#9650; +5&ndash;10% YoY</span></div>
-        <div class="outlook-row">30-60 day: <span class="outlook-rising">Rising</span> &mdash; input cost pressure + regional project demand</div>
-        <p class="commodity-note">SoCal running $170&ndash;200/CY. Phoenix and Denver $150&ndash;180/CY. Seattle higher. Fuel surcharges embedded in all delivery pricing.</p>
+      <div class="ce-item">
+        <p class="ce-name">Ready-Mix Concrete <span class="badge badge-amber">Rising</span></p>
+        <p class="ce-price">$160&ndash;180 <span class="ce-unit">/CY western avg</span></p>
+        <div class="ce-changes"><span class="ce-change cc-up">&#9650; +2&ndash;5% MoM</span><span class="ce-change cc-up">&#9650; +5&ndash;10% YoY</span></div>
+        <div class="ce-outlook">30-60 day: Rising &mdash; input cost pressure + regional demand</div>
+        <p class="ce-note">SoCal running $170&ndash;200/CY. Phoenix and Denver $150&ndash;180/CY. Seattle higher. Fuel surcharges embedded in all delivery pricing across western markets.</p>
         <a class="src-link" href="https://www.concretenetwork.com/concrete-prices.html" target="_blank">Concrete Network &#8599;</a>
       </div>
-      <div class="commodity-card">
-        <p class="commodity-name">Cement &mdash; Domestic and Import</p>
-        <p class="price-main">$150&ndash;200+<span class="price-unit"> /ton producer range</span></p>
-        <div class="price-changes"><span class="price-change pc-up">&#9650; Modest upward pressure MoM</span></div>
-        <div class="outlook-row">30-60 day: <span class="outlook-rising">Stable to Rising</span> &mdash; import dependence + data center demand</div>
-        <p class="commodity-note">US production ~82M tons in 2025 with ~100M tons shipped &mdash; gap filled by western port imports. Tariff uncertainty creating supply volatility. Port of Long Beach cement imports critical watch for SoCal.</p>
+      <div class="ce-item">
+        <p class="ce-name">Cement &mdash; Domestic and Import</p>
+        <p class="ce-price">$150&ndash;200+ <span class="ce-unit">/ton producer range</span></p>
+        <div class="ce-changes"><span class="ce-change cc-up">&#9650; Modest upward pressure MoM</span></div>
+        <div class="ce-outlook">30-60 day: Stable to Rising &mdash; import dependence + data center demand</div>
+        <p class="ce-note">US production ~82M tons vs ~100M shipped &mdash; gap filled by western port imports. Tariff uncertainty creating supply volatility. Port of Long Beach cement imports are the critical watch item for SoCal ready-mix pricing.</p>
         <a class="src-link" href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-cement.pdf" target="_blank">USGS &#8599;</a>
+        <a class="src-link" href="https://www.argusmedia.com/en/news-and-insights/latest-market-news/2758546-us-cement-market-2026-outlook-shaky" target="_blank">Argus &#8599;</a>
       </div>
-      <div class="commodity-card">
-        <p class="commodity-name">Structural Steel</p>
-        <p class="price-main">$800&ndash;950<span class="price-unit"> /ton benchmark</span></p>
-        <div class="price-changes"><span class="price-change pc-stable">&#9654; Stable to +$20&ndash;40 recent</span><span class="price-change pc-up">&#9650; YoY positive</span></div>
-        <div class="outlook-row">30-60 day: <span class="outlook-stable">Stable</span> &mdash; mill movements and demand balance</div>
-        <p class="commodity-note">Tariff environment sustaining elevated baseline. No major disruptions this week. Monitor for mill price increase announcements.</p>
+      <div class="ce-item">
+        <p class="ce-name">Structural Steel</p>
+        <p class="ce-price">$800&ndash;950 <span class="ce-unit">/ton benchmark</span></p>
+        <div class="ce-changes"><span class="ce-change cc-stable">&#9654; Stable to +$20&ndash;40 recent</span><span class="ce-change cc-up">&#9650; YoY positive</span></div>
+        <div class="ce-outlook">30-60 day: Stable &mdash; mill movements and demand balance</div>
+        <p class="ce-note">Tariff environment sustaining elevated baseline. No major disruptions this week. Monitor for mill price increase announcements into H2 2026.</p>
         <a class="src-link" href="https://www.fastmarkets.com/" target="_blank">Fastmarkets &#8599;</a>
       </div>
-      <div class="commodity-card">
-        <p class="commodity-name">Rebar <span class="badge badge-amber">Watch</span></p>
-        <p class="price-main">$900&ndash;950<span class="price-unit"> /ton</span></p>
-        <div class="price-changes"><span class="price-change pc-up">&#9650; +$30/ton recent hikes</span><span class="price-change pc-up">&#9650; YoY upward</span></div>
-        <div class="outlook-row">30-60 day: <span class="outlook-rising">Stable to Rising</span> &mdash; announced increases + scrap trends</div>
-        <p class="commodity-note">Scrap trends supporting upward pressure. Any project with heavy rebar scope &mdash; data centers, foundations, bridge work &mdash; should review bid pricing immediately.</p>
+      <div class="ce-item">
+        <p class="ce-name">Rebar <span class="badge badge-amber">Watch</span></p>
+        <p class="ce-price">$900&ndash;950 <span class="ce-unit">/ton</span></p>
+        <div class="ce-changes"><span class="ce-change cc-up">&#9650; +$30/ton recent hikes</span><span class="ce-change cc-up">&#9650; YoY upward</span></div>
+        <div class="ce-outlook">30-60 day: Stable to Rising &mdash; scrap trends + announced increases</div>
+        <p class="ce-note">Scrap trends supporting upward pressure. Any project with heavy rebar scope &mdash; data centers, foundations, bridge work &mdash; should review bid pricing immediately.</p>
         <a class="src-link" href="https://www.fastmarkets.com/insights/us-scrap-trends-outlook-june-2026/" target="_blank">Fastmarkets &#8599;</a>
       </div>
-      <div class="commodity-card">
-        <p class="commodity-name">Diesel and Fuel <span class="badge badge-red">High impact</span></p>
-        <p class="price-main">$5.21<span class="price-unit"> /gal national &mdash; CA $6.94</span></p>
-        <div class="price-changes"><span class="price-change pc-down">&#9660; &minus;$0.14 WoW national</span><span class="price-change pc-up">&#9650; CA at $6.94/gal</span></div>
-        <div class="outlook-row">30-60 day: <span class="outlook-rising">Stable to Rising</span> &mdash; refinery closures + crude futures</div>
-        <p class="commodity-note">California at $6.94/gallon &mdash; a $1.73 premium over the national average. Phillips 66 Wilmington and Valero Benicia both offline. Add fuel escalation clauses to every CA contract.</p>
+      <div class="ce-item">
+        <p class="ce-name">Diesel and Fuel <span class="badge badge-red">High impact</span></p>
+        <p class="ce-price">$5.21 <span class="ce-unit">/gal national &mdash; CA $6.94</span></p>
+        <div class="ce-changes"><span class="ce-change cc-down">&#9660; &minus;$0.14 WoW national</span><span class="ce-change cc-up">&#9650; CA $1.73 above national</span></div>
+        <div class="ce-outlook">30-60 day: Stable to Rising &mdash; refinery closures + crude futures</div>
+        <p class="ce-note">Phillips 66 Wilmington and Valero Benicia both offline &mdash; ~17% of California refining capacity gone. Every piece of equipment running in California is paying this premium every day. Add fuel escalation clauses to every CA contract.</p>
         <a class="src-link" href="https://www.eia.gov/petroleum/gasdiesel/" target="_blank">EIA &#8599;</a>
       </div>
     </div>
-
-    <div class="high-impact-box" style="margin-top:10px"><strong>California refinery crisis:</strong> Phillips 66 Wilmington (~147k b/d) closed late 2025. Valero Benicia (~145k b/d) idled April 2026. Combined ~17% of California refining capacity offline. Result: CA diesel at $6.94/gal, asphalt binder rising, fuel import dependence increasing for CA, AZ, NV, OR, and WA. No new closures announced this week but ongoing impact expected through H2 2026. <a class="src-link" href="https://www.eia.gov/todayinenergy/detail.php?id=65704" target="_blank" style="color:#ff8080">EIA &#8599;</a> <a class="src-link" href="https://www.gov.ca.gov/2026/01/06/governor-newsoms-statement-on-valeros-benicia-refinery-update/" target="_blank" style="color:#ff8080">CA Gov &#8599;</a></div>
+    <div class="high-impact-box"><strong>California refinery crisis:</strong> Phillips 66 Wilmington (~147k b/d) closed late 2025. Valero Benicia (~145k b/d) idled April 2026. Combined ~17% of CA refining capacity offline. Result: CA diesel at $6.94/gal, asphalt binder rising, fuel import dependence increasing for CA, AZ, NV, OR, and WA. No new closures announced this week but ongoing impact expected through H2 2026. <a class="src-link" href="https://www.eia.gov/todayinenergy/detail.php?id=65704" target="_blank">EIA &#8599;</a> <a class="src-link" href="https://www.gov.ca.gov/2026/01/06/governor-newsoms-statement-on-valeros-benicia-refinery-update/" target="_blank">CA Gov &#8599;</a></div>
 
     <div class="divider"></div>
 
-    <div class="section-header" style="margin-top:1rem"><span class="section-icon">&#128666;</span><h2 class="section-title" style="font-size:15px">Trucking and Freight &mdash; Western US</h2></div>
+    <div class="section-rule" style="margin-top:1.5rem"><div class="srl-thin"></div><span class="srt" style="font-size:11px;color:var(--ink3)">Trucking and Freight &mdash; Western US</span><div class="srl-thin"></div></div>
     <div class="data-list">
-      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">Flatbed &mdash; $2.80&ndash;3.00/mile spot <span class="badge badge-amber">Firming</span> <a class="src-link" href="https://www.dat.com/trendlines/flatbed/national-rates" target="_blank">DAT &#8599;</a></p><p class="data-detail">Western lanes showing modest WoW firmness driven by building materials demand. 30-60 day outlook: Stable to Rising tied to construction activity levels.</p></div></div>
-      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">End dump &mdash; aggregates, dirt, rock <span class="badge badge-amber">Regional tightness</span></p><p class="data-detail">Tracking similarly to flatbed with regional capacity tightness in Phoenix, Inland Empire, and Denver. Infrastructure project demand keeping end dump capacity utilized.</p></div></div>
-      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">Belly dump &mdash; aggregates, asphalt paving material <span class="badge badge-amber">Watch</span></p><p class="data-detail">Paving season demand in CA and AZ supporting utilization. Rising asphalt binder costs compounding the delivered paving material cost picture for contractors.</p></div></div>
+      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">Flatbed &mdash; $2.80&ndash;3.00/mile spot <span class="badge badge-amber">Firming</span> <a class="src-link" href="https://www.dat.com/trendlines/flatbed/national-rates" target="_blank">DAT &#8599;</a></p><p class="data-detail">Western lanes showing modest WoW firmness driven by building materials demand. Steel, lumber, and equipment moves keeping capacity tight. 30-60 day outlook: Stable to Rising tied to construction activity levels.</p></div></div>
+      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">End dump &mdash; aggregates, dirt, rock <span class="badge badge-amber">Regional tightness</span></p><p class="data-detail">Tracking similarly to flatbed with regional capacity tightness in Phoenix, Inland Empire, and Denver. Infrastructure project demand keeping end dump capacity well utilized. Fuel surcharge embedded in rates.</p></div></div>
+      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">Belly dump &mdash; aggregates, asphalt paving <span class="badge badge-amber">Watch</span></p><p class="data-detail">Paving season demand in CA and AZ supporting utilization. Rising asphalt binder costs compounding the delivered paving material cost picture. End dump and belly dump rate divergence from flatbed worth monitoring.</p></div></div>
     </div>
-    <div class="alert-box"><strong>Delivered cost action:</strong> Flatbed, end dump, and belly dump rates are all firming into summer paving season. Combined with diesel at $6.94/gal in California and rising binder costs, build minimum 5&ndash;8% delivered cost contingency into any paving or aggregate-heavy bid in CA, AZ, or NV.</div>
+    <div class="alert-box"><strong>Delivered cost action:</strong> Flatbed, end dump, and belly dump rates all firming into summer paving season. Combined with diesel at $6.94/gal in California and rising binder costs, build minimum 5&ndash;8% delivered cost contingency into any paving or aggregate-heavy bid in CA, AZ, or NV.</div>
   </div>
 
   <div class="divider"></div>
 
   <!-- LABOR -->
-  <div class="section">
-    <div class="section-header"><span class="section-icon">&#128119;</span><h2 class="section-title">Labor Market Update</h2></div>
+  <div class="section-wrap">
+    <div class="section-rule"><div class="srl"></div><span class="srt">Labor Market Update</span><div class="srl"></div></div>
     <div class="data-list">
-      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">Hourly earnings &mdash; $41.20/hr <span class="badge badge-red">Rising</span> <a class="src-link" href="https://fred.stlouisfed.org/series/CES2000000003" target="_blank">FRED &#8599;</a> <a class="src-link" href="https://www.bls.gov/iag/tgs/iag23.htm" target="_blank">BLS &#8599;</a></p><p class="data-detail">Up $0.19 MoM. YoY growth continuing. CA and AZ seeing sharpest wage competition. 30-60 day outlook: Wages continue rising &mdash; no relief in sight.</p></div></div>
-      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">Construction employment &mdash; 8.337 million <span class="badge badge-green">Growing</span> <a class="src-link" href="https://www.bls.gov/iag/tgs/iag23.htm" target="_blank">BLS &#8599;</a></p><p class="data-detail">Up 17,000 MoM. Employment growing but insufficient to meet project demand. 349,000 net new workers still needed in 2026. Skilled trade shortages acute in data center electrical/mechanical, civil/earthwork, and paving.</p></div></div>
-      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">Immigration enforcement &mdash; CA and AZ labor impact</p><p class="data-detail">Workforce disruptions continuing in CA and AZ tied to immigration enforcement. Compounding existing skilled trade shortages. Open-shop markets seeing sharpest wage competition.</p></div></div>
+      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">Hourly earnings &mdash; $41.20/hr <span class="badge badge-red">Rising</span> <a class="src-link" href="https://fred.stlouisfed.org/series/CES2000000003" target="_blank">FRED &#8599;</a> <a class="src-link" href="https://www.bls.gov/iag/tgs/iag23.htm" target="_blank">BLS &#8599;</a></p><p class="data-detail">Up $0.19 MoM. YoY growth continuing. Western markets running above national average &mdash; CA and AZ seeing sharpest wage competition amid immigration enforcement impacts reducing available labor supply. 30-60 day outlook: Wages continue rising with no relief in sight.</p></div></div>
+      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">Construction employment &mdash; 8.337 million <span class="badge badge-green">Growing</span> <a class="src-link" href="https://www.bls.gov/iag/tgs/iag23.htm" target="_blank">BLS &#8599;</a></p><p class="data-detail">Up 17,000 MoM. Employment growing but still insufficient to meet project demand. 349,000 net new workers still needed in 2026. Skilled trade shortages acute in data center electrical and mechanical, civil/earthwork, and paving trades.</p></div></div>
+      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">Immigration enforcement &mdash; CA and AZ labor impact <a class="src-link" href="https://www.abc.org/News-Media/News-Releases/abc-construction-industry-must-attract-349000-workers-in-2026-despite-macroeconomic-headwinds" target="_blank">ABC &#8599;</a></p><p class="data-detail">Workforce disruptions continuing in CA and AZ tied to immigration enforcement activity. Compounding existing skilled trade shortages. Open-shop markets seeing sharpest wage competition as contractors compete for available workers.</p></div></div>
     </div>
-    <div class="alert-box"><strong>Takeaway:</strong> Lock crew commitments and subcontractor pricing before bidding any Q3 or Q4 project in CA or AZ. Build 6&ndash;8% wage escalation into any project extending beyond 90 days.</div>
+    <div class="alert-box"><strong>Takeaway:</strong> Lock crew commitments and subcontractor pricing before bidding any Q3 or Q4 project in CA or AZ. Build 6&ndash;8% wage escalation into any project extending beyond 90 days. The labor market is not loosening.</div>
   </div>
 
   <div class="divider"></div>
 
   <!-- PIPELINE -->
-  <div class="section">
-    <div class="section-header"><span class="section-icon">&#127959;</span><h2 class="section-title">Project Pipeline &mdash; What's Moving</h2></div>
+  <div class="section-wrap">
+    <div class="section-rule"><div class="srl"></div><span class="srt">Project Pipeline &mdash; What's Moving</span><div class="srl"></div></div>
     <div class="pipeline-grid">
-      <div class="pipeline-card"><p class="pipeline-name">Data centers / chip factories <span class="badge badge-amber">Opportunity + risk</span></p><p class="pipeline-detail">$130B in projects stalled by community opposition. AI infrastructure alone requires ~1M metric tons of cement by 2028. TSMC Arizona advancing. Army Corps NWPs now include data centers.</p><a class="src-link" href="https://www.cement.org/2025/06/19/new-industry-report-predicts-u-s-will-need-1million-tons-of-cement-for-ai-infrastructure-by-2028/" target="_blank">PCA &#8599;</a> <a class="src-link" href="https://pr.tsmc.com/english/news/3122" target="_blank">TSMC &#8599;</a></div>
-      <div class="pipeline-card"><p class="pipeline-name">Water treatment <span class="badge badge-green">Active awards</span></p><p class="pipeline-detail">IIJA funding flowing steadily. Bureau of Reclamation awards ongoing across Colorado River basin. Colorado River post-2026 uncertainty driving urgency around water infrastructure investment.</p><a class="src-link" href="https://www.usbr.gov/ColoradoRiverBasin/post2026/index.html" target="_blank">USBR &#8599;</a></div>
-      <div class="pipeline-card"><p class="pipeline-name">Highway / freeway <span class="badge badge-green">Steady</span></p><p class="pipeline-detail">IIJA funding continuing through state DOTs. Western letting schedules active across CA, AZ, CO, NV, UT, and WA. Most stable pipeline category heading into H2 2026.</p><a class="src-link" href="https://highways.dot.gov/infrastructure-investment-and-jobs-act" target="_blank">FHWA &#8599;</a></div>
-      <div class="pipeline-card"><p class="pipeline-name">Housing <span class="badge badge-amber">Mixed</span></p><p class="pipeline-detail">Permit activity mixed across western metros. Cost escalation and labor constraints compressing feasibility. Sun Belt metros stronger than coastal CA.</p></div>
-      <div class="pipeline-card"><p class="pipeline-name">Military and FAA <span class="badge badge-green">Ongoing</span></p><p class="pipeline-detail">Awards and planning continuing across western installations. Data center-related military infrastructure studies adding to federal pipeline.</p></div>
+      <div class="pipeline-card"><p class="pipeline-name">Data centers / chip factories <span class="badge badge-amber">Opportunity + risk</span></p><p class="pipeline-detail">$130B in projects stalled by community opposition. AI infrastructure alone requires ~1M metric tons of cement by 2028. TSMC Arizona advancing &mdash; among the most materials-intensive projects in the West. Army Corps NWPs now include data centers, reducing permitting friction for qualifying sites.</p><a class="src-link" href="https://www.cement.org/2025/06/19/new-industry-report-predicts-u-s-will-need-1million-tons-of-cement-for-ai-infrastructure-by-2028/" target="_blank">PCA &#8599;</a> <a class="src-link" href="https://pr.tsmc.com/english/news/3122" target="_blank">TSMC &#8599;</a></div>
+      <div class="pipeline-card"><p class="pipeline-name">Water treatment <span class="badge badge-green">Active awards</span></p><p class="pipeline-detail">IIJA funding flowing steadily. Bureau of Reclamation awards ongoing across Colorado River basin. Colorado River post-2026 uncertainty driving urgency around water infrastructure investment in AZ, NV, and CO.</p><a class="src-link" href="https://www.usbr.gov/ColoradoRiverBasin/post2026/index.html" target="_blank">USBR &#8599;</a></div>
+      <div class="pipeline-card"><p class="pipeline-name">Highway / freeway <span class="badge badge-green">Steady</span></p><p class="pipeline-detail">IIJA funding continuing through state DOTs. Western letting schedules active across CA, AZ, CO, NV, UT, and WA. Civil/highway is the most stable pipeline category heading into H2 2026.</p><a class="src-link" href="https://highways.dot.gov/infrastructure-investment-and-jobs-act" target="_blank">FHWA &#8599;</a></div>
+      <div class="pipeline-card"><p class="pipeline-name">Housing <span class="badge badge-amber">Mixed</span></p><p class="pipeline-detail">Permit activity mixed across western metros. Cost escalation and labor constraints compressing feasibility on both SF and MF projects. Sun Belt metros stronger than coastal CA markets.</p></div>
+      <div class="pipeline-card"><p class="pipeline-name">Military and FAA <span class="badge badge-green">Ongoing</span></p><p class="pipeline-detail">Awards and planning continuing across western installations. Data center-related military infrastructure studies adding to the federal pipeline in western states with existing installation footprints.</p></div>
     </div>
   </div>
 
   <div class="divider"></div>
 
   <!-- WATER WATCH -->
-  <div class="section">
-    <div class="section-header"><span class="section-icon">&#128167;</span><h2 class="section-title">Water Watch &mdash; Western US</h2></div>
-    <div class="high-impact-box"><strong>High impact:</strong> Colorado River post-2026 operations negotiations ongoing &mdash; states missed latest consensus deadline. Water availability is becoming a go/no-go factor for large industrial, data center, and campus projects across AZ, NV, CO, and UT. <a class="src-link" href="https://www.usbr.gov/ColoradoRiverBasin/post2026/index.html" target="_blank" style="color:#ff8080">USBR &#8599;</a></div>
-    <div class="water-grid" style="margin-top:10px">
-      <div class="water-card"><p class="water-city">Phoenix</p><p class="water-status">Semiconductor and data center projects requiring water-use agreements before permits issued.</p></div>
-      <div class="water-card"><p class="water-city">Las Vegas</p><p class="water-status">SNWA managing Colorado River allocation reductions. Large industrial site selection increasingly water-constrained.</p></div>
-      <div class="water-card"><p class="water-city">Denver</p><p class="water-status">Colorado River negotiation participant. Western slope water rights affecting project feasibility.</p></div>
-      <div class="water-card"><p class="water-city">Salt Lake City</p><p class="water-status">Utah data center projects facing water-use scrutiny at local approval level.</p></div>
-      <div class="water-card"><p class="water-city">Reno</p><p class="water-status">Nevada allocation reductions rippling into Truckee Meadows water planning for large developments.</p></div>
+  <div class="section-wrap">
+    <div class="section-rule"><div class="srl"></div><span class="srt">Water Watch &mdash; Western US</span><div class="srl"></div></div>
+    <div class="high-impact-box"><strong>High impact:</strong> Colorado River post-2026 operations negotiations ongoing &mdash; states missed latest consensus deadline. Bureau of Reclamation managing allocations under sustained drought pressure. Water availability is becoming a go/no-go factor for large industrial, data center, and campus projects across AZ, NV, CO, and UT. <a class="src-link" href="https://www.usbr.gov/ColoradoRiverBasin/post2026/index.html" target="_blank">USBR &#8599;</a></div>
+    <div class="water-grid">
+      <div class="water-card"><p class="water-city">Phoenix</p><p class="water-status">Semiconductor and data center projects requiring water-use agreements before permits issued. TSMC expansions navigating active water constraints.</p></div>
+      <div class="water-card"><p class="water-city">Las Vegas</p><p class="water-status">SNWA managing Colorado River allocation reductions. Large industrial project site selection increasingly water-constrained.</p></div>
+      <div class="water-card"><p class="water-city">Denver</p><p class="water-status">Colorado River negotiation participant. Western slope water rights affecting project feasibility in western CO.</p></div>
+      <div class="water-card"><p class="water-city">Salt Lake City</p><p class="water-status">Utah data center projects facing water-use scrutiny at local approval level alongside community opposition.</p></div>
+      <div class="water-card"><p class="water-city">Reno</p><p class="water-status">Nevada allocation reductions rippling into Truckee Meadows water planning for large development projects.</p></div>
     </div>
   </div>
 
   <div class="divider"></div>
 
   <!-- REGULATORY -->
-  <div class="section">
-    <div class="section-header"><span class="section-icon">&#9878;</span><h2 class="section-title">Regulatory Radar</h2></div>
-    <div class="deadline-box">&#9888; EPA NSR comment deadline &mdash; June 29, 2026. Proposed rule allows non-emitting site prep and foundations to proceed before air permits are issued. If you work in data centers, industrial, or energy infrastructure &mdash; <a href="https://www.bdlaw.com/publications/epa-proposes-rule-to-redefine-begin-actual-construction-under-the-nsr-preconstruction-permitting-program/" target="_blank" style="color:#ff8080">review and submit comments now.</a> Docket ID: EPA-HQ-OAR-2025-0618.</div>
+  <div class="section-wrap">
+    <div class="section-rule"><div class="srl"></div><span class="srt">Regulatory Radar</span><div class="srl"></div></div>
+    <div class="notice-bar" style="margin-bottom:10px">&#9888; EPA NSR comment deadline &mdash; June 29, 2026. Proposed rule allows non-emitting site prep and foundations to proceed before air permits are issued. If you work in data centers, industrial, or energy infrastructure &mdash; <a href="https://www.bdlaw.com/publications/epa-proposes-rule-to-redefine-begin-actual-construction-under-the-nsr-preconstruction-permitting-program/" target="_blank">submit comments now.</a> Docket ID: EPA-HQ-OAR-2025-0618.</div>
     <div class="data-list">
-      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">Army Corps 2026 Nationwide Permits &mdash; data centers included <span class="badge badge-green">Favorable</span></p><p class="data-detail">Data centers now explicitly eligible under Army Corps NWPs &mdash; potentially accelerating timelines on wetland/waterway adjacent sites.</p></div></div>
-      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">IIJA funding &mdash; ongoing obligation updates <a class="src-link" href="https://highways.dot.gov/infrastructure-investment-and-jobs-act" target="_blank">FHWA &#8599;</a></p><p class="data-detail">Infrastructure Investment and Jobs Act funding continuing to flow through state DOTs. Monitor your state DOT letting schedule weekly.</p></div></div>
+      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">Army Corps 2026 Nationwide Permits &mdash; data centers included <span class="badge badge-green">Favorable</span></p><p class="data-detail">Data centers now explicitly eligible under Army Corps NWPs &mdash; potentially accelerating timelines on wetland/waterway adjacent sites. Important permitting pathway for western data center developers.</p></div></div>
+      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">IIJA funding &mdash; ongoing obligation updates <a class="src-link" href="https://highways.dot.gov/infrastructure-investment-and-jobs-act" target="_blank">FHWA &#8599;</a></p><p class="data-detail">Infrastructure Investment and Jobs Act funding continuing to flow through state DOTs. Monitor your state DOT letting schedule weekly &mdash; this is where the work is hitting the street.</p></div></div>
+      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">Permitting Council &mdash; $14M technology investment <a class="src-link" href="https://www.permits.performance.gov" target="_blank">Permitting.gov &#8599;</a></p><p class="data-detail">Federal investment in permitting process technology for critical infrastructure. Intended to accelerate review timelines for data centers and energy projects.</p></div></div>
     </div>
   </div>
 
   <div class="divider"></div>
 
   <!-- WEST REGION -->
-  <div class="section">
-    <div class="section-header"><span class="section-icon">&#128506;</span><h2 class="section-title">West Region Spotlight</h2></div>
-    <div class="sub-region"><p class="sub-region-name">Southern California <span class="sub-region-priority">Priority sub-region</span></p><p class="sub-region-dollar">Caltrans SoCal letting active &mdash; weekly bid packages in the tens of millions &middot; Port of Long Beach cement imports &mdash; critical supply watch</p><p class="sub-region-text">The LA Basin carries the most acute refinery exposure of any western sub-market &mdash; both Phillips 66 Wilmington and Valero Benicia were local operations. Caltrans bid results active weekly. Data center development facing opposition in multiple LA Basin jurisdictions. Inland Empire logistics and industrial construction pipeline remains strong. San Diego military and infrastructure projects providing steady public sector pipeline. Wildfire rebuilding ongoing in LA and surrounding counties. Port of Long Beach cement import volumes are the most important supply signal for SoCal ready-mix pricing.</p><div style="margin-top:8px"><a class="src-link" href="https://dot.ca.gov/programs/procurement-and-contracts/bid-results" target="_blank">Caltrans Bid Results &#8599;</a></div></div>
-    <div class="sub-region"><p class="sub-region-name">Northern California (Bay Area, Sacramento, Central Valley)</p><p class="sub-region-dollar">Caltrans NorCal letting totals active &mdash; packages in tens of millions for key infrastructure projects</p><p class="sub-region-text">Valero Benicia closure hit the Bay Area supply chain directly &mdash; NorCal fuel costs tracking higher at some terminals. Bay Area tech infrastructure and data center projects continuing. Sacramento Valley housing and infrastructure pipeline active. Central Valley water infrastructure projects receiving IIJA funding.</p></div>
-    <div class="sub-region"><p class="sub-region-name">Desert Southwest (Phoenix, Las Vegas, Tucson, Albuquerque)</p><p class="sub-region-dollar">TSMC Arizona expansions &mdash; among the largest materials-intensive projects in the western US &middot; ADOT letting schedule active</p><p class="sub-region-text">TSMC chip factory expansions advancing &mdash; requiring significant crushed stone, structural steel, specialty concrete. Phoenix remains the single most active construction market in the Mountain West. Water constraints are a go/no-go factor on large projects. Las Vegas hospitality and infrastructure active but Colorado River allocation reductions creating longer-term site selection risk.</p><div style="margin-top:8px"><a class="src-link" href="https://pr.tsmc.com/english/news/3122" target="_blank">TSMC Arizona &#8599;</a></div></div>
-    <div class="sub-region"><p class="sub-region-name">Mountain West (Denver, Salt Lake City, Boise, Colorado Springs)</p><p class="sub-region-dollar">CDOT and UDOT letting schedules active &mdash; infrastructure and highway awards ongoing</p><p class="sub-region-text">Denver metro infrastructure and transit projects providing steady pipeline. Salt Lake City data center development facing local opposition but housing activity remains strong. Boise continues as one of the fastest-growing construction markets in the intermountain West.</p></div>
-    <div class="sub-region"><p class="sub-region-name">Pacific Northwest (Seattle, Portland, Spokane)</p><p class="sub-region-dollar">WSDOT and ODOT letting schedules active &mdash; consistent highway and infrastructure pipeline</p><p class="sub-region-text">Seattle data center and tech infrastructure pipeline among the strongest in the Pacific Northwest. Portland infrastructure and housing activity steady. Labor market comparatively better than CA and AZ. WSDOT and ODOT providing consistent highway pipeline through IIJA.</p></div>
-    <div class="sub-region"><p class="sub-region-name">Intermountain (Wyoming, Idaho outside Boise, Montana, Nevada outside Las Vegas)</p><p class="sub-region-dollar">Federal and state energy and highway project awards providing ongoing pipeline</p><p class="sub-region-text">Energy infrastructure and mining-related construction providing the primary pipeline. Rural highway and infrastructure activity ongoing through federal and state funding. Labor availability comparatively better than coastal markets but tightening.</p></div>
+  <div class="section-wrap">
+    <div class="section-rule"><div class="srl"></div><span class="srt">West Region Spotlight</span><div class="srl"></div></div>
+
+    <div class="sub-region">
+      <p class="sub-region-name">Southern California <span class="sub-region-priority">Priority sub-region</span></p>
+      <p class="sub-region-dollar">Caltrans SoCal letting active &mdash; weekly bid packages in the tens of millions &middot; Port of Long Beach cement imports &mdash; critical supply watch</p>
+      <p class="sub-region-text">The LA Basin carries the most acute refinery exposure of any western sub-market &mdash; both Phillips 66 Wilmington and Valero Benicia were local operations whose closure is felt directly in SoCal fuel and binder pricing. Caltrans bid results active weekly with infrastructure packages across the region. Data center development facing opposition in multiple LA Basin jurisdictions. Inland Empire logistics and industrial construction pipeline remains strong driven by e-commerce and nearshoring demand. San Diego military and infrastructure projects providing steady public sector pipeline. Wildfire rebuilding ongoing in LA and surrounding counties adding residential demand. Port of Long Beach cement import volumes are the most important supply signal for SoCal ready-mix pricing &mdash; any port disruption tightens the market within weeks.</p>
+      <div style="margin-top:8px"><a class="src-link" href="https://dot.ca.gov/programs/procurement-and-contracts/bid-results" target="_blank">Caltrans Bid Results &#8599;</a></div>
+    </div>
+
+    <div class="sub-region">
+      <p class="sub-region-name">Northern California (Bay Area, Sacramento, Central Valley)</p>
+      <p class="sub-region-dollar">Caltrans NorCal letting totals active &mdash; packages in tens of millions for key infrastructure projects</p>
+      <p class="sub-region-text">Valero Benicia closure hit the Bay Area supply chain directly &mdash; NorCal fuel costs tracking higher than SoCal at some terminals. Bay Area tech infrastructure and data center projects continuing despite opposition in select jurisdictions. Sacramento Valley housing and infrastructure pipeline active. Central Valley water infrastructure projects receiving IIJA federal funding.</p>
+    </div>
+
+    <div class="sub-region">
+      <p class="sub-region-name">Desert Southwest (Phoenix, Las Vegas, Tucson, Albuquerque)</p>
+      <p class="sub-region-dollar">TSMC Arizona expansions &mdash; among the largest materials-intensive projects in the western US &middot; ADOT letting schedule active</p>
+      <p class="sub-region-text">TSMC chip factory expansions advancing &mdash; requiring significant crushed stone, structural steel, specialty concrete, and mechanical/electrical scope. Phoenix remains the single most active construction market in the Mountain West with a deep pipeline across sectors. Water constraints are a go/no-go factor on large projects &mdash; water-use agreements required before pursuing large industrial or data center sites. Las Vegas hospitality and infrastructure active but Colorado River allocation reductions creating longer-term site selection risk.</p>
+      <div style="margin-top:8px"><a class="src-link" href="https://pr.tsmc.com/english/news/3122" target="_blank">TSMC Arizona &#8599;</a></div>
+    </div>
+
+    <div class="sub-region">
+      <p class="sub-region-name">Mountain West (Denver, Salt Lake City, Boise, Colorado Springs)</p>
+      <p class="sub-region-dollar">CDOT and UDOT letting schedules active &mdash; infrastructure and highway awards ongoing</p>
+      <p class="sub-region-text">Denver metro infrastructure and transit projects providing steady pipeline. Salt Lake City data center development facing local opposition but housing activity remains strong driven by population growth. Boise continues as one of the fastest-growing construction markets in the intermountain West. CDOT and UDOT letting schedules active weekly.</p>
+    </div>
+
+    <div class="sub-region">
+      <p class="sub-region-name">Pacific Northwest (Seattle, Portland, Spokane)</p>
+      <p class="sub-region-dollar">WSDOT and ODOT letting schedules active &mdash; consistent highway and infrastructure pipeline</p>
+      <p class="sub-region-text">Seattle data center and tech infrastructure pipeline among the strongest in the Pacific Northwest. Portland infrastructure and housing activity steady. Labor market tighter than Intermountain but comparatively better than CA and AZ. WSDOT and ODOT providing consistent highway pipeline through IIJA funding.</p>
+    </div>
+
+    <div class="sub-region">
+      <p class="sub-region-name">Intermountain (Wyoming, Idaho outside Boise, Montana, Nevada outside Las Vegas)</p>
+      <p class="sub-region-dollar">Federal and state energy and highway project awards providing ongoing pipeline</p>
+      <p class="sub-region-text">Energy infrastructure and mining-related construction providing the primary pipeline in this sub-region. Rural highway and infrastructure activity ongoing through federal and state funding. Labor availability comparatively better than coastal markets but tightening as Mountain West and Desert Southwest projects pull from the same regional labor pool.</p>
+    </div>
   </div>
 
   <div class="divider"></div>
 
   <!-- TAKEAWAYS -->
-  <div class="section">
-    <div class="section-header"><span class="section-icon">&#127919;</span><h2 class="section-title">Week in Review &mdash; Top 3 Takeaways</h2></div>
+  <div class="section-wrap">
+    <div class="section-rule"><div class="srl"></div><span class="srt">Week in Review &mdash; Top 3 Takeaways</span><div class="srl"></div></div>
     <div class="takeaway-list">
-      <div class="takeaway-item"><div class="takeaway-num">1</div><div class="takeaway-body"><p class="takeaway-text">California diesel at $6.94/gallon &mdash; $1.73 above the national average &mdash; is a direct P&amp;L hit on every piece of equipment running in the state. With 17% of California refining capacity offline and no new capacity coming online, this premium is structural not temporary. Add fuel escalation clauses to every California contract. For paving work specifically, asphalt binder at $565/ton and rising compounds the exposure &mdash; any paving bid in CA, AZ, or NV priced more than 30 days ago needs to be revisited before submission.</p><div class="takeaway-sources"><a class="src-link" href="https://www.eia.gov/petroleum/gasdiesel/" target="_blank">EIA Diesel &#8599;</a><a class="src-link" href="https://dot.ca.gov/programs/construction/california-statewide-crude-oil-price-index" target="_blank">Caltrans Binder &#8599;</a></div></div></div>
-      <div class="takeaway-item"><div class="takeaway-num">2</div><div class="takeaway-body"><p class="takeaway-text">Aggregate prices are rising in every urban western market &mdash; crushed stone at $25&ndash;45/ton with urban CA delivered prices running $30&ndash;50+/ton, up 10&ndash;20% year over year in constrained markets. Zoning restrictions limiting new quarry permits are compounding fuel-driven transport cost increases. The 30-60 day outlook is Rising across aggregates, ready-mix, and cement. Any contractor bidding infrastructure, data center foundations, or residential work in the West needs current material pricing &mdash; not last quarter's numbers.</p><div class="takeaway-sources"><a class="src-link" href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-stone-crushed.pdf" target="_blank">USGS Crushed Stone &#8599;</a><a class="src-link" href="https://www.concretenetwork.com/concrete-prices.html" target="_blank">Concrete Network &#8599;</a></div></div></div>
-      <div class="takeaway-item"><div class="takeaway-num">3</div><div class="takeaway-body"><p class="takeaway-text">The EPA NSR comment deadline is June 29 &mdash; 8 days away. This proposed rule would allow non-emitting construction including site prep, foundations, and structural shells to begin before air permits are issued. For data center and industrial developers in the West, this is a meaningful schedule acceleration opportunity. Submit comments before the window closes.</p><div class="takeaway-sources"><a class="src-link" href="https://www.bdlaw.com/publications/epa-proposes-rule-to-redefine-begin-actual-construction-under-the-nsr-preconstruction-permitting-program/" target="_blank">BD Law &mdash; EPA Rule &#8599;</a></div></div></div>
+      <div class="takeaway-item">
+        <div class="t-num">1</div>
+        <div class="t-body">
+          <p class="t-text">California diesel at $6.94/gallon &mdash; $1.73 above the national average &mdash; is a direct P&amp;L hit on every piece of equipment running in the state. With 17% of California refining capacity offline and no new capacity coming online, this premium is structural not temporary. Add fuel escalation clauses to every California contract. For paving work specifically, asphalt binder at $565/ton and rising compounds the exposure &mdash; any paving bid in CA, AZ, or NV priced more than 30 days ago needs to be revisited before submission.</p>
+          <div class="t-sources"><a class="src-link" href="https://www.eia.gov/petroleum/gasdiesel/" target="_blank">EIA Diesel &#8599;</a><a class="src-link" href="https://dot.ca.gov/programs/construction/california-statewide-crude-oil-price-index" target="_blank">Caltrans Binder &#8599;</a></div>
+        </div>
+      </div>
+      <div class="takeaway-item">
+        <div class="t-num">2</div>
+        <div class="t-body">
+          <p class="t-text">Aggregate prices are rising in every urban western market &mdash; crushed stone at $25&ndash;45/ton with urban CA delivered prices running $30&ndash;50+/ton, up 10&ndash;20% year over year in constrained markets. Zoning restrictions limiting new quarry permits are compounding fuel-driven transport cost increases. The 30-60 day outlook is Rising across aggregates, ready-mix, and cement. Any contractor bidding infrastructure, data center foundations, or residential work in the West needs current material pricing &mdash; not last quarter's numbers.</p>
+          <div class="t-sources"><a class="src-link" href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-stone-crushed.pdf" target="_blank">USGS Crushed Stone &#8599;</a><a class="src-link" href="https://www.concretenetwork.com/concrete-prices.html" target="_blank">Concrete Network &#8599;</a></div>
+        </div>
+      </div>
+      <div class="takeaway-item">
+        <div class="t-num">3</div>
+        <div class="t-body">
+          <p class="t-text">The EPA NSR comment deadline is June 29 &mdash; 8 days away. This proposed rule would allow non-emitting construction including site prep, foundations, and structural shells to begin before air permits are issued. For data center and industrial developers in the West, this is a meaningful schedule acceleration opportunity. If your organization operates in markets where NSR permitting creates pre-construction delays, submit comments now before the window closes.</p>
+          <div class="t-sources"><a class="src-link" href="https://www.bdlaw.com/publications/epa-proposes-rule-to-redefine-begin-actual-construction-under-the-nsr-preconstruction-permitting-program/" target="_blank">BD Law &mdash; EPA Rule &#8599;</a></div>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- SUBSCRIBE -->
   <div class="subscribe-box">
-    <p class="subscribe-title">Get The Build Intel every week</p>
-    <p class="subscribe-text">Western US construction market intelligence &mdash; commodity prices, project pipeline, sub-regional spotlights, and actionable insights delivered every Sunday morning. Free to subscribe.</p>
-    <a class="subscribe-btn" href="https://thebuildintel.substack.com/" target="_blank">Subscribe &mdash; It's Free</a>
+    <p class="sub-pub">The <span>Build</span> Intel</p>
+    <p class="sub-text">Western US construction market intelligence &mdash; commodity prices, project pipeline, sub-regional spotlights, and actionable insights delivered free every Sunday morning.</p>
+    <a class="sub-btn" href="https://thebuildintel.substack.com/" target="_blank">Subscribe Free &rarr;</a>
   </div>
 
   <!-- SOURCES -->
   <div class="sources-footer">
-    <p class="sources-title">Source Index &mdash; Edition #3</p>
-    <p class="source-item">Aggregates: <a href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-stone-crushed.pdf" target="_blank">USGS Crushed Stone</a> &middot; <a href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-sand-gravel.pdf" target="_blank">USGS Sand and Gravel</a></p>
+    <p class="sources-title">Source Index &mdash; Edition #3 &middot; June 15, 2026</p>
+    <p class="source-item">Aggregates pricing: <a href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-stone-crushed.pdf" target="_blank">USGS Crushed Stone</a> &middot; <a href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-sand-gravel.pdf" target="_blank">USGS Sand and Gravel</a></p>
     <p class="source-item">Asphalt binder: <a href="https://dot.ca.gov/programs/construction/california-statewide-crude-oil-price-index" target="_blank">Caltrans Price Index</a></p>
-    <p class="source-item">Ready-mix concrete: <a href="https://www.concretenetwork.com/concrete-prices.html" target="_blank">Concrete Network</a></p>
+    <p class="source-item">Ready-mix concrete: <a href="https://www.concretenetwork.com/concrete-prices.html" target="_blank">Concrete Network</a> &middot; <a href="https://www.lawnstarter.com/blog/cost/concrete-price-per-yard/" target="_blank">LawnStarter</a></p>
     <p class="source-item">Cement supply: <a href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-cement.pdf" target="_blank">USGS</a> &middot; <a href="https://www.argusmedia.com/en/news-and-insights/latest-market-news/2758546-us-cement-market-2026-outlook-shaky" target="_blank">Argus Media</a></p>
     <p class="source-item">Steel and rebar: <a href="https://www.fastmarkets.com/insights/us-scrap-trends-outlook-june-2026/" target="_blank">Fastmarkets AMM</a></p>
     <p class="source-item">Diesel and fuel: <a href="https://www.eia.gov/petroleum/gasdiesel/" target="_blank">EIA</a></p>
@@ -345,17 +483,16 @@
     <p class="source-item">Labor: <a href="https://fred.stlouisfed.org/series/CES2000000003" target="_blank">FRED</a> &middot; <a href="https://www.bls.gov/iag/tgs/iag23.htm" target="_blank">BLS</a> &middot; <a href="https://www.abc.org/News-Media/News-Releases/abc-construction-industry-must-attract-349000-workers-in-2026-despite-macroeconomic-headwinds" target="_blank">ABC</a></p>
     <p class="source-item">Data center pipeline: <a href="https://www.cement.org/2025/06/19/new-industry-report-predicts-u-s-will-need-1million-tons-of-cement-for-ai-infrastructure-by-2028/" target="_blank">Portland Cement Association</a> &middot; <a href="https://pr.tsmc.com/english/news/3122" target="_blank">TSMC</a></p>
     <p class="source-item">Water Watch: <a href="https://www.usbr.gov/ColoradoRiverBasin/post2026/index.html" target="_blank">Bureau of Reclamation</a></p>
-    <p class="source-item">EPA NSR rule: <a href="https://www.bdlaw.com/publications/epa-proposes-rule-to-redefine-begin-actual-construction-under-the-nsr-preconstruction-permitting-program/" target="_blank">BD Law</a></p>
-    <p class="source-item">IIJA funding: <a href="https://highways.dot.gov/infrastructure-investment-and-jobs-act" target="_blank">FHWA</a></p>
+    <p class="source-item">EPA NSR rule: <a href="https://www.bdlaw.com/publications/epa-proposes-rule-to-redefine-begin-actual-construction-under-the-nsr-preconstruction-permitting-program/" target="_blank">BD Law</a> &middot; IIJA funding: <a href="https://highways.dot.gov/infrastructure-investment-and-jobs-act" target="_blank">FHWA</a></p>
     <p class="source-item">Caltrans bid results: <a href="https://dot.ca.gov/programs/procurement-and-contracts/bid-results" target="_blank">Caltrans</a></p>
   </div>
-
-  <div class="page-footer">
-    <strong>The Build Intel</strong> &middot; West Region Construction Intelligence &middot; Edition #3<br>
-    Week of June 15, 2026 &middot; Compiled by Matt Pound<br>
-    Data sourced from EIA, USGS, BLS, Caltrans, USBR, ABC, Fastmarkets, DAT, PCA &middot; For informational purposes only<br>
-    <a href="https://thebuildintel.substack.com/" style="color:var(--gold)">Subscribe for weekly delivery at thebuildintel.substack.com &rarr;</a>
-  </div>
 </div>
+
+<div class="page-footer">
+  <strong>The Build Intel</strong> &middot; West Region Construction Intelligence &middot; Edition #3 &middot; June 15, 2026<br>
+  Compiled by Matt Pound &middot; Data sourced from EIA, USGS, BLS, Caltrans, USBR, ABC, Fastmarkets, DAT, PCA &middot; For informational purposes only<br>
+  <a href="https://thebuildintel.substack.com/">Subscribe at thebuildintel.substack.com &rarr;</a>
+</div>
+
 </body>
 </html>
