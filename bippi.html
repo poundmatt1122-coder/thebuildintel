@@ -93,14 +93,14 @@
   .current-row td{font-weight:600;}
 
   /* COMPONENT BREAKDOWN TABLE */
-  .breakdown-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:1.25rem;margin-bottom:1.5rem;}
-  .breakdown-card{background:var(--surf);border:1px solid var(--bdr);border-radius:6px;overflow:hidden;}
+  .breakdown-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-bottom:1.5rem;}
+  .breakdown-card{background:var(--surf);border:1px solid var(--bdr);border-radius:6px;overflow:hidden;margin-bottom:1.25rem;}.breakdown-table-wrap{overflow-x:auto;width:100%;}
   .breakdown-header{background:var(--hbg);padding:10px 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;}
   .breakdown-header.ah{color:var(--gold);}
   .breakdown-header.bc{color:#5b9bd5;}
   .breakdown-table{width:100%;border-collapse:collapse;font-size:12px;}
-  .breakdown-table th{background:var(--surf2);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink3);padding:7px 12px;text-align:left;}
-  .breakdown-table td{padding:8px 12px;border-bottom:1px solid var(--bdr);color:var(--ink2);}
+  .breakdown-table th{background:var(--surf2);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink3);padding:7px 10px;text-align:left;}
+  .breakdown-table td{padding:8px 10px;border-bottom:1px solid var(--bdr);color:var(--ink2);font-size:12px;}
   .breakdown-table tr:last-child td{border-bottom:none;}
   .breakdown-table td:first-child{color:var(--ink);font-weight:500;}
   .breakdown-table td.wt{font-weight:700;color:var(--ink);}
@@ -278,7 +278,7 @@
   <div class="breakdown-grid">
     <div class="breakdown-card">
       <p class="breakdown-header ah">BIPPI-A &mdash; Asphalt Producer Input Data (June 2026)</p>
-      <table class="breakdown-table">
+      <div class="breakdown-table-wrap"><table class="breakdown-table" style="min-width:500px;">
         <thead><tr><th>Input</th><th>Weight</th><th>Mar 2026</th><th>Jun 2026</th><th>Change</th><th>Contribution</th></tr></thead>
         <tbody>
           <tr><td>Asphalt oil binder</td><td class="wt">40%</td><td>$549/ton</td><td>$565/ton</td><td class="delta-up">+2.9%</td><td class="contribution-up">+1.16 pts</td></tr>
@@ -288,11 +288,11 @@
           <tr><td>Energy (natural gas + electricity)</td><td class="wt">10%</td><td>Base</td><td>+4% est.</td><td class="delta-up">+4.0%</td><td class="contribution-up">+0.40 pts</td></tr>
           <tr style="font-weight:700;background:var(--surf2)"><td>BIPPI-A Total</td><td class="wt">100%</td><td>100.0</td><td>105.0</td><td class="delta-up">+5.0%</td><td class="contribution-up">+5.00 pts</td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
     <div class="breakdown-card">
       <p class="breakdown-header bc">BIPPI-C &mdash; Ready-Mix Concrete Input Data (June 2026)</p>
-      <table class="breakdown-table">
+      <div class="breakdown-table-wrap"><table class="breakdown-table" style="min-width:500px;">
         <thead><tr><th>Input</th><th>Weight</th><th>Mar 2026</th><th>Jun 2026</th><th>Change</th><th>Contribution</th></tr></thead>
         <tbody>
           <tr><td>Cement</td><td class="wt">35%</td><td>$155/ton est.</td><td>$162/ton est.</td><td class="delta-up">+4.5%</td><td class="contribution-up">+1.58 pts</td></tr>
