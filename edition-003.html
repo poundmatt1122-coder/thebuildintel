@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Build Intel — Design Preview V3 — Newspaper/Magazine Style</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --header-bg: #0f0f0f;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --body-bg: #faf9f7;
+    --surface: #ffffff;
+    --ink: #1a1208;
+    --ink-2: #3d3020;
+    --ink-3: #7a6a55;
+    --border: #e8e2d9;
+    --rule: #c9a84c;
+    --red: #b52a1c;
+    --red-bg: #fdf2f0;
+    --amber: #8a4e00;
+    --amber-bg: #fdf5e8;
+    --green: #1a5c32;
+    --green-bg: #edf7f1;
+    --blue: #1a3f72;
+    --blue-bg: #eef3fb;
+  }
+  body { font-family: 'Inter', sans-serif; background: var(--body-bg); color: var(--ink); line-height: 1.6; }
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* MASTHEAD — NEWSPAPER STYLE */
+  .masthead { background: var(--header-bg); padding: 0; }
+  .masthead-top { padding: 1.5rem 2rem 1rem; text-align: center; border-bottom: 1px solid rgba(201,168,76,0.3); }
+  .pub-name { font-family: 'Playfair Display', serif; font-size: clamp(36px,7vw,72px); font-weight: 900; color: #fff; letter-spacing: 0.02em; line-height: 1; margin-bottom: 4px; }
+  .pub-name span { color: var(--gold); }
+  .pub-rule { width: 60px; height: 2px; background: var(--gold); margin: 10px auto; }
+  .pub-tagline { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #888; margin-bottom: 0; }
+  .masthead-bar { display: flex; justify-content: space-between; align-items: center; padding: 8px 2rem; flex-wrap: wrap; gap: 8px; }
+  .masthead-meta { font-size: 11px; color: #aaa; }
+  .masthead-meta strong { color: var(--gold); }
+  .masthead-subscribe { font-size: 11px; color: var(--gold); border: 1px solid rgba(201,168,76,0.4); padding: 4px 12px; border-radius: 99px; }
+  .masthead-subscribe:hover { background: rgba(201,168,76,0.1); text-decoration: none; }
+
+  /* EDITION STRIPE */
+  .edition-stripe { background: var(--gold); padding: 6px 2rem; text-align: center; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #0f0f0f; }
+
+  /* PAGE */
+  .page { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+  /* NOTICES */
+  .notice-bar { background: var(--red-bg); border: 1px solid #e8c0bc; border-radius: 4px; padding: 10px 16px; font-size: 12px; color: var(--red); margin-bottom: 1.5rem; font-weight: 500; }
+  .notice-bar a { color: var(--red); font-weight: 600; text-decoration: underline; }
+  .disclaimer { font-size: 11px; color: var(--ink-3); line-height: 1.5; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+
+  /* SECTION HEADERS — NEWSPAPER STYLE */
+  .section-wrap { margin-bottom: 2.5rem; }
+  .section-rule { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
+  .section-rule-line { flex: 1; height: 2px; background: var(--ink); }
+  .section-rule-title { font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink); white-space: nowrap; }
+  .section-rule-line-thin { flex: 1; height: 1px; background: var(--border); }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+  /* KPI TABLE — EDITORIAL STYLE */
+  .kpi-wrap { border: 1px solid var(--border); overflow: hidden; }
+  .kpi-table { width: 100%; border-collapse: collapse; font-size: 12px; font-family: 'Inter', sans-serif; }
+  .kpi-table thead th { background: var(--ink); color: #fff; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; padding: 8px 12px; text-align: left; }
+  .kpi-table thead th:first-child { color: var(--gold); }
+  .kpi-table tbody tr { border-bottom: 1px solid var(--border); }
+  .kpi-table tbody tr:nth-child(even) { background: var(--body-bg); }
+  .kpi-table tbody tr:last-child { border-bottom: none; }
+  .kpi-table td { padding: 8px 12px; }
+  .kpi-table td:first-child { font-family: 'Source Serif 4', serif; font-size: 12px; color: var(--ink-2); }
+  .kpi-table td:nth-child(2) { font-weight: 600; color: var(--ink); }
+  .up { color: var(--red); }
+  .down { color: var(--green); }
+  .stable { color: var(--ink-3); }
+
+  /* LEDE — LARGE OPENING PARAGRAPH */
+  .lede { font-family: 'Source Serif 4', serif; font-size: 18px; line-height: 1.7; color: var(--ink); margin-bottom: 1rem; font-weight: 600; }
+  .body-text { font-family: 'Source Serif 4', serif; font-size: 15px; line-height: 1.8; color: var(--ink-2); margin-bottom: 1rem; }
+
+  /* PULL QUOTE */
+  .pull-quote { border-left: 4px solid var(--gold); padding: 12px 20px; margin: 1.25rem 0; }
+  .pull-quote-text { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--ink); line-height: 1.5; font-style: italic; }
+
+  /* COMMODITY — TWO COLUMN EDITORIAL */
+  .commodity-editorial { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 0; border: 1px solid var(--border); }
+  .commodity-editorial-item { padding: 16px 18px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .commodity-editorial-item:nth-child(even) { border-right: none; }
+  .commodity-editorial-item:nth-last-child(-n+2) { border-bottom: none; }
+  .ce-name { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-3); margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+  .ce-price { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--ink); line-height: 1; margin-bottom: 4px; }
+  .ce-unit { font-size: 11px; color: var(--ink-3); font-family: 'Inter', sans-serif; font-weight: 400; }
+  .ce-changes { display: flex; gap: 6px; margin: 6px 0; flex-wrap: wrap; }
+  .ce-change { font-size: 11px; padding: 2px 7px; border-radius: 2px; font-family: 'Inter', sans-serif; }
+  .cc-up { background: var(--red-bg); color: var(--red); }
+  .cc-down { background: var(--green-bg); color: var(--green); }
+  .cc-stable { background: #f0ede8; color: var(--ink-3); }
+  .ce-outlook { font-size: 11px; color: var(--ink-3); margin-bottom: 6px; font-family: 'Inter', sans-serif; }
+  .ce-note { font-family: 'Source Serif 4', serif; font-size: 12px; color: var(--ink-2); line-height: 1.6; margin-bottom: 6px; }
+  .src-link { display: inline-flex; align-items: center; gap: 3px; font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 2px; background: var(--blue-bg); color: var(--blue); text-decoration: none; font-family: 'Inter', sans-serif; margin-right: 3px; }
+
+  /* BADGES */
+  .badge { display: inline-block; font-size: 9px; font-weight: 700; padding: 2px 6px; text-transform: uppercase; letter-spacing: 0.06em; font-family: 'Inter', sans-serif; }
+  .badge-red { background: var(--red); color: #fff; }
+  .badge-amber { background: var(--amber); color: #fff; }
+  .badge-green { background: var(--green); color: #fff; }
+
+  /* ALERT */
+  .alert-box { background: var(--amber-bg); border-top: 2px solid var(--amber); border-bottom: 2px solid var(--amber); padding: 10px 16px; font-size: 13px; color: var(--amber); line-height: 1.6; margin-top: 10px; font-family: 'Inter', sans-serif; }
+  .alert-box strong { font-weight: 700; }
+  .high-impact-box { background: var(--red-bg); border-top: 2px solid var(--red); border-bottom: 2px solid var(--red); padding: 10px 16px; font-size: 13px; color: var(--red); line-height: 1.6; margin-top: 10px; font-family: 'Inter', sans-serif; }
+
+  /* TAKEAWAYS — NUMBERED EDITORIAL */
+  .takeaway-list { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); }
+  .takeaway-item { display: flex; gap: 0; border-bottom: 1px solid var(--border); }
+  .takeaway-item:last-child { border-bottom: none; }
+  .takeaway-num-col { background: var(--ink); color: var(--gold); font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; padding: 16px 18px; display: flex; align-items: flex-start; justify-content: center; min-width: 56px; }
+  .takeaway-body { padding: 16px 18px; flex: 1; }
+  .takeaway-text { font-family: 'Source Serif 4', serif; font-size: 14px; color: var(--ink); line-height: 1.7; margin-bottom: 8px; }
+  .takeaway-sources { display: flex; gap: 5px; flex-wrap: wrap; }
+
+  /* SUBSCRIBE */
+  .subscribe-box { background: var(--header-bg); padding: 2rem; text-align: center; margin-top: 2rem; }
+  .subscribe-pub { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: #fff; margin-bottom: 4px; }
+  .subscribe-pub span { color: var(--gold); }
+  .subscribe-text { font-size: 13px; color: #aaa; margin-bottom: 14px; line-height: 1.6; }
+  .subscribe-btn { display: inline-block; background: var(--gold); color: #0f0f0f; font-size: 13px; font-weight: 700; padding: 10px 28px; text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  /* SOURCES */
+  .sources-footer { border-top: 2px solid var(--border); padding-top: 1.5rem; margin-top: 2rem; }
+  .sources-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3); margin-bottom: 10px; font-family: 'Inter', sans-serif; }
+  .source-item { font-size: 11px; color: var(--ink-3); margin-bottom: 4px; line-height: 1.5; font-family: 'Inter', sans-serif; }
+  .source-item a { color: var(--blue); }
+
+  /* FOOTER */
+  .page-footer { background: var(--header-bg); padding: 1.5rem 2rem; text-align: center; font-size: 11px; color: #888; line-height: 1.8; margin-top: 2rem; font-family: 'Inter', sans-serif; }
+  .page-footer strong { color: var(--gold); }
+  .page-footer a { color: var(--gold); }
+
+  @media(max-width:600px) {
+    .commodity-editorial { grid-template-columns: 1fr; }
+    .commodity-editorial-item { border-right: none; }
+    .masthead-bar { justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-top">
+    <h1 class="pub-name">The <span>Build</span> Intel</h1>
+    <div class="pub-rule"></div>
+    <p class="pub-tagline">West Region Construction Intelligence</p>
+  </div>
+  <div class="masthead-bar">
+    <span class="masthead-meta">Edition #3 &nbsp;&middot;&nbsp; Week of June 15, 2026 &nbsp;&middot;&nbsp; Compiled by <strong>Matt Pound</strong></span>
+    <a class="masthead-subscribe" href="https://thebuildintel.substack.com/" target="_blank">Subscribe Free &rarr;</a>
+  </div>
+</div>
+<div class="edition-stripe">Western US Construction Market Intelligence &mdash; Commodity Prices &middot; Project Pipeline &middot; Sub-Regional Spotlights</div>
+
+<div class="page">
+
+  <div class="notice-bar">&#9888; ACTION REQUIRED &mdash; EPA NSR comment deadline June 29, 2026 &mdash; 8 days away. <a href="https://www.bdlaw.com/publications/epa-proposes-rule-to-redefine-begin-actual-construction-under-the-nsr-preconstruction-permitting-program/" target="_blank">Review the proposed rule and submit comments now.</a> Docket ID: EPA-HQ-OAR-2025-0618.</div>
+
+  <p class="disclaimer">This report summarizes publicly available construction market data for informational purposes only. All sources linked inline. Data as of June 15, 2026. Not financial, legal, or contractual advice. Readers should independently verify before making business decisions.</p>
+
+  <!-- KPI TABLE -->
+  <div class="section-wrap">
+    <div class="section-rule"><div class="section-rule-line"></div><span class="section-rule-title">Weekly Market Snapshot</span><div class="section-rule-line"></div></div>
+    <div class="kpi-wrap">
+      <table class="kpi-table">
+        <thead><tr><th>Metric</th><th>Current Value</th><th>Change</th></tr></thead>
+        <tbody>
+          <tr><td>Asphalt oil binder</td><td>$565.20/ton</td><td class="up">&#9650; +$7.90 MoM (+1.4%)</td></tr>
+          <tr><td>Crushed stone &mdash; western avg</td><td>$25&ndash;45/ton</td><td class="up">&#9650; +5&ndash;10% MoM urban</td></tr>
+          <tr><td>Sand and gravel &mdash; western avg</td><td>$20&ndash;40/ton</td><td class="up">&#9650; +3&ndash;8% MoM</td></tr>
+          <tr><td>Ready-mix concrete &mdash; western avg</td><td>$160&ndash;180/CY</td><td class="up">&#9650; +2&ndash;5% MoM</td></tr>
+          <tr><td>Structural steel</td><td>$800&ndash;950/ton</td><td class="stable">&#9654; Stable to +$20&ndash;40</td></tr>
+          <tr><td>Rebar</td><td>$900&ndash;950/ton</td><td class="up">&#9650; +$30/ton recent</td></tr>
+          <tr><td>Retail diesel &mdash; national</td><td>$5.21/gal</td><td class="down">&#9660; &minus;$0.14 WoW</td></tr>
+          <tr><td>Retail diesel &mdash; California</td><td>$6.94/gal</td><td class="up">&#9650; $1.73 above national</td></tr>
+          <tr><td>Flatbed trucking &mdash; western</td><td>$2.80&ndash;3.00/mile</td><td class="up">&#9650; Modest WoW firmness</td></tr>
+          <tr><td>Construction hourly wages</td><td>$41.20/hr</td><td class="up">&#9650; +$0.19 MoM</td></tr>
+          <tr><td>Construction employment</td><td>8.337 million</td><td class="up">&#9650; +17,000 MoM</td></tr>
+          <tr><td>Cement imports &mdash; western ports</td><td>Significant reliance</td><td class="stable">&#9654; Stable</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- EXEC SUMMARY -->
+  <div class="section-wrap">
+    <div class="section-rule"><div class="section-rule-line"></div><span class="section-rule-title">This Week</span><div class="section-rule-line"></div></div>
+    <p class="lede">California lost 17% of its refining capacity. Diesel is $6.94/gallon. Asphalt binder hit $565/ton. Every paving bid in the western US written more than 30 days ago is underpriced.</p>
+    <p class="body-text">The closures of Phillips 66 Wilmington and Valero Benicia have removed roughly 290,000 barrels per day of refining capacity from California &mdash; and the market is responding. The $1.73/gallon premium California contractors are now paying over the national average is structural, not temporary. No new refining capacity is coming online. The binder market is following crude oil higher. Every paving contractor in CA, AZ, and NV needs to revisit their open bids and add escalation clauses to their active contracts before the next price move.</p>
+    <div class="pull-quote">
+      <p class="pull-quote-text">"The data center pipeline is enormous &mdash; $130B in the West alone &mdash; but community opposition is the variable that will determine who wins the work. Contractors building public engagement capability today are building a moat."</p>
+    </div>
+    <p class="body-text">Aggregates are rising in every urban western market driven by zoning constraints limiting new quarry permits and fuel costs compounding transport prices. The 30-60 day outlook across aggregates, ready-mix, and cement is Rising. The labor market is not loosening &mdash; 349,000 net new workers still needed in 2026 and wages climbing 6-8% in western markets.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- COMMODITY -->
+  <div class="section-wrap">
+    <div class="section-rule"><div class="section-rule-line"></div><span class="section-rule-title">Commodity Pricing</span><div class="section-rule-line"></div></div>
+    <div class="commodity-editorial">
+      <div class="commodity-editorial-item">
+        <p class="ce-name">Crushed Stone <span class="badge badge-amber">Rising</span></p>
+        <p class="ce-price">$25&ndash;45 <span class="ce-unit">/ton western avg</span></p>
+        <div class="ce-changes"><span class="ce-change cc-up">&#9650; +5&ndash;10% MoM</span><span class="ce-change cc-up">&#9650; +10&ndash;20% YoY</span></div>
+        <div class="ce-outlook">30-60 day: Rising &mdash; zoning constraints + demand</div>
+        <p class="ce-note">CA urban delivered $30&ndash;50+/ton. Data center and infrastructure demand compounding quarry permit restrictions in western metros.</p>
+        <a class="src-link" href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-stone-crushed.pdf" target="_blank">USGS &#8599;</a>
+      </div>
+      <div class="commodity-editorial-item">
+        <p class="ce-name">Asphalt Oil Binder <span class="badge badge-red">High impact</span></p>
+        <p class="ce-price">$565.20 <span class="ce-unit">/ton CA statewide</span></p>
+        <div class="ce-changes"><span class="ce-change cc-up">&#9650; +$7.90 MoM</span><span class="ce-change cc-up">&#9650; Up from $557.30</span></div>
+        <div class="ce-outlook">30-60 day: Rising &mdash; crude oil + refinery closures</div>
+        <p class="ce-note">Rising second consecutive month. CA refinery closures removing domestic production. Every paving contractor in CA, AZ, NV is exposed.</p>
+        <a class="src-link" href="https://dot.ca.gov/programs/construction/california-statewide-crude-oil-price-index" target="_blank">Caltrans &#8599;</a>
+      </div>
+      <div class="commodity-editorial-item">
+        <p class="ce-name">Ready-Mix Concrete <span class="badge badge-amber">Rising</span></p>
+        <p class="ce-price">$160&ndash;180 <span class="ce-unit">/CY western avg</span></p>
+        <div class="ce-changes"><span class="ce-change cc-up">&#9650; +2&ndash;5% MoM</span><span class="ce-change cc-up">&#9650; +5&ndash;10% YoY</span></div>
+        <div class="ce-outlook">30-60 day: Rising &mdash; input costs + demand</div>
+        <p class="ce-note">SoCal $170&ndash;200/CY. Phoenix and Denver $150&ndash;180/CY. Fuel surcharges embedded in all delivery pricing.</p>
+        <a class="src-link" href="https://www.concretenetwork.com/concrete-prices.html" target="_blank">Concrete Network &#8599;</a>
+      </div>
+      <div class="commodity-editorial-item">
+        <p class="ce-name">Diesel &mdash; California <span class="badge badge-red">High impact</span></p>
+        <p class="ce-price">$6.94 <span class="ce-unit">/gal &mdash; $5.21 national</span></p>
+        <div class="ce-changes"><span class="ce-change cc-up">&#9650; $1.73 above national avg</span></div>
+        <div class="ce-outlook">30-60 day: Stable to Rising &mdash; refinery closures</div>
+        <p class="ce-note">Phillips 66 Wilmington and Valero Benicia both offline. 17% of CA refining capacity lost. Add fuel escalation clauses to every CA contract immediately.</p>
+        <a class="src-link" href="https://www.eia.gov/petroleum/gasdiesel/" target="_blank">EIA &#8599;</a>
+      </div>
+      <div class="commodity-editorial-item">
+        <p class="ce-name">Structural Steel</p>
+        <p class="ce-price">$800&ndash;950 <span class="ce-unit">/ton</span></p>
+        <div class="ce-changes"><span class="ce-change cc-stable">&#9654; Stable to +$20&ndash;40</span></div>
+        <div class="ce-outlook">30-60 day: Stable &mdash; mill and demand balance</div>
+        <p class="ce-note">Tariff environment sustaining elevated baseline. No major disruptions this week.</p>
+        <a class="src-link" href="https://www.fastmarkets.com/" target="_blank">Fastmarkets &#8599;</a>
+      </div>
+      <div class="commodity-editorial-item">
+        <p class="ce-name">Rebar <span class="badge badge-amber">Watch</span></p>
+        <p class="ce-price">$900&ndash;950 <span class="ce-unit">/ton</span></p>
+        <div class="ce-changes"><span class="ce-change cc-up">&#9650; +$30/ton recent</span></div>
+        <div class="ce-outlook">30-60 day: Stable to Rising &mdash; scrap trends</div>
+        <p class="ce-note">Scrap trends supporting upward pressure. Heavy rebar scope should review bid pricing immediately.</p>
+        <a class="src-link" href="https://www.fastmarkets.com/insights/us-scrap-trends-outlook-june-2026/" target="_blank">Fastmarkets &#8599;</a>
+      </div>
+    </div>
+    <div class="alert-box" style="margin-top:10px"><strong>Bid action required:</strong> Rising binder, elevated CA diesel, and firming trucking rates mean delivered material costs for paving and aggregate-heavy projects are under compounding pressure. Add minimum 5&ndash;8% delivered cost contingency on any paving or aggregate-heavy scope in CA, NV, or AZ.</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- TAKEAWAYS -->
+  <div class="section-wrap">
+    <div class="section-rule"><div class="section-rule-line"></div><span class="section-rule-title">Week in Review &mdash; Top 3 Takeaways</span><div class="section-rule-line"></div></div>
+    <div class="takeaway-list">
+      <div class="takeaway-item">
+        <div class="takeaway-num-col">1</div>
+        <div class="takeaway-body">
+          <p class="takeaway-text">California diesel at $6.94/gallon is structural not temporary. With 17% of refining capacity offline and no new capacity coming online, add fuel escalation clauses to every California contract. For paving work, asphalt binder at $565/ton and rising compounds the exposure &mdash; any paving bid in CA, AZ, or NV priced more than 30 days ago needs revisiting before submission.</p>
+          <div class="takeaway-sources"><a class="src-link" href="https://www.eia.gov/petroleum/gasdiesel/" target="_blank">EIA &#8599;</a><a class="src-link" href="https://dot.ca.gov/programs/construction/california-statewide-crude-oil-price-index" target="_blank">Caltrans &#8599;</a></div>
+        </div>
+      </div>
+      <div class="takeaway-item">
+        <div class="takeaway-num-col">2</div>
+        <div class="takeaway-body">
+          <p class="takeaway-text">Aggregate prices are rising in every urban western market. Crushed stone up 10&ndash;20% YoY in constrained markets. Zoning restrictions limiting new quarry permits are compounding fuel-driven transport cost increases. Any contractor bidding infrastructure or data center foundation work needs current material pricing &mdash; not last quarter's numbers.</p>
+          <div class="takeaway-sources"><a class="src-link" href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-stone-crushed.pdf" target="_blank">USGS &#8599;</a></div>
+        </div>
+      </div>
+      <div class="takeaway-item">
+        <div class="takeaway-num-col">3</div>
+        <div class="takeaway-body">
+          <p class="takeaway-text">The EPA NSR comment deadline is June 29 &mdash; 8 days away. This rule would allow non-emitting site prep and foundations to begin before air permits are issued. For data center and industrial developers in the West this is a meaningful schedule acceleration opportunity. Submit comments before the window closes.</p>
+          <div class="takeaway-sources"><a class="src-link" href="https://www.bdlaw.com/publications/epa-proposes-rule-to-redefine-begin-actual-construction-under-the-nsr-preconstruction-permitting-program/" target="_blank">BD Law &#8599;</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subscribe-box">
+    <p class="subscribe-pub">The <span>Build</span> Intel</p>
+    <p class="subscribe-text">Western US construction market intelligence &mdash; commodity prices, project pipeline, sub-regional spotlights, and actionable insights delivered free every Sunday.</p>
+    <a class="subscribe-btn" href="https://thebuildintel.substack.com/" target="_blank">Subscribe Free &rarr;</a>
+  </div>
+
+  <div class="sources-footer">
+    <p class="sources-title">Source Index &mdash; Edition #3 &middot; June 15, 2026</p>
+    <p class="source-item">Aggregates: <a href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-stone-crushed.pdf" target="_blank">USGS Crushed Stone</a> &middot; <a href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-sand-gravel.pdf" target="_blank">USGS Sand and Gravel</a></p>
+    <p class="source-item">Asphalt binder: <a href="https://dot.ca.gov/programs/construction/california-statewide-crude-oil-price-index" target="_blank">Caltrans Price Index</a></p>
+    <p class="source-item">Concrete: <a href="https://www.concretenetwork.com/concrete-prices.html" target="_blank">Concrete Network</a> &middot; Steel / rebar: <a href="https://www.fastmarkets.com/insights/us-scrap-trends-outlook-june-2026/" target="_blank">Fastmarkets AMM</a></p>
+    <p class="source-item">Diesel: <a href="https://www.eia.gov/petroleum/gasdiesel/" target="_blank">EIA</a> &middot; Refinery closures: <a href="https://www.eia.gov/todayinenergy/detail.php?id=65704" target="_blank">EIA</a> &middot; EPA rule: <a href="https://www.bdlaw.com/publications/epa-proposes-rule-to-redefine-begin-actual-construction-under-the-nsr-preconstruction-permitting-program/" target="_blank">BD Law</a></p>
+  </div>
+</div>
+
+<div class="page-footer">
+  <strong>The Build Intel</strong> &middot; West Region Construction Intelligence &middot; Edition #3 &middot; June 15, 2026<br>
+  Compiled by Matt Pound &middot; Data sourced from EIA, USGS, BLS, Caltrans, USBR, Fastmarkets, DAT &middot; For informational purposes only<br>
+  <a href="https://thebuildintel.substack.com/">Subscribe at thebuildintel.substack.com &rarr;</a>
+</div>
+
+</body>
+</html>

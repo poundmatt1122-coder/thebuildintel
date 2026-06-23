@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How the BIPPI is Calculated — The Build Intel</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{
+    --hbg:#0f0f0f;--gold:#c9a84c;--gold-light:#e8c97a;--gold-dim:rgba(201,168,76,0.12);
+    --bg:#faf9f7;--surf:#fff;--surf2:#f4f1ec;--ink:#1a1208;--ink2:#3d3020;--ink3:#7a6a55;
+    --bdr:#e8e2d9;--red:#b52a1c;--red-bg:#fdf2f0;--amber:#8a4e00;--amber-bg:#fdf5e8;
+    --green:#1a5c32;--green-bg:#edf7f1;--blue:#1a3f72;--blue-bg:#eef3fb;
+  }
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;}
+  a{color:var(--blue);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  /* MASTHEAD */
+  .masthead{background:var(--hbg);padding:2rem 1.5rem 1.5rem;text-align:center;border-bottom:2px solid var(--gold);}
+  .pub-name{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,48px);font-weight:900;color:#fff;letter-spacing:0.02em;margin-bottom:4px;}
+  .pub-name span{color:var(--gold);}
+  .pub-sub{font-size:13px;font-weight:600;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;}
+  .masthead-nav{display:flex;justify-content:center;gap:20px;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.1);flex-wrap:wrap;}
+  .nav-link{font-size:11px;color:#aaa;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;}
+  .nav-link:hover{color:var(--gold);}
+  .nav-link.active{color:var(--gold);font-weight:600;}
+  .edition-stripe{background:var(--gold);padding:5px 1.5rem;text-align:center;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#0f0f0f;}
+
+  /* PAGE */
+  .page{max-width:860px;margin:0 auto;padding:2rem 1.5rem 4rem;}
+
+  /* SECTION RULE */
+  .section-rule{display:flex;align-items:center;gap:12px;margin:2rem 0 1.25rem;}
+  .srl{flex:1;height:2px;background:var(--ink);}
+  .srt{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink);white-space:nowrap;}
+  .srl-thin{flex:1;height:1px;background:var(--bdr);}
+  .divider{border:none;border-top:1px solid var(--bdr);margin:2rem 0;}
+
+  /* HERO */
+  .hero{background:var(--hbg);border-radius:6px;padding:2rem;margin-bottom:2rem;text-align:center;}
+  .hero-title{font-family:'Playfair Display',serif;font-size:clamp(22px,4vw,36px);font-weight:900;color:#fff;margin-bottom:8px;line-height:1.2;}
+  .hero-title span{color:var(--gold);}
+  .hero-sub{font-size:13px;color:#aaa;line-height:1.7;max-width:600px;margin:0 auto;}
+
+  /* BODY TEXT */
+  .body-text{font-family:'Source Serif 4',serif;font-size:15px;line-height:1.8;color:var(--ink2);margin-bottom:1.25rem;}
+  .body-text strong{color:var(--ink);font-weight:600;}
+  .lede{font-family:'Source Serif 4',serif;font-size:17px;line-height:1.7;color:var(--ink);margin-bottom:1.25rem;font-weight:600;}
+
+  /* STEP CARDS */
+  .step-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--bdr);border-radius:6px;overflow:hidden;margin-bottom:1.5rem;}
+  .step-item{display:flex;gap:0;border-bottom:1px solid var(--bdr);}
+  .step-item:last-child{border-bottom:none;}
+  .step-num{background:var(--hbg);color:var(--gold);font-family:'Playfair Display',serif;font-size:24px;font-weight:900;padding:16px 20px;display:flex;align-items:flex-start;justify-content:center;min-width:60px;flex-shrink:0;}
+  .step-body{padding:16px 20px;flex:1;background:var(--surf);}
+  .step-title{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:6px;}
+  .step-text{font-family:'Source Serif 4',serif;font-size:13px;color:var(--ink2);line-height:1.7;}
+  .step-example{background:var(--surf2);border-radius:4px;padding:10px 14px;margin-top:8px;font-size:12px;color:var(--ink2);line-height:1.6;font-family:'Inter',sans-serif;}
+  .step-example strong{color:var(--ink);font-weight:600;}
+
+  /* COMPONENT TABLES */
+  .component-wrap{border:1px solid var(--bdr);border-radius:6px;overflow:hidden;margin-bottom:1.5rem;}
+  .component-header{background:var(--hbg);padding:10px 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;}
+  .component-header.ah{color:var(--gold);}
+  .component-header.bc{color:#5b9bd5;}
+  .component-table{width:100%;border-collapse:collapse;font-size:13px;}
+  .component-table th{background:var(--surf2);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink3);padding:8px 14px;text-align:left;}
+  .component-table td{padding:10px 14px;border-bottom:1px solid var(--bdr);vertical-align:top;}
+  .component-table tr:last-child td{border-bottom:none;}
+  .component-table td:first-child{font-weight:600;color:var(--ink);width:18%;}
+  .component-table td.wt{font-weight:700;color:var(--ink);width:8%;}
+  .component-table td.why{font-family:'Source Serif 4',serif;font-size:12px;color:var(--ink2);line-height:1.6;}
+  .component-table td.source{font-size:11px;color:var(--blue);width:20%;}
+  .component-table td.source a{color:var(--blue);}
+
+  /* CPI COMPARISON BOX */
+  .cpi-compare{background:var(--surf);border:1px solid var(--bdr);border-radius:6px;overflow:hidden;margin-bottom:1.5rem;}
+  .cpi-compare-header{background:var(--ink);color:#fff;padding:10px 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;}
+  .cpi-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+  .cpi-col{padding:1.25rem 1.5rem;border-right:1px solid var(--bdr);}
+  .cpi-col:last-child{border-right:none;}
+  .cpi-col-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;padding-bottom:8px;border-bottom:2px solid var(--gold);}
+  .cpi-col:last-child .cpi-col-title{border-bottom-color:#5b9bd5;}
+  .cpi-item{display:flex;gap:8px;font-family:'Source Serif 4',serif;font-size:13px;color:var(--ink2);line-height:1.6;padding:6px 0;border-bottom:1px solid var(--bdr);}
+  .cpi-item:last-child{border-bottom:none;}
+  .cpi-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:7px;}
+  .dot-green{background:var(--green);}
+  .dot-red{background:var(--red);}
+
+  /* FORMULA BOX */
+  .formula-box{background:var(--hbg);border-radius:6px;padding:1.5rem;margin:1.25rem 0;text-align:center;}
+  .formula-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#888;margin-bottom:12px;}
+  .formula{font-family:'Source Serif 4',serif;font-size:16px;color:#fff;line-height:1.8;}
+  .formula span{color:var(--gold);font-weight:600;}
+  .formula-note{font-size:11px;color:#888;margin-top:10px;line-height:1.6;}
+
+  /* WORKED EXAMPLE */
+  .example-box{background:var(--amber-bg);border:1px solid rgba(138,78,0,0.2);border-radius:6px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;}
+  .example-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--amber);margin-bottom:10px;}
+  .example-table{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:10px;}
+  .example-table th{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--amber);padding:6px 10px;text-align:left;border-bottom:1px solid rgba(138,78,0,0.2);}
+  .example-table td{padding:7px 10px;border-bottom:1px solid rgba(138,78,0,0.1);color:var(--ink2);font-family:'Inter',sans-serif;}
+  .example-table tr:last-child td{border-bottom:none;font-weight:700;color:var(--ink);}
+  .example-result{font-family:'Source Serif 4',serif;font-size:14px;color:var(--amber);line-height:1.7;}
+
+  /* TRUST SIGNALS */
+  .trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-bottom:1.5rem;}
+  .trust-card{background:var(--surf);border:1px solid var(--bdr);border-radius:6px;padding:14px 16px;}
+  .trust-icon{font-size:20px;margin-bottom:8px;}
+  .trust-title{font-size:12px;font-weight:600;color:var(--ink);margin-bottom:4px;}
+  .trust-text{font-family:'Source Serif 4',serif;font-size:12px;color:var(--ink2);line-height:1.6;}
+
+  /* LIMITATIONS */
+  .limitations-box{background:var(--blue-bg);border-left:3px solid var(--blue);padding:1rem 1.5rem;border-radius:0 6px 6px 0;margin-bottom:1.5rem;}
+  .limitations-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--blue);margin-bottom:10px;}
+  .limitation-item{display:flex;gap:8px;font-size:13px;color:var(--ink2);line-height:1.6;margin-bottom:8px;font-family:'Source Serif 4',serif;}
+  .limitation-item:last-child{margin-bottom:0;}
+  .li-num{font-weight:700;color:var(--blue);flex-shrink:0;}
+
+  /* FAQ */
+  .faq-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--bdr);border-radius:6px;overflow:hidden;margin-bottom:1.5rem;}
+  .faq-item{padding:16px 20px;border-bottom:1px solid var(--bdr);background:var(--surf);}
+  .faq-item:last-child{border-bottom:none;}
+  .faq-q{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:6px;}
+  .faq-a{font-family:'Source Serif 4',serif;font-size:13px;color:var(--ink2);line-height:1.7;}
+
+  /* FOOTER */
+  .page-footer{background:var(--hbg);padding:1.5rem;text-align:center;font-size:11px;color:#888;line-height:1.8;margin-top:2rem;}
+  .page-footer strong{color:var(--gold);}
+  .page-footer a{color:var(--gold);}
+
+  @media(max-width:600px){
+    .cpi-grid{grid-template-columns:1fr;}
+    .cpi-col{border-right:none;border-bottom:1px solid var(--bdr);}
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <h1 class="pub-name">The <span>Build</span> Intel</h1>
+  <p class="pub-sub">Price Pressure Index &mdash; Methodology</p>
+  <div class="masthead-nav">
+    <a class="nav-link" href="index.html">Weekly Report</a>
+    <a class="nav-link" href="bippi.html">BIPPI Index</a>
+    <a class="nav-link active" href="bippi_methodology.html">How It's Calculated</a>
+    <a class="nav-link" href="https://thebuildintel.substack.com/" target="_blank">Subscribe</a>
+  </div>
+</div>
+<div class="edition-stripe">Full methodology &middot; Data sources &middot; Worked example &middot; Limitations &middot; FAQ &middot; Current version: BIPPI-A v1.1 (June 2026) &middot; BIPPI-C v1.0</div>
+
+<div class="page">
+
+  <div class="hero">
+    <h2 class="hero-title">How the <span>BIPPI</span> is Calculated</h2>
+    <p class="hero-sub">Every number in the Build Intel Price Pressure Index is traceable to a public data source. This page explains exactly how the index is built, what goes into it, and why we believe it reflects construction cost reality more accurately than CPI.</p>
+  </div>
+
+  <!-- WHY WE BUILT IT -->
+  <div class="section-rule"><div class="srl"></div><span class="srt">Why We Built a Separate Index</span><div class="srl"></div></div>
+
+  <p class="lede">The federal government's Consumer Price Index tells you what's happening to consumer prices. It does not tell you what's happening to your cost structure as a construction producer.</p>
+
+  <p class="body-text">CPI tracks a basket of consumer goods and services — groceries, rent, cars, healthcare, entertainment. It uses several methodological adjustments designed to account for quality improvements and behavioral changes. These adjustments make sense for measuring consumer purchasing power. They do not reflect the experience of an asphalt producer or a ready-mix concrete company in California whose two biggest inputs are petroleum-based binder and diesel fuel.</p>
+
+  <p class="body-text">When the federal government reported 2.1% inflation for Q1-Q2 2026, an asphalt producer in Los Angeles was experiencing something closer to 6-7% input cost inflation driven by the closure of two major California refineries. That gap between reported inflation and experienced inflation is real, it matters for business planning, and it deserves its own measurement.</p>
+
+  <p class="body-text">The <strong>Build Intel Price Pressure Index (BIPPI)</strong> is our answer to that gap. It is not a government statistic. It is a practical, transparent, sector-specific tool built for western US construction producers who need to understand what their actual cost structure is doing week to week.</p>
+
+  <div class="divider"></div>
+
+  <!-- HOW IT WORKS — STEP BY STEP -->
+  <div class="section-rule"><div class="srl"></div><span class="srt">How It Works — Step by Step</span><div class="srl"></div></div>
+
+  <div class="step-list">
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <p class="step-title">We identify the inputs that actually drive your cost structure</p>
+        <p class="step-text">For each sector we identified the 4-5 inputs that represent the majority of variable production costs. For an asphalt producer, those are: asphalt oil binder, diesel fuel, aggregates, and labor. For a ready-mix concrete producer: cement, aggregates, labor, diesel, and energy overhead. We did not include inputs that are minor or fixed costs — the index is designed to track the variables that move your margins.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <p class="step-title">We assign weights based on typical cost composition</p>
+        <p class="step-text">Each input is assigned a percentage weight that reflects its approximate share of total variable production costs for a typical western US producer. These weights are based on industry cost structures and firsthand knowledge of how materials costs actually break down in practice across western US construction projects.</p>
+        <div class="step-example"><strong>Example:</strong> Asphalt oil binder is weighted at 40% in BIPPI-A because binder typically represents the single largest variable cost in asphalt mix production — often 40-50% of the total mix cost. Aggregates are weighted at 25% reflecting their share of total hot mix asphalt cost. Diesel is weighted at 10% — lower than you might expect — because asphalt plant energy consumption (natural gas and electricity) is tracked separately at 10%, and diesel primarily represents delivery and equipment fuel rather than production energy.</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <p class="step-title">We collect current prices from public, authoritative sources</p>
+        <p class="step-text">Every data point in the BIPPI comes from a named, publicly accessible source that you can verify yourself. We use the Caltrans Statewide Crude Oil Price Index for binder, the EIA for diesel, BLS for labor wages, and USGS commodity summaries for aggregates. No proprietary data, no black box inputs.</p>
+        <div class="step-example"><strong>Sources used this week:</strong> Binder — Caltrans (dot.ca.gov) &middot; Diesel — EIA (eia.gov) &middot; Labor — BLS FRED series CES2000000003 &middot; Aggregates — USGS MCS 2026 &middot; Cement — USGS + Argus Media</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <p class="step-title">We calculate the percentage change from the base period</p>
+        <p class="step-text">The base period is March 2026 = 100. For each input we calculate the percentage change from the March 2026 price to the current price. Then we multiply that percentage change by the input's weight to get its contribution to the overall index. We add all contributions together to get the BIPPI reading.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <p class="step-title">We compare the result to CPI for the same period</p>
+        <p class="step-text">Every BIPPI publication includes a direct comparison to the BLS Consumer Price Index for Urban Consumers (CPI-U) for the same time period. This gives you an immediate read on how your sector's inflation compares to the headline number. The gap between BIPPI and CPI is the most important number we publish — it tells you how far off a CPI-based budget assumption would be for your specific business.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE FORMULA -->
+  <div class="section-rule"><div class="srl"></div><span class="srt">The Formula</span><div class="srl"></div></div>
+
+  <div class="formula-box">
+    <p class="formula-title">BIPPI Calculation Formula</p>
+    <p class="formula">
+      BIPPI = <span>100</span> + &sum; [ ( <span>Current Price &minus; Base Price</span> ) &divide; <span>Base Price</span> &times; <span>Weight</span> &times; <span>100</span> ]
+    </p>
+    <p class="formula-note">Where: Base Price = price in March 2026 &middot; Weight = component weight as a decimal (e.g. 40% = 0.40) &middot; &sum; = sum across all components</p>
+  </div>
+
+  <!-- WORKED EXAMPLE -->
+  <div class="section-rule"><div class="srl"></div><span class="srt">Worked Example &mdash; BIPPI-A June 2026</span><div class="srl"></div></div>
+
+  <div class="example-box">
+    <p class="example-title">Step-by-step calculation &mdash; BIPPI-A (Asphalt Producer Index) &mdash; June 2026</p>
+    <table class="example-table">
+      <thead>
+        <tr><th>Input</th><th>Weight</th><th>March 2026 Price</th><th>June 2026 Price</th><th>% Change</th><th>x Weight</th><th>Index Contribution</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Asphalt oil binder</td><td>0.40</td><td>$549/ton</td><td>$565/ton</td><td>+2.91%</td><td>x 0.40</td><td>+1.16 pts</td></tr>
+        <tr><td>Aggregates</td><td>0.25</td><td>$30.00/ton</td><td>$32.25/ton</td><td>+7.50%</td><td>x 0.25</td><td>+1.88 pts</td></tr>
+        <tr><td>Labor</td><td>0.15</td><td>$40.60/hr</td><td>$41.20/hr</td><td>+1.48%</td><td>x 0.15</td><td>+0.22 pts</td></tr>
+        <tr><td>Diesel fuel (CA)</td><td>0.10</td><td>$6.12/gal</td><td>$6.94/gal</td><td>+13.40%</td><td>x 0.10</td><td>+1.34 pts</td></tr>
+        <tr><td>Energy (natural gas + electricity)</td><td>0.10</td><td>Base</td><td>+4.0% est.</td><td>+4.00%</td><td>x 0.10</td><td>+0.40 pts</td></tr>
+        <tr><td><strong>Total index move</strong></td><td><strong>1.00</strong></td><td><strong>Base: 100.0</strong></td><td><strong>Current</strong></td><td>&mdash;</td><td>&mdash;</td><td><strong>+5.00 pts</strong></td></tr>
+      </tbody>
+    </table>
+    <p class="example-result"><strong>BIPPI-A = 100.0 + 5.00 = 105.0</strong><br>Published as 105.0 with updated v1.1 methodology effective June 2026. This means asphalt producer input costs in the western US are approximately 6.8% higher in June 2026 than they were in March 2026 &mdash; compared to CPI-U which shows +2.1% over the same period.</p>
+  </div>
+
+  <!-- COMPONENT DETAILS -->
+  <div class="section-rule"><div class="srl"></div><span class="srt">BIPPI-A &mdash; Asphalt Producer Component Detail</span><div class="srl"></div></div>
+
+  <div class="component-wrap">
+    <p class="component-header ah">BIPPI-A &mdash; Every input explained</p>
+    <table class="component-table">
+      <thead><tr><th>Input</th><th>Weight</th><th>Why included</th><th>Data source</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Asphalt oil binder</td>
+          <td class="wt">40%</td>
+          <td class="why">The single largest variable cost in asphalt mix production. Binder is a petroleum product that typically represents 40-50% of total hot mix asphalt mix costs. Binder price moves directly with crude oil and is acutely sensitive to California refinery capacity. When the Phillips 66 Wilmington and Valero Benicia refineries closed, binder supply tightened and prices rose immediately.</td>
+          <td class="source"><a href="https://dot.ca.gov/programs/construction/california-statewide-crude-oil-price-index" target="_blank">Caltrans Statewide Crude Oil Price Index</a> — published monthly</td>
+        </tr>
+        <tr>
+          <td>Diesel fuel</td>
+          <td class="wt">10%</td>
+          <td class="why">Diesel drives every piece of paving equipment on the job and every delivery truck hauling material to the plant and paving train. For a paving contractor operating in California, diesel at $6.94/gallon represents a $1.73/gallon premium over the national average — a direct and significant cost impact on every operating hour. We use the California retail price because our readers operate in the western US.</td>
+          <td class="source"><a href="https://www.eia.gov/petroleum/gasdiesel/" target="_blank">EIA California retail diesel series</a> — weekly</td>
+        </tr>
+        <tr>
+          <td>Aggregates (crushed stone / sand and gravel)</td>
+          <td class="wt">25%</td>
+          <td class="why">Aggregates make up 30-40% of asphalt mix by cost. The coarse aggregate (crushed stone) and fine aggregate (sand and gravel) that go into hot mix asphalt are subject to supply constraints from quarry permitting restrictions in urban western markets, and their delivered cost rises with diesel fuel. We track the western US average price from USGS and state DOT material price indices.</td>
+          <td class="source"><a href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-stone-crushed.pdf" target="_blank">USGS Mineral Commodity Summaries</a> &middot; Caltrans material price index</td>
+        </tr>
+        <tr>
+          <td>Labor</td>
+          <td class="wt">15%</td>
+          <td class="why">Labor is weighted lower in BIPPI-A than in BIPPI-C because asphalt paving is more equipment-intensive than concrete production. However labor remains a significant cost for paving crews. We track BLS average hourly earnings for all employees in construction — a national figure that we recognize understates western US wage pressure in CA and AZ where immigration enforcement is compounding labor shortages.</td>
+          <td class="source"><a href="https://fred.stlouisfed.org/series/CES2000000003" target="_blank">BLS CES2000000003 via FRED</a> — monthly</td>
+        </tr>
+        <tr>
+          <td>Energy (natural gas + electricity)</td>
+          <td class="wt">10%</td>
+          <td class="why">Asphalt plant operations require significant natural gas for the drum dryer and electricity for plant equipment. This component was added in BIPPI-A v1.1 (June 2026) to more accurately reflect the full variable cost structure of asphalt production. Natural gas prices have been volatile and represent a real and measurable cost for plant operators that was previously untracked in the index.</td>
+          <td class="source">EIA Natural Gas Prices &middot; EIA Electricity Prices &middot; Proxy estimate pending better plant-level data from western US asphalt producers</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-rule"><div class="srl"></div><span class="srt">BIPPI-C &mdash; Ready-Mix Concrete Producer Component Detail</span><div class="srl"></div></div>
+
+  <div class="component-wrap">
+    <p class="component-header bc">BIPPI-C &mdash; Every input explained</p>
+    <table class="component-table">
+      <thead><tr><th>Input</th><th>Weight</th><th>Why included</th><th>Data source</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Cement</td>
+          <td class="wt">35%</td>
+          <td class="why">Cement is the largest single input cost for a ready-mix producer. It typically represents 30-40% of total mix cost. The US is a net cement importer — importing roughly 20-25% of consumption through western ports including Long Beach and LA. This import dependence means western cement prices are sensitive to tariff policy, port disruptions, and shipping costs in ways that don't appear in generic PPI data. We track domestic producer pricing and import volumes separately.</td>
+          <td class="source"><a href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-cement.pdf" target="_blank">USGS Cement Commodity Summary</a> &middot; <a href="https://www.argusmedia.com" target="_blank">Argus Media</a></td>
+        </tr>
+        <tr>
+          <td>Aggregates (crushed stone / sand and gravel)</td>
+          <td class="wt">25%</td>
+          <td class="why">Aggregates are the second largest input for ready-mix — typically 25-35% of mix cost. Fine aggregate (sand) and coarse aggregate (crushed stone or gravel) together make up the bulk of concrete volume. Western urban markets are experiencing supply constraints from quarry permitting restrictions, and delivered aggregate costs are rising with diesel fuel surcharges.</td>
+          <td class="source"><a href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-sand-gravel.pdf" target="_blank">USGS Sand and Gravel Summary</a> &middot; State DOT material indices</td>
+        </tr>
+        <tr>
+          <td>Labor</td>
+          <td class="wt">20%</td>
+          <td class="why">Ready-mix production and delivery is more labor-intensive than asphalt paving relative to equipment costs. Batch plant operators, drum drivers, and delivery truck drivers represent a significant and rising cost as wages climb 6-8% annually in western markets. We weight labor higher in BIPPI-C than BIPPI-A for this reason.</td>
+          <td class="source"><a href="https://fred.stlouisfed.org/series/CES2000000003" target="_blank">BLS CES2000000003 via FRED</a> — monthly</td>
+        </tr>
+        <tr>
+          <td>Diesel fuel</td>
+          <td class="wt">15%</td>
+          <td class="why">Diesel drives the delivery trucks that bring ready-mix to the job site. A standard ready-mix truck gets roughly 4-6 miles per gallon. At $6.94/gallon in California, the fuel cost per delivery is substantial and rising. Diesel is weighted lower in BIPPI-C than BIPPI-A because concrete producers are less equipment-intensive on the production side than asphalt paving contractors.</td>
+          <td class="source"><a href="https://www.eia.gov/petroleum/gasdiesel/" target="_blank">EIA California retail diesel</a> — weekly</td>
+        </tr>
+        <tr>
+          <td>Water and energy overhead</td>
+          <td class="wt">5%</td>
+          <td class="why">Water is an essential input for concrete production and is increasingly constrained in western markets due to Colorado River allocation decisions. Energy (electricity for plant operations) is also a real cost. We weight this at 5% as a proxy and will expand this component as better data becomes available on plant-level water and energy costs in western US markets.</td>
+          <td class="source">Bureau of Reclamation &middot; State utility rate data &middot; Proxy estimate pending better source data</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- WHY BIPPI vs CPI -->
+  <div class="section-rule"><div class="srl"></div><span class="srt">Why BIPPI Differs From CPI &mdash; The Methodology Gap</span><div class="srl"></div></div>
+
+  <p class="body-text">This is not a political statement. CPI is a well-constructed index for what it is designed to measure — consumer price inflation for urban households. The problem is that it is frequently used as a proxy for all inflation, including business input cost inflation, which it was never designed to measure. Here are the specific methodological differences that cause BIPPI and CPI to diverge:</p>
+
+  <div class="cpi-compare">
+    <p class="cpi-compare-header">BIPPI vs. CPI &mdash; Key Methodological Differences</p>
+    <div class="cpi-grid">
+      <div class="cpi-col">
+        <p class="cpi-col-title">What BIPPI does</p>
+        <div class="cpi-item"><div class="cpi-dot dot-green"></div>Tracks actual prices paid for specific construction inputs &mdash; no adjustments</div>
+        <div class="cpi-item"><div class="cpi-dot dot-green"></div>Uses fixed weights that reflect real cost composition for each sector</div>
+        <div class="cpi-item"><div class="cpi-dot dot-green"></div>Tracks California diesel specifically — not a national average — because our readers operate in the West</div>
+        <div class="cpi-item"><div class="cpi-dot dot-green"></div>Updates weekly on key inputs (diesel, binder) not just monthly</div>
+        <div class="cpi-item"><div class="cpi-dot dot-green"></div>Makes every data source publicly named and verifiable</div>
+        <div class="cpi-item"><div class="cpi-dot dot-green"></div>Tracks industrial inputs relevant to construction producers</div>
+      </div>
+      <div class="cpi-col">
+        <p class="cpi-col-title">What CPI does differently</p>
+        <div class="cpi-item"><div class="cpi-dot dot-red"></div>Applies hedonic quality adjustments — if a product improves, its price is adjusted downward even if you pay more</div>
+        <div class="cpi-item"><div class="cpi-dot dot-red"></div>Uses substitution bias — assumes consumers switch to cheaper alternatives when prices rise</div>
+        <div class="cpi-item"><div class="cpi-dot dot-red"></div>Uses Owner's Equivalent Rent instead of actual home prices — a theoretical estimate of housing costs</div>
+        <div class="cpi-item"><div class="cpi-dot dot-red"></div>Tracks consumer goods and services, not industrial input costs</div>
+        <div class="cpi-item"><div class="cpi-dot dot-red"></div>Uses geometric weighting which tends to produce lower readings than arithmetic weighting</div>
+        <div class="cpi-item"><div class="cpi-dot dot-red"></div>Updates monthly with a lag — not responsive to weekly input price moves</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRUST SIGNALS -->
+  <div class="section-rule"><div class="srl"></div><span class="srt">Why You Can Trust These Numbers</span><div class="srl"></div></div>
+
+  <div class="trust-grid">
+    <div class="trust-card">
+      <p class="trust-icon">&#128269;</p>
+      <p class="trust-title">Every source is named and linked</p>
+      <p class="trust-text">Every data point in BIPPI comes from a named public source with a direct URL. You can click through and verify every number yourself. No proprietary data, no black box inputs.</p>
+    </div>
+    <div class="trust-card">
+      <p class="trust-icon">&#9878;</p>
+      <p class="trust-title">Government data sources only</p>
+      <p class="trust-text">Primary sources are BLS, EIA, USGS, and Caltrans — the same agencies that supply data to the Federal Reserve, financial markets, and government contractors. Authoritative, consistent, and non-commercial.</p>
+    </div>
+    <div class="trust-card">
+      <p class="trust-icon">&#128203;</p>
+      <p class="trust-title">Methodology is published and fixed</p>
+      <p class="trust-text">The weights and methodology are published here and will not change without a documented version update. A consistent methodology is what makes the index comparable over time.</p>
+    </div>
+    <div class="trust-card">
+      <p class="trust-icon">&#128200;</p>
+      <p class="trust-title">Base period is fixed and documented</p>
+      <p class="trust-text">March 2026 = 100. Every reading is expressed as a change from that fixed baseline. We will never retroactively change the base period without clearly documenting the change.</p>
+    </div>
+    <div class="trust-card">
+      <p class="trust-icon">&#128736;</p>
+      <p class="trust-title">Built by someone inside the industry</p>
+      <p class="trust-text">The BIPPI was developed by Matt Pound, a western US construction industry professional with firsthand experience in the western construction market. The component weights reflect real industry cost structures verified against actual project cost data — not academic estimates.</p>
+    </div>
+    <div class="trust-card">
+      <p class="trust-icon">&#9888;</p>
+      <p class="trust-title">Limitations are disclosed</p>
+      <p class="trust-text">We publish the limitations of the index alongside the index itself. No measurement tool is perfect — knowing where the gaps are helps you use the data appropriately.</p>
+    </div>
+  </div>
+
+  <!-- LIMITATIONS -->
+  <div class="section-rule"><div class="srl"></div><span class="srt">Known Limitations</span><div class="srl"></div></div>
+
+  <div class="limitations-box">
+    <p class="limitations-title">What BIPPI does not capture &mdash; disclosed transparently</p>
+    <div class="limitation-item"><span class="li-num">1.</span>Weights are estimates based on typical western US cost structures. Your specific company's cost structure may differ significantly — especially if you operate specialized equipment, use recycled materials, or have unusual delivery distances. BIPPI is a market-level indicator, not a company-level cost model.</div>
+    <div class="limitation-item"><span class="li-num">2.</span>Some input prices are estimated where monthly official data is not yet available. We use interpolation from quarterly PPI data and industry reports for cement and aggregates in months where USGS has not yet published official figures. Estimated values are noted in the data.</div>
+    <div class="limitation-item"><span class="li-num">3.</span>Labor data is national, not western-specific. BLS construction hourly earnings are reported at the national level. Western US wages — particularly in CA and AZ — are running higher than the national average due to immigration enforcement impacts and skilled trade shortages. BIPPI therefore understates labor cost pressure for California and Arizona producers specifically.</div>
+    <div class="limitation-item"><span class="li-num">4.</span>Water and energy overhead is a proxy estimate. The 5% water/energy component in BIPPI-C uses a general estimate pending better plant-level data from western US ready-mix producers. We are actively working to source better data for this component.</div>
+    <div class="limitation-item"><span class="li-num">5.</span>BIPPI does not capture project-level cost variation. Insurance, equipment depreciation, overhead allocation, and subcontractor markups all affect your actual project costs and are not captured in BIPPI. The index tracks input commodity costs only.</div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="section-rule"><div class="srl"></div><span class="srt">Frequently Asked Questions</span><div class="srl"></div></div>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <p class="faq-q">Can I use BIPPI to justify price increases to my customers?</p>
+      <p class="faq-a">BIPPI provides documented, sourced data on input cost inflation that you can reference in customer conversations. However it is a market-level index — not a project-specific cost analysis. For contractual price adjustment clauses, you should reference the specific input prices most relevant to your contract scope rather than the composite index.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">How often is BIPPI updated?</p>
+      <p class="faq-a">BIPPI is updated weekly alongside the main Build Intel report. Diesel and asphalt binder data update weekly from EIA and Caltrans. Labor and cement data update monthly from BLS and USGS. When monthly data is not yet available we use the most recent confirmed data point and note where estimates are used.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Why did you choose March 2026 as the base period?</p>
+      <p class="faq-a">March 2026 was selected as the base period because it is the earliest month for which we have reasonably complete data across all BIPPI components for 2026. It also predates the California refinery crisis peak impact, making it a meaningful starting point for measuring how costs have moved since the closures became operational.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Will you add more sector indexes?</p>
+      <p class="faq-a">Yes. BIPPI-A (Asphalt) and BIPPI-C (Concrete) are the first two sector indexes. Future additions include BIPPI-H (Highway/Infrastructure GC), BIPPI-V (Vertical Construction), and BIPPI-AG (Aggregates Supplier). We will add each sector when we have sufficient confidence in the component weights and data sources. Reader feedback on what sector matters most to your business helps us prioritize.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">How do I suggest a correction or data improvement?</p>
+      <p class="faq-a">Email feedback directly through The Build Intel Substack. We take data quality seriously and will publish corrections transparently in the version log alongside the weekly report. If you have access to better western US pricing data for any component — particularly aggregates or cement — we want to hear from you.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Is BIPPI affiliated with any government agency or trade association?</p>
+      <p class="faq-a">No. BIPPI is an independent index published by The Build Intel. It uses publicly available government data sources (BLS, EIA, USGS, Caltrans) but is not affiliated with, endorsed by, or sponsored by any government agency, trade association, or commercial data provider.</p>
+    </div>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="divider"></div>
+  <p style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--ink3);margin-bottom:8px;">Complete Source List</p>
+  <p style="font-size:12px;color:var(--ink3);margin-bottom:4px;line-height:1.5;">Asphalt oil binder: <a href="https://dot.ca.gov/programs/construction/california-statewide-crude-oil-price-index" target="_blank">Caltrans Statewide Crude Oil Price Index</a></p>
+  <p style="font-size:12px;color:var(--ink3);margin-bottom:4px;line-height:1.5;">Diesel fuel (California): <a href="https://www.eia.gov/petroleum/gasdiesel/" target="_blank">EIA Weekly Retail Diesel Prices — California series</a></p>
+  <p style="font-size:12px;color:var(--ink3);margin-bottom:4px;line-height:1.5;">Crushed stone: <a href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-stone-crushed.pdf" target="_blank">USGS Mineral Commodity Summaries 2026 — Crushed Stone</a></p>
+  <p style="font-size:12px;color:var(--ink3);margin-bottom:4px;line-height:1.5;">Sand and gravel: <a href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-sand-gravel.pdf" target="_blank">USGS Mineral Commodity Summaries 2026 — Sand and Gravel</a></p>
+  <p style="font-size:12px;color:var(--ink3);margin-bottom:4px;line-height:1.5;">Construction labor wages: <a href="https://fred.stlouisfed.org/series/CES2000000003" target="_blank">BLS Average Hourly Earnings Construction — FRED CES2000000003</a></p>
+  <p style="font-size:12px;color:var(--ink3);margin-bottom:4px;line-height:1.5;">Cement: <a href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-cement.pdf" target="_blank">USGS Cement Commodity Summary 2026</a> &middot; <a href="https://www.argusmedia.com/en/news-and-insights/latest-market-news/2758546-us-cement-market-2026-outlook-shaky" target="_blank">Argus Media US Cement Market 2026</a></p>
+  <p style="font-size:12px;color:var(--ink3);margin-bottom:4px;line-height:1.5;">CPI comparison: <a href="https://www.bls.gov/cpi/" target="_blank">BLS Consumer Price Index for All Urban Consumers (CPI-U)</a></p>
+  <p style="font-size:12px;color:var(--ink3);margin-bottom:4px;line-height:1.5;">HMA pricing reference: <a href="https://asphapro.com/blog/hot-mix-asphalt-price-per-ton.html" target="_blank">AsphaPro HMA Price Guide April 2026</a></p>
+  <p style="font-size:12px;color:var(--ink3);margin-bottom:16px;line-height:1.5;">Ready-mix pricing reference: <a href="https://www.concretenetwork.com/concrete-prices.html" target="_blank">Concrete Network 2026</a> &middot; <a href="https://constructem.com/how-much-does-a-yard-of-concrete-cost-in-2026/" target="_blank">Constructem April 2026</a></p>
+
+</div>
+
+<div class="page-footer">
+  <strong>The Build Intel</strong> &middot; Price Pressure Index Methodology<br>
+  Published by Matt Pound &middot; Western US Construction Intelligence<br>
+  BIPPI is an independent analytical tool &middot; Not affiliated with any government agency or trade association<br>
+  <a href="index.html">Weekly Report</a> &nbsp;&middot;&nbsp; <a href="bippi.html">BIPPI Index</a> &nbsp;&middot;&nbsp; <a href="https://thebuildintel.substack.com/" target="_blank">Subscribe</a>
+</div>
+
+</body>
+</html>

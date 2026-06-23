@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Build Intel Price Pressure Index (BIPPI)</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{
+    --hbg:#0f0f0f;--gold:#c9a84c;--gold-light:#e8c97a;--gold-dim:rgba(201,168,76,0.12);
+    --bg:#faf9f7;--surf:#fff;--surf2:#f4f1ec;--ink:#1a1208;--ink2:#3d3020;--ink3:#7a6a55;
+    --bdr:#e8e2d9;--red:#b52a1c;--red-bg:#fdf2f0;--amber:#8a4e00;--amber-bg:#fdf5e8;
+    --green:#1a5c32;--green-bg:#edf7f1;--blue:#1a3f72;--blue-bg:#eef3fb;
+  }
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;}
+
+  /* MASTHEAD */
+  .masthead{background:var(--hbg);padding:2rem 1.5rem 1.5rem;text-align:center;border-bottom:2px solid var(--gold);}
+  .pub-name{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,48px);font-weight:900;color:#fff;letter-spacing:0.02em;margin-bottom:4px;}
+  .pub-name span{color:var(--gold);}
+  .pub-sub{font-size:14px;font-weight:600;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;}
+  .pub-meta{font-size:11px;color:#888;letter-spacing:0.06em;}
+  .edition-stripe{background:var(--gold);padding:5px 1.5rem;text-align:center;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#0f0f0f;}
+
+  /* PAGE */
+  .page{max-width:960px;margin:0 auto;padding:2rem 1.5rem 4rem;}
+
+  /* INTRO */
+  .intro-box{background:var(--surf);border:1px solid var(--bdr);border-left:4px solid var(--gold);padding:1.25rem 1.5rem;margin-bottom:2rem;border-radius:0 6px 6px 0;}
+  .intro-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:8px;}
+  .intro-text{font-size:13px;color:var(--ink2);line-height:1.7;}
+
+  /* SECTION RULE */
+  .section-rule{display:flex;align-items:center;gap:12px;margin:2rem 0 1.25rem;}
+  .srl{flex:1;height:2px;background:var(--ink);}
+  .srt{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink);white-space:nowrap;}
+  .divider{border:none;border-top:1px solid var(--bdr);margin:2rem 0;}
+
+  /* INDEX HERO */
+  .index-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem;margin-bottom:2rem;}
+  .index-card{background:var(--hbg);border-radius:6px;padding:1.5rem;position:relative;overflow:hidden;}
+  .index-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+  .index-card.asphalt::before{background:var(--gold);}
+  .index-card.concrete::before{background:#5b9bd5;}
+  .index-eyebrow{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;margin-bottom:6px;}
+  .asphalt .index-eyebrow{color:var(--gold);}
+  .concrete .index-eyebrow{color:#5b9bd5;}
+  .index-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:4px;}
+  .index-abbrev{font-size:12px;color:#888;margin-bottom:1.25rem;}
+  .index-value{font-family:'Playfair Display',serif;font-size:56px;font-weight:900;line-height:1;margin-bottom:4px;}
+  .asphalt .index-value{color:var(--gold);}
+  .concrete .index-value{color:#5b9bd5;}
+  .index-base{font-size:11px;color:#888;margin-bottom:1rem;}
+  .index-change{display:inline-block;font-size:12px;font-weight:600;padding:4px 12px;border-radius:99px;margin-bottom:1rem;}
+  .change-up{background:rgba(181,42,28,0.2);color:#ff8080;}
+  .change-down{background:rgba(26,92,50,0.2);color:#6fcf97;}
+  .vs-cpi{font-size:12px;color:#aaa;border-top:1px solid rgba(255,255,255,0.1);padding-top:10px;margin-top:4px;}
+  .vs-cpi strong{color:#fff;}
+
+  /* METHODOLOGY */
+  .method-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-bottom:1.5rem;}
+  .method-card{background:var(--surf);border:1px solid var(--bdr);border-radius:6px;padding:1.25rem;}
+  .method-title{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--gold);}
+  .method-row{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--bdr);}
+  .method-row:last-child{border-bottom:none;}
+  .method-component{flex:1;font-size:12px;color:var(--ink2);}
+  .method-weight{font-size:13px;font-weight:700;color:var(--ink);min-width:36px;text-align:right;}
+  .method-bar-wrap{width:80px;height:5px;background:var(--surf2);border-radius:99px;overflow:hidden;}
+  .method-bar{height:100%;border-radius:99px;}
+  .bar-gold{background:var(--gold);}
+  .bar-blue{background:#5b9bd5;}
+
+  /* HISTORICAL TABLE */
+  .hist-wrap{border:1px solid var(--bdr);overflow:hidden;border-radius:6px;margin-bottom:1.5rem;}
+  .hist-table{width:100%;border-collapse:collapse;font-size:12px;}
+  .hist-table thead th{background:var(--hbg);color:#fff;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;padding:10px 14px;text-align:left;}
+  .hist-table thead th:first-child{color:var(--gold);}
+  .hist-table thead th.col-a{color:var(--gold);}
+  .hist-table thead th.col-c{color:#5b9bd5;}
+  .hist-table thead th.col-cpi{color:#aaa;}
+  .hist-table tbody tr{border-bottom:1px solid var(--bdr);background:var(--surf);}
+  .hist-table tbody tr:nth-child(even){background:var(--bg);}
+  .hist-table tbody tr:last-child{border-bottom:none;background:rgba(201,168,76,0.06);}
+  .hist-table td{padding:10px 14px;vertical-align:middle;}
+  .hist-table td:first-child{font-weight:600;color:var(--ink);}
+  .val-a{font-weight:700;color:#8a4e00;}
+  .val-c{font-weight:700;color:#1a3f72;}
+  .val-cpi{color:var(--ink3);}
+  .delta-up{color:var(--red);font-size:11px;}
+  .delta-down{color:var(--green);font-size:11px;}
+  .delta-flat{color:var(--ink3);font-size:11px;}
+  .current-row td{font-weight:600;}
+
+  /* COMPONENT BREAKDOWN TABLE */
+  .breakdown-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:1.25rem;margin-bottom:1.5rem;}
+  .breakdown-card{background:var(--surf);border:1px solid var(--bdr);border-radius:6px;overflow:hidden;}
+  .breakdown-header{background:var(--hbg);padding:10px 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;}
+  .breakdown-header.ah{color:var(--gold);}
+  .breakdown-header.bc{color:#5b9bd5;}
+  .breakdown-table{width:100%;border-collapse:collapse;font-size:12px;}
+  .breakdown-table th{background:var(--surf2);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink3);padding:7px 12px;text-align:left;}
+  .breakdown-table td{padding:8px 12px;border-bottom:1px solid var(--bdr);color:var(--ink2);}
+  .breakdown-table tr:last-child td{border-bottom:none;}
+  .breakdown-table td:first-child{color:var(--ink);font-weight:500;}
+  .breakdown-table td.wt{font-weight:700;color:var(--ink);}
+  .breakdown-table td.contribution-up{color:var(--red);font-weight:600;}
+  .breakdown-table td.contribution-down{color:var(--green);font-weight:600;}
+
+  /* CPI COMPARISON */
+  .cpi-box{background:var(--surf);border:1px solid var(--bdr);border-radius:6px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;}
+  .cpi-title{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:12px;}
+  .cpi-compare-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .cpi-cell{background:var(--surf2);border-radius:4px;padding:12px 14px;text-align:center;}
+  .cpi-cell-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink3);margin-bottom:6px;}
+  .cpi-cell-val{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--ink);line-height:1;margin-bottom:3px;}
+  .cpi-cell-sub{font-size:11px;color:var(--ink3);}
+  .cpi-cell.highlight-a .cpi-cell-val{color:#8a4e00;}
+  .cpi-cell.highlight-c .cpi-cell-val{color:#1a3f72;}
+  .cpi-note{font-size:12px;color:var(--ink3);line-height:1.6;margin-top:12px;padding-top:10px;border-top:1px solid var(--bdr);}
+
+  /* WHAT THIS MEANS */
+  .insight-box{background:var(--amber-bg);border-top:2px solid var(--amber);border-bottom:2px solid var(--amber);padding:1rem 1.5rem;margin-bottom:1.5rem;}
+  .insight-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--amber);margin-bottom:8px;}
+  .insight-text{font-size:13px;color:var(--amber);line-height:1.7;}
+
+  /* SOURCES */
+  .sources{border-top:2px solid var(--bdr);padding-top:1.25rem;margin-top:2rem;}
+  .sources-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--ink3);margin-bottom:8px;}
+  .source-item{font-size:11px;color:var(--ink3);margin-bottom:4px;line-height:1.5;}
+  .source-item a{color:var(--blue);}
+
+  /* FOOTER */
+  .page-footer{background:var(--hbg);padding:1.5rem;text-align:center;font-size:11px;color:#888;line-height:1.8;margin-top:2rem;}
+  .page-footer strong{color:var(--gold);}
+  .page-footer a{color:var(--gold);}
+
+  @media(max-width:600px){
+    .index-grid{grid-template-columns:1fr;}
+    .cpi-compare-grid{grid-template-columns:1fr;}
+    .breakdown-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <h1 class="pub-name">The <span>Build</span> Intel</h1>
+  <p class="pub-sub">Price Pressure Index &mdash; BIPPI</p>
+  <p class="pub-meta">Base Period: March 2026 = 100 &nbsp;&middot;&nbsp; Updated Weekly &nbsp;&middot;&nbsp; Western US Construction</p>
+</div>
+<div class="edition-stripe">BIPPI-A: Asphalt Producer Index &nbsp;&middot;&nbsp; BIPPI-C: Ready-Mix Concrete Producer Index &nbsp;&middot;&nbsp; vs. CPI Urban Comparison</div>
+
+<div class="page">
+
+  <div class="intro-box">
+    <p class="intro-title">What is the Build Intel Price Pressure Index?</p>
+    <p class="intro-text">The BIPPI measures real-world cost inflation as experienced by western US construction producers &mdash; weighted by actual input cost composition, not a government basket of consumer goods. Unlike CPI, which uses hedonic quality adjustments, substitution bias, and owner's equivalent rent to measure consumer inflation, BIPPI tracks what you actually pay for the inputs that drive your cost structure every week. Two sector-specific indexes are published: <strong>BIPPI-A</strong> for asphalt producers and paving contractors, and <strong>BIPPI-C</strong> for ready-mix concrete producers. Base period March 2026 = 100. A reading of 104 means your input costs are 4% higher than March 2026.</p>
+  </div>
+
+  <!-- LIVE INDEX VALUES -->
+  <div class="section-rule"><div class="srl"></div><span class="srt">Current Index Values &mdash; June 2026</span><div class="srl"></div></div>
+
+  <div class="index-grid">
+    <div class="index-card asphalt">
+      <p class="index-eyebrow">Asphalt Producer Index</p>
+      <p class="index-name">BIPPI-A</p>
+      <p class="index-abbrev">Paving contractors &middot; Asphalt producers &middot; Western US</p>
+      <p class="index-value">105.0</p>
+      <p class="index-base">Base: March 2026 = 100</p>
+      <span class="index-change change-up">&#9650; +5.0% since March 2026</span>
+      <p class="vs-cpi">CPI Urban (same period): <strong>+2.1%</strong> &mdash; BIPPI-A running <strong>2.4x faster</strong> than headline CPI</p>
+    </div>
+    <div class="index-card concrete">
+      <p class="index-eyebrow">Ready-Mix Concrete Producer Index</p>
+      <p class="index-name">BIPPI-C</p>
+      <p class="index-abbrev">Ready-mix producers &middot; Concrete contractors &middot; Western US</p>
+      <p class="index-value">104.2</p>
+      <p class="index-base">Base: March 2026 = 100</p>
+      <span class="index-change change-up">&#9650; +4.2% since March 2026</span>
+      <p class="vs-cpi">CPI Urban (same period): <strong>+2.1%</strong> &mdash; BIPPI-C running <strong>2.0x faster</strong> than headline CPI</p>
+    </div>
+  </div>
+
+  <!-- METHODOLOGY -->
+  <div class="section-rule"><div class="srl"></div><span class="srt">Index Methodology &mdash; Component Weights</span><div class="srl"></div></div>
+
+  <div class="method-grid">
+    <div class="method-card">
+      <p class="method-title">BIPPI-A &mdash; Asphalt Producer Weights</p>
+      <div class="method-row"><span class="method-component">Asphalt oil binder (Caltrans index)</span><div class="method-bar-wrap"><div class="method-bar bar-gold" style="width:100%"></div></div><span class="method-weight">40%</span></div>
+      <div class="method-row"><span class="method-component">Diesel fuel (CA retail price)</span><div class="method-bar-wrap"><div class="method-bar bar-gold" style="width:62.5%"></div></div><span class="method-weight">25%</span></div>
+      <div class="method-row"><span class="method-component">Aggregates — crushed stone / sand</span><div class="method-bar-wrap"><div class="method-bar bar-gold" style="width:62.5%"></div></div><span class="method-weight">25%</span></div>
+      <div class="method-row"><span class="method-component">Labor (BLS construction wages)</span><div class="method-bar-wrap"><div class="method-bar bar-gold" style="width:37.5%"></div></div><span class="method-weight">15%</span></div>
+      <div class="method-row"><span class="method-component">Energy (natural gas + electricity)</span><div class="method-bar-wrap"><div class="method-bar bar-gold" style="width:25%"></div></div><span class="method-weight">10%</span></div>
+      <div class="method-row"><span class="method-component" style="font-weight:600">Total</span><div class="method-bar-wrap"></div><span class="method-weight" style="color:#1D9E75">100%</span></div>
+    </div>
+    <div class="method-card">
+      <p class="method-title">BIPPI-C &mdash; Ready-Mix Concrete Producer Weights</p>
+      <div class="method-row"><span class="method-component">Cement (domestic + import pricing)</span><div class="method-bar-wrap"><div class="method-bar bar-blue" style="width:100%"></div></div><span class="method-weight">35%</span></div>
+      <div class="method-row"><span class="method-component">Aggregates — crushed stone / sand</span><div class="method-bar-wrap"><div class="method-bar bar-blue" style="width:71.4%"></div></div><span class="method-weight">25%</span></div>
+      <div class="method-row"><span class="method-component">Labor (BLS construction wages)</span><div class="method-bar-wrap"><div class="method-bar bar-blue" style="width:57.1%"></div></div><span class="method-weight">20%</span></div>
+      <div class="method-row"><span class="method-component">Diesel fuel (CA retail price)</span><div class="method-bar-wrap"><div class="method-bar bar-blue" style="width:42.8%"></div></div><span class="method-weight">15%</span></div>
+      <div class="method-row"><span class="method-component">Water / energy overhead (proxy)</span><div class="method-bar-wrap"><div class="method-bar bar-blue" style="width:14.3%"></div></div><span class="method-weight">5%</span></div>
+      <div class="method-row"><span class="method-component" style="font-weight:600">Total</span><div class="method-bar-wrap"></div><span class="method-weight" style="color:#1D9E75">100%</span></div>
+    </div>
+  </div>
+
+  <!-- HISTORICAL TABLE -->
+  <div class="section-rule"><div class="srl"></div><span class="srt">Historical Index &mdash; March through June 2026</span><div class="srl"></div></div>
+
+  <div class="hist-wrap">
+    <table class="hist-table">
+      <thead>
+        <tr>
+          <th>Period</th>
+          <th class="col-a">BIPPI-A (Asphalt)</th>
+          <th class="col-a">A MoM Change</th>
+          <th class="col-c">BIPPI-C (Concrete)</th>
+          <th class="col-c">C MoM Change</th>
+          <th class="col-cpi">CPI Urban</th>
+          <th class="col-cpi">CPI MoM</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>March 2026 (Base)</td>
+          <td class="val-a">100.0</td>
+          <td class="delta-flat">&mdash; Base period</td>
+          <td class="val-c">100.0</td>
+          <td class="delta-flat">&mdash; Base period</td>
+          <td class="val-cpi">100.0</td>
+          <td class="delta-flat">&mdash; Base period</td>
+        </tr>
+        <tr>
+          <td>April 2026</td>
+          <td class="val-a">102.1</td>
+          <td class="delta-up">&#9650; +2.1%</td>
+          <td class="val-c">101.4</td>
+          <td class="delta-up">&#9650; +1.4%</td>
+          <td class="val-cpi">100.7</td>
+          <td class="delta-up">&#9650; +0.7%</td>
+        </tr>
+        <tr>
+          <td>May 2026</td>
+          <td class="val-a">104.6</td>
+          <td class="delta-up">&#9650; +2.5%</td>
+          <td class="val-c">102.8</td>
+          <td class="delta-up">&#9650; +1.4%</td>
+          <td class="val-cpi">101.4</td>
+          <td class="delta-up">&#9650; +0.7%</td>
+        </tr>
+        <tr class="current-row">
+          <td>June 2026 &#9733; Current</td>
+          <td class="val-a">106.8</td>
+          <td class="delta-up">&#9650; +2.2%</td>
+          <td class="val-c">104.2</td>
+          <td class="delta-up">&#9650; +1.4%</td>
+          <td class="val-cpi">102.1</td>
+          <td class="delta-up">&#9650; +0.7%</td>
+        </tr>
+        <tr style="background:var(--surf2);font-weight:600;">
+          <td>3-Month Total Change</td>
+          <td class="val-a">+6.8%</td>
+          <td class="delta-up">vs. CPI: +4.7 pts</td>
+          <td class="val-c">+4.2%</td>
+          <td class="delta-up">vs. CPI: +2.1 pts</td>
+          <td class="val-cpi">+2.1%</td>
+          <td class="delta-flat">&mdash;</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- COMPONENT BREAKDOWN -->
+  <div class="section-rule"><div class="srl"></div><span class="srt">June 2026 &mdash; Component Input Data</span><div class="srl"></div></div>
+
+  <div class="breakdown-grid">
+    <div class="breakdown-card">
+      <p class="breakdown-header ah">BIPPI-A &mdash; Asphalt Producer Input Data (June 2026)</p>
+      <table class="breakdown-table">
+        <thead><tr><th>Input</th><th>Weight</th><th>Mar 2026</th><th>Jun 2026</th><th>Change</th><th>Contribution</th></tr></thead>
+        <tbody>
+          <tr><td>Asphalt oil binder</td><td class="wt">40%</td><td>$549/ton</td><td>$565/ton</td><td class="delta-up">+2.9%</td><td class="contribution-up">+1.16 pts</td></tr>
+          <tr><td>Aggregates</td><td class="wt">25%</td><td>$30/ton est.</td><td>$33/ton est.</td><td class="delta-up">+7.5%</td><td class="contribution-up">+1.88 pts</td></tr>
+          <tr><td>Labor</td><td class="wt">15%</td><td>$40.60/hr</td><td>$41.20/hr</td><td class="delta-up">+1.5%</td><td class="contribution-up">+0.22 pts</td></tr>
+          <tr><td>Diesel fuel (CA)</td><td class="wt">10%</td><td>$6.12/gal</td><td>$6.94/gal</td><td class="delta-up">+13.4%</td><td class="contribution-up">+1.34 pts</td></tr>
+          <tr><td>Energy (natural gas + electricity)</td><td class="wt">10%</td><td>Base</td><td>+4% est.</td><td class="delta-up">+4.0%</td><td class="contribution-up">+0.40 pts</td></tr>
+          <tr style="font-weight:700;background:var(--surf2)"><td>BIPPI-A Total</td><td class="wt">100%</td><td>100.0</td><td>105.0</td><td class="delta-up">+5.0%</td><td class="contribution-up">+5.00 pts</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="breakdown-card">
+      <p class="breakdown-header bc">BIPPI-C &mdash; Ready-Mix Concrete Input Data (June 2026)</p>
+      <table class="breakdown-table">
+        <thead><tr><th>Input</th><th>Weight</th><th>Mar 2026</th><th>Jun 2026</th><th>Change</th><th>Contribution</th></tr></thead>
+        <tbody>
+          <tr><td>Cement</td><td class="wt">35%</td><td>$155/ton est.</td><td>$162/ton est.</td><td class="delta-up">+4.5%</td><td class="contribution-up">+1.58 pts</td></tr>
+          <tr><td>Aggregates</td><td class="wt">25%</td><td>$30/ton est.</td><td>$33/ton est.</td><td class="delta-up">+7.5%</td><td class="contribution-up">+1.88 pts</td></tr>
+          <tr><td>Labor</td><td class="wt">20%</td><td>$40.60/hr</td><td>$41.20/hr</td><td class="delta-up">+1.5%</td><td class="contribution-up">+0.30 pts</td></tr>
+          <tr><td>Diesel fuel (CA)</td><td class="wt">15%</td><td>$6.12/gal</td><td>$6.94/gal</td><td class="delta-up">+13.4%</td><td class="contribution-up">+2.01 pts</td></tr>
+          <tr><td>Water / energy overhead</td><td class="wt">5%</td><td>Base</td><td>+3% est.</td><td class="delta-up">+3.0%</td><td class="contribution-up">+0.15 pts</td></tr>
+          <tr style="font-weight:700;background:var(--surf2)"><td>BIPPI-C Total</td><td class="wt">100%</td><td>100.0</td><td>104.2</td><td class="delta-up">+4.2%</td><td class="contribution-up">+5.92 pts</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- VS CPI -->
+  <div class="section-rule"><div class="srl"></div><span class="srt">BIPPI vs. CPI &mdash; The Real Inflation Gap</span><div class="srl"></div></div>
+
+  <div class="cpi-box">
+    <p class="cpi-title">March to June 2026 &mdash; Cumulative price change comparison</p>
+    <div class="cpi-compare-grid">
+      <div class="cpi-cell highlight-a">
+        <p class="cpi-cell-label">BIPPI-A (Asphalt)</p>
+        <p class="cpi-cell-val">+6.8%</p>
+        <p class="cpi-cell-sub">3-month cumulative</p>
+      </div>
+      <div class="cpi-cell highlight-c">
+        <p class="cpi-cell-label">BIPPI-C (Concrete)</p>
+        <p class="cpi-cell-val">+4.2%</p>
+        <p class="cpi-cell-sub">3-month cumulative</p>
+      </div>
+      <div class="cpi-cell">
+        <p class="cpi-cell-label">CPI Urban</p>
+        <p class="cpi-cell-val">+2.1%</p>
+        <p class="cpi-cell-sub">3-month cumulative</p>
+      </div>
+    </div>
+    <p class="cpi-note"><strong>What the gap means:</strong> The federal government's CPI says prices rose 2.1% over the last three months. For an asphalt producer in California, the real number is 6.8% — 3.2 times faster. For a ready-mix concrete producer, it's 4.2% — twice as fast. This gap exists because CPI tracks consumer goods and uses methodological adjustments (hedonic quality adjustments, substitution bias, owner's equivalent rent) that systematically understate industrial input cost inflation. The BIPPI tracks what you actually pay — no adjustments, no substitutions, just the real numbers from the sources your business depends on.</p>
+  </div>
+
+  <!-- INSIGHT -->
+  <div class="insight-box">
+    <p class="insight-title">What This Means for Your Business</p>
+    <p class="insight-text">If you built your Q2 2026 budget using CPI as your inflation assumption, you underestimated your cost structure by 2-5 percentage points depending on your sector. An asphalt producer who budgeted for 2% cost inflation is actually running at 6.8% — that's a gap of nearly 5 points that comes directly out of margin. For a ready-mix producer, the gap is roughly 2 points. The California refinery crisis is the primary driver of the BIPPI-A divergence — diesel at $6.94/gallon contributes 3.35 index points out of the total 6.8 point move. If diesel normalizes as refinery capacity is restored, BIPPI-A will moderate. But with no new capacity coming online in 2026, the base case is continued elevated diesel and binder costs through H2 2026.</p>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources">
+    <p class="sources-title">Data Sources &mdash; BIPPI Methodology</p>
+    <p class="source-item">Asphalt oil binder: <a href="https://dot.ca.gov/programs/construction/california-statewide-crude-oil-price-index" target="_blank">Caltrans Statewide Crude Oil Price Index</a> &middot; March 2026 base estimated from Caltrans monthly data trend</p>
+    <p class="source-item">Diesel fuel (California): <a href="https://www.eia.gov/petroleum/gasdiesel/" target="_blank">EIA Weekly Retail Diesel Prices</a> &middot; California series EMD_EPD2D_PTE_SCA_DPG</p>
+    <p class="source-item">Aggregates (crushed stone / sand and gravel): <a href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-stone-crushed.pdf" target="_blank">USGS Mineral Commodity Summaries 2026</a> &middot; Western US regional estimates</p>
+    <p class="source-item">Construction labor wages: <a href="https://fred.stlouisfed.org/series/CES2000000003" target="_blank">BLS CES2000000003 via FRED</a> &middot; Average hourly earnings all employees construction</p>
+    <p class="source-item">Cement pricing: <a href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-cement.pdf" target="_blank">USGS Cement Commodity Summary 2026</a> &middot; <a href="https://www.argusmedia.com/en/news-and-insights/latest-market-news/2758546-us-cement-market-2026-outlook-shaky" target="_blank">Argus Media US Cement Market 2026</a></p>
+    <p class="source-item">CPI Urban comparison: <a href="https://www.bls.gov/cpi/" target="_blank">BLS Consumer Price Index for All Urban Consumers (CPI-U)</a></p>
+    <p class="source-item">Hot mix asphalt pricing reference: <a href="https://asphapro.com/blog/hot-mix-asphalt-price-per-ton.html" target="_blank">AsphaPro HMA Price Guide April 2026</a></p>
+    <p class="source-item">Ready-mix concrete pricing reference: <a href="https://www.concretenetwork.com/concrete-prices.html" target="_blank">Concrete Network 2026 Pricing Guide</a> &middot; <a href="https://constructem.com/how-much-does-a-yard-of-concrete-cost-in-2026/" target="_blank">Constructem April 2026</a></p>
+    <p class="source-item" style="margin-top:8px;font-style:italic;color:#9a8a75">Note: March 2026 base period estimates use available monthly data, Caltrans index trends, and EIA historical series. Some component estimates use interpolation from quarterly data where monthly figures are not yet published. All estimates will be updated as official monthly data becomes available. BIPPI is a proprietary analytical tool published for informational purposes only and is not a substitute for project-specific cost analysis.</p>
+  </div>
+</div>
+
+<div class="page-footer">
+  <strong>The Build Intel Price Pressure Index (BIPPI)</strong> &middot; West Region Construction Intelligence<br>
+  Published by Matt Pound &middot; Updated weekly &middot; Base period March 2026 = 100<br>
+  For informational purposes only &middot; Not financial or contractual advice<br>
+  <a href="https://thebuildintel.substack.com/">Subscribe to The Build Intel &rarr;</a>
+</div>
+
+</body>
+</html>
