@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Build Intel — Edition 4 — Week of June 21, 2026</title>
+<title>The Build Intel — Edition 5 — Week of June 28, 2026</title>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z19PER48KL"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -27,7 +27,7 @@
   .masthead-top{padding:1.75rem 2rem 1.25rem;text-align:center;border-bottom:1px solid rgba(201,168,76,0.25);}
   .pub-name{font-family:'Playfair Display',serif;font-size:clamp(34px,6vw,68px);font-weight:900;color:#fff;letter-spacing:0.02em;line-height:1;margin-bottom:6px;}
   .pub-name span{color:var(--gold);}
-  .pub-rule{width:60px;height:2px;background:var(--gold);margin:10px auto 10px;}
+  .pub-rule{width:60px;height:2px;background:var(--gold);margin:10px auto;}
   .pub-tagline{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#888;}
   .masthead-bar{display:flex;justify-content:space-between;align-items:center;padding:8px 2rem;flex-wrap:wrap;gap:8px;}
   .masthead-meta{font-size:11px;color:#aaa;}
@@ -36,81 +36,79 @@
   .masthead-sub:hover{background:rgba(201,168,76,0.1);text-decoration:none;}
   .edition-stripe{background:var(--gold);padding:6px 2rem;text-align:center;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#0f0f0f;}
   .page{max-width:900px;margin:0 auto;padding:2rem 1.5rem 4rem;}
-  .from-desk{background:var(--surf);border:1px solid var(--bdr);border-left:4px solid var(--gold);padding:1.5rem 1.75rem;margin-bottom:2rem;border-radius:0 6px 6px 0;}
-  .from-desk-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--gold);margin-bottom:8px;}
-  .from-desk-placeholder{font-family:'Source Serif 4',serif;font-size:15px;color:var(--ink3);line-height:1.8;font-style:italic;border:2px dashed var(--bdr);padding:1rem 1.25rem;border-radius:4px;}
-  .notice-bar{background:var(--red-bg);border:1px solid #e8c0bc;border-radius:3px;padding:10px 16px;font-size:12px;color:var(--red);margin-bottom:1.25rem;font-weight:500;line-height:1.5;}
-  .notice-bar a{color:var(--red);font-weight:700;text-decoration:underline;}
   .disclaimer{font-size:11px;color:var(--ink3);line-height:1.5;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--bdr);}
+  .from-desk{background:var(--surf);border:1px solid var(--bdr);border-left:4px solid var(--gold);padding:1.5rem 1.75rem;margin-bottom:2rem;border-radius:0 6px 6px 0;}
+  .from-desk-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--gold);margin-bottom:8px;font-family:'Inter',sans-serif;}
+  .from-desk-placeholder{font-family:'Source Serif 4',serif;font-size:15px;color:var(--ink3);line-height:1.8;font-style:italic;border:2px dashed var(--bdr);padding:1rem 1.25rem;border-radius:4px;}
   .section-wrap{margin-bottom:2.5rem;}
   .section-rule{display:flex;align-items:center;gap:12px;margin-bottom:1rem;}
   .srl{flex:1;height:2px;background:var(--ink);}
   .srt{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink);white-space:nowrap;}
   .srl-thin{flex:1;height:1px;background:var(--bdr);}
   .divider{border:none;border-top:1px solid var(--bdr);margin:2rem 0;}
-  .kpi-wrap{border:1px solid var(--bdr);overflow:hidden;}
-  .kpi-table{width:100%;border-collapse:collapse;font-size:12px;}
-  .kpi-table thead th{background:var(--hbg);color:#fff;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;padding:9px 12px;text-align:left;}
-  .kpi-table thead th:first-child{color:var(--gold);}
-  .kpi-table tbody tr{border-bottom:1px solid var(--bdr);}
-  .kpi-table tbody tr:nth-child(even){background:var(--bg);}
-  .kpi-table tbody tr:last-child{border-bottom:none;}
-  .kpi-table td{padding:8px 12px;}
-  .kpi-table td:first-child{font-family:'Source Serif 4',serif;font-size:12px;color:var(--ink2);}
-  .kpi-table td:nth-child(2){font-weight:600;color:var(--ink);}
-  .up{color:var(--red);}
-  .down{color:var(--green);}
-  .stable{color:var(--ink3);}
   .lede{font-family:'Source Serif 4',serif;font-size:18px;line-height:1.7;color:var(--ink);margin-bottom:1rem;font-weight:600;}
   .body-text{font-family:'Source Serif 4',serif;font-size:14px;line-height:1.8;color:var(--ink2);margin-bottom:1rem;}
-  .pull-quote{border-left:4px solid var(--gold);padding:10px 20px;margin:1.25rem 0;background:var(--surf);}
-  .pull-quote-text{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--ink);line-height:1.5;font-style:italic;}
-  .commodity-editorial{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:0;border:1px solid var(--bdr);}
-  .ce-item{padding:16px 18px;border-right:1px solid var(--bdr);border-bottom:1px solid var(--bdr);}
-  @media(min-width:750px){.commodity-editorial{grid-template-columns:repeat(3,1fr);}.ce-item:nth-child(3n){border-right:none;}}
-  .ce-item:nth-child(2n){border-right:none;}
-  @media(min-width:750px){.ce-item:nth-child(2n){border-right:1px solid var(--bdr);}}
-  .ce-name{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:var(--ink3);margin-bottom:6px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
-  .ce-price{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--ink);line-height:1;margin-bottom:3px;}
-  .ce-unit{font-size:11px;color:var(--ink3);font-family:'Inter',sans-serif;font-weight:400;}
-  .ce-changes{display:flex;gap:5px;margin:5px 0;flex-wrap:wrap;}
-  .ce-change{font-size:10px;padding:2px 7px;border-radius:2px;font-family:'Inter',sans-serif;}
-  .cc-up{background:var(--red-bg);color:var(--red);}
-  .cc-down{background:var(--green-bg);color:var(--green);}
-  .cc-stable{background:var(--surf2);color:var(--ink3);}
-  .ce-outlook{font-size:11px;color:var(--ink3);margin-bottom:6px;font-family:'Inter',sans-serif;}
-  .ce-note{font-family:'Source Serif 4',serif;font-size:12px;color:var(--ink2);line-height:1.6;margin-bottom:6px;}
-  .src-link{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:500;padding:2px 7px;border-radius:2px;background:var(--blue-bg);color:var(--blue);text-decoration:none;font-family:'Inter',sans-serif;margin-right:3px;}
+  .pull-quote{border-left:4px solid var(--gold);padding:12px 20px;margin:1.5rem 0;background:var(--surf);}
+  .pull-quote-text{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--ink);line-height:1.5;font-style:italic;}
+  .deadline-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-bottom:2rem;}
+  .deadline-box{background:var(--red-bg);border:2px solid var(--red);border-radius:4px;padding:1.25rem 1.5rem;}
+  .deadline-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--red);font-family:'Inter',sans-serif;margin-bottom:6px;}
+  .deadline-text{font-family:'Source Serif 4',serif;font-size:14px;color:var(--red);line-height:1.7;}
+  .deadline-text strong{font-weight:700;}
+  .exec-summary{background:var(--hbg);border-radius:6px;padding:1.5rem 2rem;margin-bottom:2rem;}
+  .exec-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--gold);font-family:'Inter',sans-serif;margin-bottom:10px;}
+  .exec-text{font-family:'Source Serif 4',serif;font-size:14px;color:#ddd;line-height:1.8;margin-bottom:8px;}
+  .exec-actions{margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.1);}
+  .exec-action-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);font-family:'Inter',sans-serif;margin-bottom:8px;}
+  .exec-action-item{display:flex;gap:10px;font-family:'Source Serif 4',serif;font-size:13px;color:#ccc;line-height:1.6;margin-bottom:6px;}
+  .exec-action-num{color:var(--gold);font-weight:700;flex-shrink:0;font-family:'Playfair Display',serif;font-size:16px;}
+  .scenario-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin-bottom:1.25rem;}
+  .scenario-card{background:var(--surf);border:1px solid var(--bdr);border-radius:4px;overflow:hidden;}
+  .sc-header{padding:8px 14px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;font-family:'Inter',sans-serif;}
+  .sc-green .sc-header{background:var(--green);color:#fff;}
+  .sc-amber .sc-header{background:var(--amber);color:#fff;}
+  .sc-red .sc-header{background:var(--red);color:#fff;}
+  .sc-body{padding:12px 14px;}
+  .sc-prob{font-size:22px;font-weight:700;font-family:'Playfair Display',serif;color:var(--ink);margin-bottom:4px;}
+  .sc-name{font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px;font-family:'Inter',sans-serif;}
+  .sc-text{font-family:'Source Serif 4',serif;font-size:12px;color:var(--ink2);line-height:1.6;margin-bottom:6px;}
+  .sc-bottom{font-size:11px;font-weight:600;font-family:'Inter',sans-serif;padding-top:8px;border-top:1px solid var(--bdr);}
+  .sc-green .sc-bottom{color:var(--green);}
+  .sc-amber .sc-bottom{color:var(--amber);}
+  .sc-red .sc-bottom{color:var(--red);}
+  .state-table-wrap{border:1px solid var(--bdr);overflow:hidden;border-radius:4px;margin-bottom:1.25rem;overflow-x:auto;}
+  .state-table{width:100%;border-collapse:collapse;font-size:12px;min-width:600px;}
+  .state-table thead th{background:var(--hbg);color:#fff;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;padding:9px 12px;text-align:left;}
+  .state-table thead th:first-child{color:var(--gold);}
+  .state-table tbody tr{border-bottom:1px solid var(--bdr);}
+  .state-table tbody tr:nth-child(even){background:var(--bg);}
+  .state-table tbody tr:last-child{border-bottom:none;}
+  .state-table td{padding:9px 12px;vertical-align:top;font-size:12px;}
+  .state-table td:first-child{font-weight:600;color:var(--ink);}
+  .risk-high{color:var(--red);font-weight:700;}
+  .risk-med{color:var(--amber);font-weight:700;}
+  .risk-low{color:var(--green);font-weight:700;}
+  .caveat{font-size:10px;color:var(--ink3);font-style:italic;margin-top:6px;padding-top:6px;border-top:1px solid var(--bdr);}
+  .impact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin-bottom:1.25rem;}
+  .impact-card{background:var(--surf);border:1px solid var(--bdr);border-radius:4px;padding:14px 16px;}
+  .impact-type{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink3);font-family:'Inter',sans-serif;margin-bottom:6px;}
+  .impact-title{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:6px;font-family:'Inter',sans-serif;}
+  .impact-text{font-family:'Source Serif 4',serif;font-size:12px;color:var(--ink2);line-height:1.6;}
   .badge{display:inline-block;font-size:9px;font-weight:700;padding:2px 6px;text-transform:uppercase;letter-spacing:0.06em;font-family:'Inter',sans-serif;}
   .badge-red{background:var(--red);color:#fff;}
   .badge-amber{background:var(--amber);color:#fff;}
   .badge-green{background:var(--green);color:#fff;}
-  .badge-blue{background:var(--blue);color:#fff;}
-  .alert-box{background:var(--amber-bg);border-top:2px solid var(--amber);border-bottom:2px solid var(--amber);padding:10px 16px;font-size:13px;color:var(--amber);line-height:1.6;margin-top:10px;font-family:'Inter',sans-serif;}
+  .alert-box{background:var(--amber-bg);border-top:2px solid var(--amber);border-bottom:2px solid var(--amber);padding:12px 16px;font-size:13px;color:var(--amber);line-height:1.6;margin:1rem 0;font-family:'Inter',sans-serif;}
   .alert-box strong{font-weight:700;}
-  .high-impact-box{background:var(--red-bg);border-top:2px solid var(--red);border-bottom:2px solid var(--red);padding:10px 16px;font-size:13px;color:var(--red);line-height:1.6;margin-top:10px;font-family:'Inter',sans-serif;}
+  .high-impact-box{background:var(--red-bg);border-top:2px solid var(--red);border-bottom:2px solid var(--red);padding:12px 16px;font-size:13px;color:var(--red);line-height:1.6;margin:1rem 0;font-family:'Inter',sans-serif;}
   .high-impact-box strong{font-weight:700;}
-  .high-impact-box a{color:var(--red);}
   .data-list{border:1px solid var(--bdr);overflow:hidden;background:var(--surf);}
   .data-row{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border-bottom:1px solid var(--bdr);}
   .data-row:last-child{border-bottom:none;}
   .data-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:7px;}
   .data-body{flex:1;}
   .data-label{font-weight:600;font-size:13px;color:var(--ink);margin-bottom:4px;display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-family:'Inter',sans-serif;}
-  .data-detail{font-family:'Source Serif 4',serif;font-size:13px;color:var(--ink2);line-height:1.6;margin-bottom:4px;}
-  .pipeline-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:0;border:1px solid var(--bdr);}
-  .pipeline-card{padding:14px 16px;border-right:1px solid var(--bdr);border-bottom:1px solid var(--bdr);background:var(--surf);}
-  .pipeline-name{font-size:12px;font-weight:600;color:var(--ink);margin-bottom:5px;display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-family:'Inter',sans-serif;}
-  .pipeline-detail{font-family:'Source Serif 4',serif;font-size:12px;color:var(--ink2);line-height:1.6;margin-bottom:6px;}
-  .water-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:0;margin-top:10px;border:1px solid var(--bdr);}
-  .water-card{padding:12px 14px;border-right:1px solid var(--bdr);border-bottom:1px solid var(--bdr);background:var(--surf);}
-  .water-city{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--blue);margin-bottom:4px;font-family:'Inter',sans-serif;}
-  .water-status{font-family:'Source Serif 4',serif;font-size:12px;color:var(--ink2);line-height:1.5;}
-  .sub-region{background:var(--surf);border:1px solid var(--bdr);border-left:3px solid var(--gold);padding:16px 18px;margin-bottom:8px;}
-  .sub-region-name{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink);margin-bottom:4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:'Inter',sans-serif;}
-  .sub-region-priority{font-size:9px;font-weight:700;padding:2px 7px;background:var(--red);color:#fff;letter-spacing:0.06em;}
-  .sub-region-dollar{font-size:11px;font-weight:600;color:var(--green);margin-bottom:6px;font-family:'Inter',sans-serif;}
-  .sub-region-text{font-family:'Source Serif 4',serif;font-size:13px;color:var(--ink2);line-height:1.7;}
+  .data-detail{font-family:'Source Serif 4',serif;font-size:13px;color:var(--ink2);line-height:1.6;}
   .takeaway-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--bdr);}
   .takeaway-item{display:flex;gap:0;border-bottom:1px solid var(--bdr);}
   .takeaway-item:last-child{border-bottom:none;}
@@ -118,10 +116,7 @@
   .t-body{padding:16px 18px;flex:1;background:var(--surf);}
   .t-text{font-family:'Source Serif 4',serif;font-size:14px;color:var(--ink);line-height:1.7;margin-bottom:8px;}
   .t-sources{display:flex;gap:5px;flex-wrap:wrap;}
-  .iija-box{background:var(--red-bg);border:2px solid var(--red);border-radius:4px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;}
-  .iija-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--red);margin-bottom:6px;font-family:'Inter',sans-serif;}
-  .iija-text{font-family:'Source Serif 4',serif;font-size:14px;color:var(--red);line-height:1.7;}
-  .iija-text strong{font-weight:700;}
+  .src-link{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:500;padding:2px 7px;border-radius:2px;background:var(--blue-bg);color:var(--blue);text-decoration:none;font-family:'Inter',sans-serif;margin-right:3px;}
   .subscribe-box{background:var(--hbg);padding:2rem;text-align:center;margin-top:2rem;}
   .sub-pub{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:#fff;margin-bottom:4px;}
   .sub-pub span{color:var(--gold);}
@@ -134,7 +129,7 @@
   .page-footer{background:var(--hbg);padding:1.5rem 2rem;text-align:center;font-size:11px;color:#888;line-height:1.8;margin-top:2rem;font-family:'Inter',sans-serif;}
   .page-footer strong{color:var(--gold);}
   .page-footer a{color:var(--gold);}
-  @media(max-width:600px){.masthead-bar{justify-content:center;}.commodity-editorial{grid-template-columns:1fr;}.ce-item{border-right:none;}.pipeline-grid{grid-template-columns:1fr;}.water-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:600px){.masthead-bar{justify-content:center;}.scenario-grid{grid-template-columns:1fr;}.impact-grid{grid-template-columns:1fr;}.deadline-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -146,455 +141,351 @@
     <p class="pub-tagline">West Region Construction Intelligence</p>
   </div>
   <div class="masthead-bar">
-    <span class="masthead-meta">Edition #4 &nbsp;&middot;&nbsp; Week of June 21, 2026 &nbsp;&middot;&nbsp; Compiled by <strong>Matt Pound</strong></span>
+    <span class="masthead-meta">Edition #5 &nbsp;&middot;&nbsp; Week of June 28, 2026 &nbsp;&middot;&nbsp; Compiled by <strong>Matt Pound</strong></span>
     <a class="masthead-sub" href="https://thebuildintel.substack.com/" target="_blank">Subscribe Free &rarr;</a>
   </div>
 </div>
-<div class="edition-stripe">Western US Construction Market Intelligence &mdash; Commodity Prices &middot; Project Pipeline &middot; Sub-Regional Spotlights &middot; Water Watch &middot; Regulatory Radar</div>
+<div class="edition-stripe">Special Focus Edition &mdash; Two Deadlines That Will Define Western US Construction in 2027 &middot; IIJA Expiration &middot; Colorado River</div>
 
 <div class="page">
 
-  <div class="disclaimer">This report summarizes publicly available construction market data for informational purposes only. All sources are linked inline. Data reflects information available as of June 21, 2026. Not financial, legal, or contractual advice.</div>
+  <p class="disclaimer">This report summarizes publicly available construction market data and policy research for informational purposes only. All sources are linked inline. State-level IIJA obligation figures are estimates pending verification against official FHWA apportionment data available at <a href="https://highways.dot.gov/iija/funding" target="_blank">highways.dot.gov/iija/funding</a>. Data reflects information available as of June 28, 2026. Not financial, legal, or contractual advice.</p>
 
-  <!-- FROM THE DESK OF MATT POUND -->
+  <!-- FROM THE DESK -->
   <div class="from-desk">
     <p class="from-desk-label">From the desk of Matt</p>
-    <p style="font-family:'Source Serif 4',serif;font-size:15px;line-height:1.8;color:var(--ink2);">I started The Build Intel because I couldn't find a single place that pulled together the economic and market data that actually impacts western US construction. Throughout my career I have always been asked what was happening in the markets &mdash; material costs, fuel, labor, project pipeline &mdash; and I was spending too much time hunting across a dozen sources for answers. So I built this for myself first. A reference I could come back to. A way to stay on top of what's moving and why, so I could make better long-term decisions with real facts behind them.</p>
-    <p style="font-family:'Source Serif 4',serif;font-size:15px;line-height:1.8;color:var(--ink2);margin-top:10px;">When I saw what it was becoming I thought some of you might get value out of it too &mdash; so I'm sharing it.</p>
-    <p style="font-family:'Source Serif 4',serif;font-size:15px;line-height:1.8;color:var(--ink2);margin-top:10px;">One thing I want to be upfront about: I use AI to help research and compile this report. I'm learning how to prompt it better every week and how to catch errors before they reach you. It's not perfect &mdash; this week we caught a couple of data points that needed correcting before publishing. If you're in the industry and something in here doesn't match what you're seeing on the ground, I want to hear from you. That feedback makes this better for everyone in the western region.</p>
+    <p style="font-family:'Source Serif 4',serif;font-size:15px;line-height:1.8;color:var(--ink2);">This week I decided to focus on two items that have continued to surface in prior editions and used AI to help me dive a little deeper. If I am being completely honest, both topics were not on my radar before I started this newsletter &mdash; and I am grateful that at the very least I can now watch them closely over the coming months.</p>
+    <p style="font-family:'Source Serif 4',serif;font-size:15px;line-height:1.8;color:var(--ink2);margin-top:10px;">Construction will always be the backbone of the US economy, and I have no doubt that the country and our local municipalities will find the funding to ensure this critical part of our economy keeps churning. But that doesn&rsquo;t mean we shouldn&rsquo;t be mindful of the potential short-term impacts that could be hiding around the corner.</p>
+    <p style="font-family:'Source Serif 4',serif;font-size:15px;line-height:1.8;color:var(--ink2);margin-top:10px;">As always &mdash; if you see anything in here that is incorrect, or you have ideas on other market impacts we should be watching, please reach out. I will do my best to include the stories that best fit this newsletter and the people reading it.</p>
   </div>
 
-  <!-- IIJA CLIFF CALLOUT -->
-  <div class="iija-box">
-    <p class="iija-label">&#9888; Critical deadline — September 30, 2026</p>
-    <p class="iija-text"><strong>The IIJA expires in 101 days.</strong> The Infrastructure Investment and Jobs Act's current authorization runs out September 30, 2026. If Congress does not reauthorize, federal highway funding stops — affecting every state DOT letting schedule in the western US. This is the most important regulatory story of the summer. Watch for Congressional action and factor potential funding uncertainty into any project timeline extending past Q3 2026. <a class="src-link" href="https://www.jpcengineering.com/jpc-blog/the-2026-infrastructure-funding-cliff-what-happens-when-the-iija-expires" target="_blank">JPC Engineering &#8599;</a></p>
-  </div>
-
-  <!-- KPI SNAPSHOT -->
-  <div class="section-wrap">
-    <div class="section-rule"><div class="srl"></div><span class="srt">Weekly Market Snapshot</span><div class="srl"></div></div>
-    <div class="kpi-wrap">
-      <table class="kpi-table">
-        <thead><tr><th>Metric</th><th>Current Value</th><th>Change</th></tr></thead>
-        <tbody>
-          <tr><td>Asphalt oil binder</td><td>$565.20/ton</td><td class="stable">&#9654; Holding — Caltrans index</td></tr>
-          <tr><td>Crushed stone &mdash; western avg</td><td>$28&ndash;38/ton</td><td class="up">&#9650; +1.5% WoW</td></tr>
-          <tr><td>Sand and gravel &mdash; western avg</td><td>$11&ndash;25/ton</td><td class="up">&#9650; +0.8% WoW</td></tr>
-          <tr><td>Ready-mix concrete &mdash; western avg</td><td>$160&ndash;195/CY</td><td class="up">&#9650; +3.2% WoW &middot; +6.1% YoY</td></tr>
-          <tr><td>Structural steel &mdash; HRC spot</td><td>$860&ndash;870/ton</td><td class="up">&#9650; +4.1% WoW &middot; +12&ndash;15% YoY</td></tr>
-          <tr><td>Rebar &mdash; US average</td><td>$1,011/ton</td><td class="up">&#9650; +8.5% YoY</td></tr>
-          <tr><td>Retail diesel &mdash; national avg</td><td>$3.94/gal</td><td class="down">&#9660; Down WoW &middot; AAA June 21</td></tr>
-          <tr><td>Retail diesel &mdash; California</td><td>$6.784/gal</td><td class="down">&#9660; &minus;$0.23 WoW &middot; +32.5% YoY</td></tr>
-          <tr><td>Flatbed trucking &mdash; western lanes</td><td>$2.26&ndash;2.57/mile</td><td class="up">&#9650; +$0.08 WoW &middot; +23&ndash;30% YoY</td></tr>
-          <tr><td>Construction hourly wages</td><td>$41.20/hr</td><td class="up">&#9650; +3.1% YoY</td></tr>
-          <tr><td>Housing permits &mdash; SAAR</td><td>1,176,000</td><td class="down">&#9660; &minus;15.4% MoM</td></tr>
-          <tr><td>Construction employment &mdash; US</td><td>8.337 million</td><td class="up">&#9650; +17,000 MoM</td></tr>
-        </tbody>
-      </table>
+  <!-- DUAL DEADLINE CALLOUT -->
+  <div class="deadline-grid">
+    <div class="deadline-box">
+      <p class="deadline-label">&#9888; Deadline 1 &mdash; 94 days away</p>
+      <p class="deadline-text"><strong>IIJA expires September 30, 2026.</strong> The Infrastructure Investment and Jobs Act's current authorization runs out in 94 days. An estimated $5.4 billion in western state DOT Q4 2026 lettings are IIJA-funded (estimate pending FHWA verification). <a href="https://highways.dot.gov/infrastructure-investment-and-jobs-act" target="_blank" style="color:var(--red);font-weight:600;">FHWA &#8599;</a> <a href="https://highways.dot.gov/iija/funding" target="_blank" style="color:var(--red);font-weight:600;">Verify &#8599;</a></p>
+    </div>
+    <div class="deadline-box">
+      <p class="deadline-label">&#9888; Deadline 2 &mdash; 186 days away</p>
+      <p class="deadline-text"><strong>Colorado River guidelines expire December 31, 2026.</strong> Proposed cuts: Arizona &minus;760,000 AF, California &minus;440,000 AF, Nevada &minus;50,000 AF. Water availability is now a construction permit gating factor in Phoenix, Las Vegas, and Tucson. <a href="https://www.usbr.gov/ColoradoRiverBasin/post2026/index.html" target="_blank" style="color:var(--red);font-weight:600;">USBR &#8599;</a></p>
     </div>
   </div>
-
-  <div class="divider"></div>
 
   <!-- EXEC SUMMARY -->
-  <div class="section-wrap">
-    <div class="section-rule"><div class="srl"></div><span class="srt">This Week</span><div class="srl"></div></div>
-    <p class="lede">California diesel dropped $0.23 this week to $6.784/gallon — the first meaningful relief in months. Don't get comfortable. Projections show CA fuel costs could reach $8.44/gallon by year-end as refinery inventory buffers deplete in Q3-Q4.</p>
-    <p class="body-text">The short-term diesel relief is real but it masks a structural problem that is not going away. With 310,000 barrels per day of California refining capacity permanently offline — Phillips 66 Wilmington closed October 2025, Valero Benicia closed January 2026 — the state is increasingly dependent on imported fuel. As summer driving demand peaks and construction season hits full stride, that import dependence will be tested. The smart move is to treat this week's price dip as a window to add fuel escalation clauses to any open contracts, not as a signal that the problem is solved.</p>
-    <div class="pull-quote"><p class="pull-quote-text">"A 100MW hyperscale data center requires 40,000&ndash;60,000 tons of crushed stone, 80,000&ndash;120,000 cubic yards of concrete, and 10,000&ndash;20,000 tons of steel. The western US has dozens of these in the pipeline. The aggregate supply chain was not built for this demand."</p></div>
-    <p class="body-text">The data center materials story is becoming clearer every week. The sheer volume of aggregate and concrete required per facility is pulling supply from every other sector in the West. Clark County, Washington has only 21 years of aggregate reserves remaining. Urban markets in Phoenix, Las Vegas, and the Inland Empire are already seeing delivery lead times extend. Meanwhile the IIJA expires September 30 — 101 days from now — and Congress has not yet moved on reauthorization. If federal highway funding pauses, the stable civil/highway pipeline that has anchored western construction backlogs for four years could slow significantly heading into 2027.</p>
+  <div class="exec-summary">
+    <p class="exec-label">Executive Summary</p>
+    <p class="exec-text">Two deadlines land in the same six-month window. One threatens the $350 billion federal highway funding backbone of western US civil construction. The other threatens the water supply that makes large-scale development possible across the desert states. Either alone would be a significant market disruption. Together they represent the most consequential policy moment for western US construction since IIJA passed in 2021.</p>
+    <p class="exec-text">The base case is a short-term Continuing Resolution on IIJA and a lower-basin bridge agreement on the Colorado River &mdash; creating a period of uncertainty in Q4 2026 and Q1 2027 followed by recovery. The Desert Southwest faces the most acute combined exposure. A Phoenix contractor bidding a data center or semiconductor project in 2027 could face a project that loses its federal infrastructure reimbursement AND its water permit in the same 90-day window.</p>
+    <div class="exec-actions">
+      <p class="exec-action-title">Three actions before year-end 2026</p>
+      <div class="exec-action-item"><span class="exec-action-num">1</span>Bid aggressively on every IIJA-funded DOT letting before September 30. The authorization is active today &mdash; use it before Congressional uncertainty slows new lettings regardless of outcome. <a href="https://highways.dot.gov/infrastructure-investment-and-jobs-act" target="_blank" style="color:#aaa;font-size:10px;">FHWA &#8599;</a></div>
+      <div class="exec-action-item"><span class="exec-action-num">2</span>Verify water availability certificates for every Desert Southwest project in your 2027 pipeline. If you are bidding data center, semiconductor, or large industrial work in Phoenix, Las Vegas, or Tucson &mdash; check ADWR certificate availability before pricing. <a href="https://www.azwater.gov" target="_blank" style="color:#aaa;font-size:10px;">ADWR &#8599;</a></div>
+      <div class="exec-action-item"><span class="exec-action-num">3</span>Engage your state contractor associations now. ARTBA, AGC, and AASHTO are actively advocating for reauthorization. Your regional project data matters in this process. <a href="https://www.artba.org/advocacy" target="_blank" style="color:#aaa;font-size:10px;">ARTBA &#8599;</a></div>
+    </div>
   </div>
 
   <div class="divider"></div>
 
-  <!-- COMMODITY PRICING -->
+  <!-- PART 1 — IIJA -->
   <div class="section-wrap">
-    <div class="section-rule"><div class="srl"></div><span class="srt">Commodity Pricing Watch</span><div class="srl"></div></div>
-    <div class="commodity-editorial">
+    <div class="section-rule"><div class="srl"></div><span class="srt">Part 1 &mdash; The IIJA Funding Cliff</span><div class="srl"></div></div>
 
-      <div class="ce-item">
-        <p class="ce-name">Crushed Stone <span class="badge badge-amber">Rising</span></p>
-        <p class="ce-price">$28&ndash;38 <span class="ce-unit">/ton western avg</span></p>
-        <div class="ce-changes"><span class="ce-change cc-up">&#9650; +1.5% WoW</span><span class="ce-change cc-up">&#9650; +4.2% YoY</span></div>
-        <div class="ce-outlook">30-60 day: Rising &mdash; data center demand + quarry permit restrictions</div>
-        <p class="ce-note">CA urban $32&ndash;38/ton, AZ $26&ndash;32/ton. Clark County WA has only 21 years of aggregate reserves. Data center foundations consuming 40,000&ndash;60,000 tons per 100MW facility.</p>
-        <a class="src-link" href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-stone-crushed.pdf" target="_blank">USGS &#8599;</a>
-        <a class="src-link" href="https://www.pitandquarry.com/washingtons-rising-aggregate-supply-crisis/" target="_blank">Pit &amp; Quarry &#8599;</a>
-      </div>
+    <p class="lede">The BUILD America 250 Act passed the House T&amp;I Committee 62-2 on May 22, 2026. Full reauthorization before September 30 is unlikely. A Continuing Resolution is the base case &mdash; but even a CR creates real disruption for new project lettings. <a class="src-link" href="https://transportation.house.gov" target="_blank">House T&amp;I &#8599;</a></p>
 
-      <div class="ce-item">
-        <p class="ce-name">Sand and Gravel <span class="badge badge-amber">Rising</span></p>
-        <p class="ce-price">$11&ndash;25 <span class="ce-unit">/ton western avg</span></p>
-        <div class="ce-changes"><span class="ce-change cc-up">&#9650; +0.8% WoW</span><span class="ce-change cc-up">&#9650; YoY positive</span></div>
-        <div class="ce-outlook">30-60 day: Rising &mdash; hyperscale demand surge in Phoenix, LV, Inland Empire</div>
-        <p class="ce-note">Demand surge from data center foundations and infrastructure pulling volumes in Phoenix, Las Vegas, and Inland Empire. Supply constrained by zoning and land use restrictions in western metros.</p>
-        <a class="src-link" href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-sand-gravel.pdf" target="_blank">USGS &#8599;</a>
-      </div>
+    <p class="body-text">The IIJA has been the single most important demand driver for western US civil construction since 2021. California alone received an estimated $41.9 billion in formula funding over FY2022&ndash;2026. <a class="src-link" href="https://dot.ca.gov" target="_blank">Caltrans &#8599;</a> Every western state DOT has built its capital program around this funding stream. The question is not whether projects already under construction continue &mdash; they do, under any scenario. The question is whether new contracts can be awarded after September 30.</p>
 
-      <div class="ce-item">
-        <p class="ce-name">Asphalt Oil Binder <span class="badge badge-amber">Watch</span></p>
-        <p class="ce-price">$565.20 <span class="ce-unit">/ton CA statewide</span></p>
-        <div class="ce-changes"><span class="ce-change cc-stable">&#9654; Holding MoM</span><span class="ce-change cc-up">&#9650; Elevated YoY</span></div>
-        <div class="ce-outlook">30-60 day: Rising &mdash; tied to CA refinery capacity + crude oil</div>
-        <p class="ce-note">Holding near recent highs. CA refinery closures creating regional premium on petroleum-based products. Add 8&ndash;12% escalation contingency on all H2 2026 paving bids in CA, AZ, and NV.</p>
-        <a class="src-link" href="https://dot.ca.gov/programs/construction/california-statewide-crude-oil-price-index" target="_blank">Caltrans &#8599;</a>
-      </div>
+    <p class="body-text">Congressional reauthorization faces three compounding headwinds: partisan disagreement on funding levels, Highway Trust Fund solvency challenges, and an August recess that compresses the legislative calendar to weeks not months. Senate EPW has held hearings but no markup is scheduled. <a class="src-link" href="https://www.epw.senate.gov" target="_blank">Senate EPW &#8599;</a> ARTBA's "Build America Now" campaign is actively lobbying for a five-year reauthorization at 20% above current IIJA levels. <a class="src-link" href="https://www.artba.org/advocacy" target="_blank">ARTBA &#8599;</a> AASHTO has warned a lapse would delay $48 billion in projects nationally, with western states accounting for approximately 38% of those delays. <a class="src-link" href="https://www.aashto.org" target="_blank">AASHTO &#8599;</a></p>
 
-      <div class="ce-item">
-        <p class="ce-name">Ready-Mix Concrete <span class="badge badge-red">Rising Fast</span></p>
-        <p class="ce-price">$160&ndash;195 <span class="ce-unit">/CY western avg</span></p>
-        <div class="ce-changes"><span class="ce-change cc-up">&#9650; +3.2% WoW</span><span class="ce-change cc-up">&#9650; +6.1% YoY</span></div>
-        <div class="ce-outlook">30-60 day: Rising &mdash; cement supply tight + fuel surcharges</div>
-        <p class="ce-note">Bay Area and Seattle running $200&ndash;225/CY. SoCal $175&ndash;200/CY. Phoenix $155&ndash;175/CY. Denver $160&ndash;185/CY. Short-load fees $75&ndash;125 for orders under 4-8 yards. Delivery charges $10&ndash;15/mile beyond 10&ndash;15 miles.</p>
-        <a class="src-link" href="https://www.concretenetwork.com/concrete-prices.html" target="_blank">Concrete Network &#8599;</a>
-      </div>
-
-      <div class="ce-item">
-        <p class="ce-name">Cement &mdash; Domestic and Import</p>
-        <p class="ce-price">$140&ndash;160 <span class="ce-unit">/ton estimated</span></p>
-        <div class="ce-changes"><span class="ce-change cc-up">&#9650; Supply tightening</span></div>
-        <div class="ce-outlook">30-60 day: Stable to Rising &mdash; tariff cost pressure on imports</div>
-        <p class="ce-note">Western US cement supply is adequate — the shortage story is a Southeast US problem. The western price pressure comes from the 25% tariff on Canadian and Mexican cement imports that took effect in 2025, pushing producer costs higher. Western ready-mix is running 12% higher YoY on pricing — but that is a cost issue, not a supply issue.</p>
-        <a class="src-link" href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-cement.pdf" target="_blank">USGS &#8599;</a>
-        <a class="src-link" href="https://www.housingwire.com/articles/builder-material-costs-tariffs/" target="_blank">HousingWire &#8599;</a>
-      </div>
-
-      <div class="ce-item">
-        <p class="ce-name">Structural Steel <span class="badge badge-red">Rising</span></p>
-        <p class="ce-price">$860&ndash;870 <span class="ce-unit">/ton HRC spot</span></p>
-        <div class="ce-changes"><span class="ce-change cc-up">&#9650; +4.1% WoW</span><span class="ce-change cc-up">&#9650; +12&ndash;15% YoY</span></div>
-        <div class="ce-outlook">30-60 day: Stable to Rising &mdash; data center demand + tariffs</div>
-        <p class="ce-note">Data center campuses consuming 10,000&ndash;200,000 tonnes of steel per campus. Mill lead times extending. Section 232 tariffs limiting import relief. Lock in steel quantities now for Q3&ndash;Q4 projects.</p>
-        <a class="src-link" href="https://www.worldsteeldynamics.com/price-check-on-steel-aisle-usa-rebar-about-40-ton-above-hrc/" target="_blank">World Steel Dynamics &#8599;</a>
-      </div>
-
-      <div class="ce-item">
-        <p class="ce-name">Rebar <span class="badge badge-amber">Watch</span></p>
-        <p class="ce-price">$1,011 <span class="ce-unit">/ton US avg &middot; $900&ndash;950 western</span></p>
-        <div class="ce-changes"><span class="ce-change cc-up">&#9650; +8.5% YoY</span></div>
-        <div class="ce-outlook">30-60 day: Stable to Rising &mdash; Section 232 tariffs holding floor</div>
-        <p class="ce-note">Running $40/ton premium over HRC. Section 232 tariffs limiting import competition and maintaining price floor. Secure rebar commitments before bidding any heavy foundation or bridge scope.</p>
-        <a class="src-link" href="https://www.imarcgroup.com/steel-rebar-pricing-report" target="_blank">IMARC &#8599;</a>
-      </div>
-
-      <div class="ce-item">
-        <p class="ce-name">Diesel &mdash; California <span class="badge badge-amber">Watch</span></p>
-        <p class="ce-price">$6.784 <span class="ce-unit">/gal CA &mdash; $3.94 national</span></p>
-        <div class="ce-changes"><span class="ce-change cc-down">&#9660; &minus;$0.23 WoW relief</span><span class="ce-change cc-up">&#9650; +32.5% YoY</span></div>
-        <div class="ce-outlook">30-60 day: Rising &mdash; inventory depletion + seasonal peak demand</div>
-        <p class="ce-note">First meaningful weekly drop in months — but structural capacity problem remains. 310,000 b/d permanently offline. Projections show CA diesel could reach $8.44/gal by year-end as inventory buffers deplete. Washington State highest in West at $6.78/gal.</p>
-        <a class="src-link" href="https://www.eia.gov/petroleum/gasdiesel/" target="_blank">EIA &#8599;</a>
-        <a class="src-link" href="https://www.thecentersquare.com/california/article_35f4615b-2713-4589-9b15-daba0faa7a8a.html" target="_blank">The Center Square &#8599;</a>
-      </div>
-
+    <div class="pull-quote">
+      <p class="pull-quote-text">"Historical precedent from 2012 and 2015 shows that extended authorization lapses reduced state DOT letting by an average of 15&ndash;20% during the lapse period. Western states with the largest IIJA-funded Q4 letting schedules face the sharpest near-term exposure." <a href="https://www.fhwa.dot.gov" target="_blank" style="font-size:11px;color:var(--ink3);">FHWA &#8599;</a></p>
     </div>
 
-    <div style="background:var(--gold-dim);border:1px solid var(--gold);border-radius:4px;padding:12px 16px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
-      <div>
-        <p style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold);font-family:'Inter',sans-serif;margin-bottom:3px;">Proprietary Index</p>
-        <p style="font-size:13px;font-weight:600;color:var(--ink);font-family:'Inter',sans-serif;">The Build Intel Price Pressure Index (BIPPI)</p>
-        <p style="font-size:12px;color:var(--ink2);font-family:'Source Serif 4',serif;line-height:1.5;">BIPPI-A (Asphalt): <strong>106.8</strong> &nbsp;&middot;&nbsp; BIPPI-C (Concrete): <strong>104.2</strong> &nbsp;&middot;&nbsp; CPI Urban: <strong>102.1</strong> &nbsp;&middot;&nbsp; Base: March 2026 = 100</p>
+    <!-- IIJA SCENARIOS -->
+    <div class="section-rule" style="margin-top:1.5rem;"><div class="srl-thin"></div><span class="srt" style="font-size:11px;color:var(--ink3);">Three Scenarios &mdash; IIJA Reauthorization</span><div class="srl-thin"></div></div>
+
+    <div class="scenario-grid">
+      <div class="scenario-card sc-green">
+        <div class="sc-header">Scenario 1 &mdash; Full Reauthorization</div>
+        <div class="sc-body">
+          <p class="sc-prob">25%</p>
+          <p class="sc-name">Congress passes new multi-year bill by September 30</p>
+          <p class="sc-text">New five-year ~$580B surface transportation package enacted at ~3% above IIJA levels. Western state DOT letting schedules stabilize and accelerate. Construction backlog increases an estimated 8&ndash;12% in 2027. Best case for civil and highway contractors. <a href="https://transportation.house.gov" target="_blank" style="font-size:10px;color:var(--blue);">House T&amp;I &#8599;</a></p>
+          <p class="sc-bottom">&#9650; Best case &mdash; 2027 western construction acceleration</p>
+        </div>
       </div>
-      <a href="bippi.html" style="display:inline-block;background:var(--gold);color:#0f0f0f;font-size:11px;font-weight:700;padding:8px 16px;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;white-space:nowrap;">View Full Index &rarr;</a>
-    </div>
-    <div class="high-impact-box"><strong>CA refinery crisis update:</strong> Phillips 66 Wilmington (140,000 b/d) closed October 2025. Valero Benicia (145,000&ndash;170,000 b/d) accelerated closure to January 31, 2026. Total: 310,000 b/d = 17% of CA refining capacity permanently offline. CA diesel peaked at $7.747/gal on April 9, 2026 — highest ever recorded. Current: $6.784/gal. Study projects prices could reach $8.44/gal by year-end. <a class="src-link" href="https://www.thecentersquare.com/california/article_35f4615b-2713-4589-9b15-daba0faa7a8a.html" target="_blank" style="color:var(--red)">The Center Square &#8599;</a></div>
-
-    <div class="divider"></div>
-
-    <!-- TRUCKING -->
-    <div class="section-rule" style="margin-top:1.5rem"><div class="srl-thin"></div><span class="srt" style="font-size:11px;color:var(--ink3)">Trucking and Freight &mdash; Western US</span><div class="srl-thin"></div></div>
-    <div class="data-list">
-      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">Flatbed &mdash; $2.26&ndash;2.57/mile spot <span class="badge badge-red">+23-30% YoY</span> <a class="src-link" href="https://www.dat.com/blog/flatbed-report-steel-output-rises-to-start-2026-signaling-firmer-flatbed-freight-demand/" target="_blank">DAT &#8599;</a></p><p class="data-detail">Up $0.08 WoW. Load-to-truck ratio at 59.00 — up 5% WoW. Data center construction lanes paying $3.50&ndash;5.00+/mile are pulling flatbed capacity away from standard construction hauls. Negotiate 30-60 day rate locks with carriers now.</p></div></div>
-      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">End dump &mdash; $2.80&ndash;3.40/mile <span class="badge badge-amber">+15-18% YoY</span></p><p class="data-detail">Up 3% WoW. Aggregate demand from data center projects and infrastructure tightening end dump availability in Phoenix, Inland Empire, and Denver. Driver shortage and Roadcheck compliance pressure adding near-term capacity constraints.</p></div></div>
-      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">Belly dump &mdash; $2.90&ndash;3.50/mile <span class="badge badge-amber">+16-20% YoY</span></p><p class="data-detail">Up 4% WoW. Paving season demand in CA and AZ supporting utilization. Combined with rising binder and elevated diesel costs, delivered paving material costs are under compounding pressure.</p></div></div>
-    </div>
-    <div class="alert-box"><strong>Action required:</strong> Data center construction is paying $3.50&ndash;5.00+/mile on specialized lanes — pulling flatbed and dump truck capacity from standard construction hauls across the West. Secure delivery contracts or rate locks now. Expect 5&ndash;10% higher transport costs on western lanes if you wait.</div>
-  </div>
-
-
-  <div class="divider"></div>
-
-  <!-- BIPPI SECTION -->
-  <div class="section-wrap">
-    <div class="section-rule"><div class="srl"></div><span class="srt">The Build Intel Price Pressure Index &mdash; BIPPI</span><div class="srl"></div></div>
-
-    <p class="body-text">The BIPPI measures real-world cost inflation as experienced by western US construction producers &mdash; weighted by actual input cost composition, not a government basket of consumer goods. Two sector-specific indexes are published weekly. Base period: March 2026 = 100. A reading of 106.8 means input costs are 6.8% higher than March 2026.</p>
-
-    <!-- INDEX HERO VALUES -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-bottom:1.25rem;">
-
-      <div style="background:var(--hbg);border-radius:6px;padding:1.25rem 1.5rem;position:relative;overflow:hidden;">
-        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);"></div>
-        <p style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--gold);font-family:'Inter',sans-serif;margin-bottom:4px;">Asphalt Producer Index</p>
-        <p style="font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:#fff;margin-bottom:8px;">BIPPI-A</p>
-        <p style="font-family:'Playfair Display',serif;font-size:52px;font-weight:900;color:var(--gold);line-height:1;margin-bottom:4px;">105.0</p>
-        <p style="font-size:11px;color:#888;font-family:'Inter',sans-serif;margin-bottom:8px;">Base: March 2026 = 100</p>
-        <span style="display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:99px;background:rgba(181,42,28,0.2);color:#ff8080;font-family:'Inter',sans-serif;">&#9650; +5.0% since March 2026</span>
-        <p style="font-size:11px;color:#aaa;font-family:'Inter',sans-serif;margin-top:10px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.1);">CPI Urban same period: <strong style="color:#fff;">+2.1%</strong> &mdash; BIPPI-A running <strong style="color:#fff;">2.4x faster</strong> than CPI</p>
+      <div class="scenario-card sc-amber">
+        <div class="sc-header">Scenario 2 &mdash; Continuing Resolution</div>
+        <div class="sc-body">
+          <p class="sc-prob">60%</p>
+          <p class="sc-name">Short-term CR extends IIJA at current funding levels</p>
+          <p class="sc-text">Most likely outcome. Six-month CR through March 2027 at current levels. State DOTs continue existing work but hesitate on new large multi-year lettings. Uncertainty cost estimated at $1.2 billion in delayed western projects during CR period. <a href="https://www.agc.org/news" target="_blank" style="font-size:10px;color:var(--blue);">AGC &#8599;</a></p>
+          <p class="sc-bottom">&#9654; Manageable &mdash; Q4 2026 bidding slows then recovers</p>
+        </div>
       </div>
-
-      <div style="background:var(--hbg);border-radius:6px;padding:1.25rem 1.5rem;position:relative;overflow:hidden;">
-        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#5b9bd5;"></div>
-        <p style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#5b9bd5;font-family:'Inter',sans-serif;margin-bottom:4px;">Ready-Mix Concrete Producer Index</p>
-        <p style="font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:#fff;margin-bottom:8px;">BIPPI-C</p>
-        <p style="font-family:'Playfair Display',serif;font-size:52px;font-weight:900;color:#5b9bd5;line-height:1;margin-bottom:4px;">104.2</p>
-        <p style="font-size:11px;color:#888;font-family:'Inter',sans-serif;margin-bottom:8px;">Base: March 2026 = 100</p>
-        <span style="display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:99px;background:rgba(181,42,28,0.2);color:#ff8080;font-family:'Inter',sans-serif;">&#9650; +4.2% since March 2026</span>
-        <p style="font-size:11px;color:#aaa;font-family:'Inter',sans-serif;margin-top:10px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.1);">CPI Urban same period: <strong style="color:#fff;">+2.1%</strong> &mdash; BIPPI-C running <strong style="color:#fff;">2.0x faster</strong> than CPI</p>
+      <div class="scenario-card sc-red">
+        <div class="sc-header">Scenario 3 &mdash; Full Lapse</div>
+        <div class="sc-body">
+          <p class="sc-prob">15%</p>
+          <p class="sc-name">Authorization lapses with no Congressional action</p>
+          <p class="sc-text">New federal highway obligations halt. Existing projects continue reimbursement but new contracts freeze. Western DOT lettings disrupted 25&ndash;35% in Q4 2026 and Q1 2027. Estimated $8.5 billion in delayed western spending: CA $2.8B, WA $1.6B, AZ $1.2B leading exposure. <a href="https://www.aashto.org" target="_blank" style="font-size:10px;color:var(--blue);">AASHTO &#8599;</a></p>
+          <p class="sc-bottom">&#9660; Worst case &mdash; new lettings freeze until resolved</p>
+        </div>
       </div>
-
     </div>
 
-    <!-- HISTORICAL TABLE -->
-    <div style="border:1px solid var(--bdr);overflow:hidden;border-radius:4px;margin-bottom:1.25rem;">
-      <table style="width:100%;border-collapse:collapse;font-size:12px;">
+    <!-- STATE TABLE -->
+    <div class="section-rule" style="margin-top:1.5rem;"><div class="srl-thin"></div><span class="srt" style="font-size:11px;color:var(--ink3);">IIJA Impact by Western State</span><div class="srl-thin"></div></div>
+
+    <div class="state-table-wrap">
+      <table class="state-table">
         <thead>
           <tr>
-            <th style="background:var(--hbg);color:var(--gold);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;padding:9px 12px;text-align:left;">Period</th>
-            <th style="background:var(--hbg);color:var(--gold);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;padding:9px 12px;text-align:left;">BIPPI-A (Asphalt)</th>
-            <th style="background:var(--hbg);color:#5b9bd5;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;padding:9px 12px;text-align:left;">BIPPI-C (Concrete)</th>
-            <th style="background:var(--hbg);color:#aaa;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;padding:9px 12px;text-align:left;">CPI Urban</th>
+            <th>State</th>
+            <th>Est. IIJA Total FY22&ndash;26</th>
+            <th>Unobligated (est.)</th>
+            <th>Q4 2026 Lettings at Risk*</th>
+            <th>Risk Level</th>
+            <th>Primary DOT</th>
           </tr>
         </thead>
         <tbody>
-          <tr style="border-bottom:1px solid var(--bdr);background:var(--surf);">
-            <td style="padding:8px 12px;font-family:'Source Serif 4',serif;font-size:12px;color:var(--ink2);">March 2026 (Base)</td>
-            <td style="padding:8px 12px;font-weight:600;color:var(--ink);">100.0</td>
-            <td style="padding:8px 12px;font-weight:600;color:var(--ink);">100.0</td>
-            <td style="padding:8px 12px;color:var(--ink3);">100.0</td>
+          <tr><td>California</td><td>~$41.9B formula <a class="src-link" href="https://dot.ca.gov" target="_blank">Caltrans &#8599;</a></td><td>~$4.2B est.</td><td>~$1.8B est. <a class="src-link" href="https://dot.ca.gov/programs/procurement-and-contracts/bid-results" target="_blank">Caltrans bids &#8599;</a></td><td class="risk-high">High</td><td>Caltrans Districts 1&ndash;12</td></tr>
+          <tr><td>Arizona</td><td>~$5.8B total <a class="src-link" href="https://azdot.gov" target="_blank">ADOT &#8599;</a></td><td>~$1.1B est.</td><td>~$650M est. <a class="src-link" href="https://azdot.gov/business/contracts-and-specifications" target="_blank">ADOT bids &#8599;</a></td><td class="risk-high">High</td><td>ADOT + Colorado River risk</td></tr>
+          <tr><td>Washington</td><td>~$6.2B total <a class="src-link" href="https://wsdot.wa.gov" target="_blank">WSDOT &#8599;</a></td><td>~$1.3B est.</td><td>~$780M est. <a class="src-link" href="https://wsdot.wa.gov/business-wsdot/contracts" target="_blank">WSDOT bids &#8599;</a></td><td class="risk-high">High</td><td>WSDOT &mdash; I-405, SR-520 active</td></tr>
+          <tr><td>Colorado</td><td>~$4.5B total <a class="src-link" href="https://codot.gov" target="_blank">CDOT &#8599;</a></td><td>~$950M est.</td><td>~$540M est. <a class="src-link" href="https://codot.gov/business/bids-awards" target="_blank">CDOT bids &#8599;</a></td><td class="risk-med">Medium</td><td>CDOT &mdash; I-70, I-25 active</td></tr>
+          <tr><td>Utah</td><td>~$3.7B total <a class="src-link" href="https://udot.utah.gov" target="_blank">UDOT &#8599;</a></td><td>~$720M est.</td><td>~$410M est. <a class="src-link" href="https://udot.utah.gov/go/business-industry/contracts" target="_blank">UDOT bids &#8599;</a></td><td class="risk-med">Medium</td><td>UDOT &mdash; $2.8B 2026 program</td></tr>
+          <tr><td>Oregon</td><td>~$4.5B total <a class="src-link" href="https://oregon.gov/odot" target="_blank">ODOT &#8599;</a></td><td>~$680M est.</td><td>~$390M est. <a class="src-link" href="https://oregon.gov/odot/business/pages/current-advertisements.aspx" target="_blank">ODOT bids &#8599;</a></td><td class="risk-med">Medium</td><td>ODOT &mdash; Columbia River, I-5</td></tr>
+          <tr><td>Nevada</td><td>~$2.1B total <a class="src-link" href="https://nevadadot.com" target="_blank">NDOT &#8599;</a></td><td>~$480M est.</td><td>~$320M est. <a class="src-link" href="https://nevadadot.com/doing-business/contracts-and-specifications" target="_blank">NDOT bids &#8599;</a></td><td class="risk-med">Medium</td><td>NDOT + Colorado River risk</td></tr>
+          <tr><td>Idaho</td><td>~$2.1B total <a class="src-link" href="https://itd.idaho.gov" target="_blank">ITD &#8599;</a></td><td>~$450M est.</td><td>~$240M est. <a class="src-link" href="https://itd.idaho.gov/business/contracts" target="_blank">ITD bids &#8599;</a></td><td class="risk-low">Lower</td><td>ITD &mdash; statewide highway</td></tr>
+          <tr><td>Wyoming</td><td>~$2.6B total <a class="src-link" href="https://dot.state.wy.us" target="_blank">WYDOT &#8599;</a></td><td>~$380M est.</td><td>~$210M est. <a class="src-link" href="https://dot.state.wy.us/home/doing_business_wydot/contracting/bid_letting.html" target="_blank">WYDOT bids &#8599;</a></td><td class="risk-low">Lower</td><td>WYDOT &mdash; I-80, I-25 energy corridor</td></tr>
+        </tbody>
+      </table>
+      <p class="caveat">* Q4 2026 letting figures are estimates based on available DOT letting schedules and proportional IIJA obligation data. Pending verification against official FHWA FY2022&ndash;2026 apportionment data. Verify current figures at <a href="https://highways.dot.gov/iija/funding" target="_blank">highways.dot.gov/iija/funding</a> and each state DOT letting calendar before making business decisions.</p>
+    </div>
+
+    <!-- BY PROJECT TYPE -->
+    <div class="section-rule" style="margin-top:1.5rem;"><div class="srl-thin"></div><span class="srt" style="font-size:11px;color:var(--ink3);">Impact by Project Type</span><div class="srl-thin"></div></div>
+
+    <div class="impact-grid">
+      <div class="impact-card">
+        <p class="impact-type">Highway and bridge <span class="badge badge-red">Most exposed</span></p>
+        <p class="impact-title">Formula funding &mdash; highest IIJA dependency</p>
+        <p class="impact-text">Formula highway funding is the largest IIJA stream. Bridge replacement programs in CA, AZ, WA, and CO have active pipelines. Under lapse scenario new bridge contracts freeze first. Under CR scenario large multi-year projects are deferred. <a href="https://highways.dot.gov/infrastructure-investment-and-jobs-act" target="_blank" style="font-size:10px;color:var(--blue);">FHWA &#8599;</a></p>
+      </div>
+      <div class="impact-card">
+        <p class="impact-type">Public transit <span class="badge badge-amber">At risk</span></p>
+        <p class="impact-title">FTA Capital Investment Grants</p>
+        <p class="impact-text">Sound Transit Seattle, RTD Denver, and UTA Salt Lake City have active FTA Capital Investment Grant projects. New grant awards pause under lapse but existing project reimbursements continue under appropriated funds. <a href="https://www.transit.dot.gov/funding/grant-programs/capital-investments" target="_blank" style="font-size:10px;color:var(--blue);">FTA &#8599;</a></p>
+      </div>
+      <div class="impact-card">
+        <p class="impact-type">Water infrastructure <span class="badge badge-red">Double exposure</span></p>
+        <p class="impact-title">Funding risk AND supply risk simultaneously</p>
+        <p class="impact-text">Water infrastructure projects face both IIJA funding uncertainty AND Colorado River supply cuts simultaneously. Bureau of Reclamation water projects in AZ, NV, and CA are uniquely exposed to both deadlines at once. <a href="https://www.usbr.gov" target="_blank" style="font-size:10px;color:var(--blue);">USBR &#8599;</a></p>
+      </div>
+      <div class="impact-card">
+        <p class="impact-type">EV and broadband <span class="badge badge-amber">Already weakened</span></p>
+        <p class="impact-title">$2.3B already rescinded from NEVI</p>
+        <p class="impact-text">$2.3 billion already rescinded from the NEVI EV charging program. Further erosion likely under reauthorization. Lower priority for western construction industry vs highway and water programs. <a href="https://highways.dot.gov/federal-lands-highways/programs/national-electric-vehicle-infrastructure-formula-program" target="_blank" style="font-size:10px;color:var(--blue);">FHWA NEVI &#8599;</a></p>
+      </div>
+    </div>
+
+    <div class="alert-box"><strong>Action for civil and highway contractors:</strong> Bid aggressively on every IIJA-funded DOT letting before September 30. The authorization is active today &mdash; use it. After September 30 new lettings will slow regardless of Congressional outcome while the process plays out. Check your state DOT letting calendar now: <a href="https://dot.ca.gov/programs/procurement-and-contracts/bid-results" target="_blank">Caltrans</a> &middot; <a href="https://azdot.gov/business/contracts-and-specifications" target="_blank">ADOT</a> &middot; <a href="https://wsdot.wa.gov/business-wsdot/contracts" target="_blank">WSDOT</a> &middot; <a href="https://codot.gov/business/bids-awards" target="_blank">CDOT</a> &middot; <a href="https://udot.utah.gov/go/business-industry/contracts" target="_blank">UDOT</a></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- PART 2 — COLORADO RIVER -->
+  <div class="section-wrap">
+    <div class="section-rule"><div class="srl"></div><span class="srt">Part 2 &mdash; The Colorado River Deadline</span><div class="srl"></div></div>
+
+    <p class="lede">Lake Mead is at approximately 1,045 feet &mdash; Tier 1 shortage conditions in effect. Bureau of Reclamation's draft EIS proposes cuts of 760,000 acre-feet to Arizona, 440,000 to California, and 50,000 to Nevada. The Final EIS is expected this summer. Seven-state consensus has not been reached. <a class="src-link" href="https://www.usbr.gov/ColoradoRiverBasin/post2026/index.html" target="_blank">USBR &#8599;</a></p>
+
+    <p class="body-text">The Colorado River has been the lifeblood of western development for a century. The proposed post-2026 operating rules represent the most significant reallocation of western water rights in decades. For the construction industry the stakes are direct &mdash; water availability is no longer just an environmental consideration. In Phoenix, Las Vegas, Tucson, and parts of Southern California it is a gating permit requirement for large construction projects. A data center, semiconductor fab, or large industrial facility that cannot demonstrate adequate water supply cannot get its construction permit approved. <a class="src-link" href="https://www.azwater.gov" target="_blank">ADWR &#8599;</a></p>
+
+    <div class="pull-quote">
+      <p class="pull-quote-text">"A 100MW hyperscale data center requires approximately 1&ndash;3 million gallons of water per day for cooling. In a market where Arizona faces a proposed 760,000 acre-foot Colorado River reduction, the water availability certificate that enables project approval is not guaranteed." <a href="https://cap-az.com" target="_blank" style="font-size:11px;color:var(--ink3);">CAP Arizona &#8599;</a></p>
+    </div>
+
+    <!-- COLORADO RIVER SCENARIOS -->
+    <div class="section-rule" style="margin-top:1.5rem;"><div class="srl-thin"></div><span class="srt" style="font-size:11px;color:var(--ink3);">Three Scenarios &mdash; Colorado River Post-2026</span><div class="srl-thin"></div></div>
+
+    <div class="scenario-grid">
+      <div class="scenario-card sc-green">
+        <div class="sc-header">Scenario 1 &mdash; Negotiated Agreement</div>
+        <div class="sc-body">
+          <p class="sc-prob">~40%</p>
+          <p class="sc-name">Seven-state consensus reached by December 31</p>
+          <p class="sc-text">Basin states reach compromise. Water availability certainty returns to Desert Southwest project pipeline. Large project permitting timelines normalize. Best case for Phoenix, Las Vegas, and Tucson construction markets in 2027. <a href="https://www.usbr.gov/ColoradoRiverBasin/post2026/index.html" target="_blank" style="font-size:10px;color:var(--blue);">USBR &#8599;</a></p>
+          <p class="sc-bottom">&#9650; Best case &mdash; project pipeline certainty restored</p>
+        </div>
+      </div>
+      <div class="scenario-card sc-amber">
+        <div class="sc-header">Scenario 2 &mdash; Federal Imposition</div>
+        <div class="sc-body">
+          <p class="sc-prob">~30%</p>
+          <p class="sc-name">BOR imposes preferred alternative unilaterally</p>
+          <p class="sc-text">Bureau of Reclamation acts without state consensus. Likely litigation from Arizona and California. Construction projects face extended permitting uncertainty during legal challenge period lasting 1&ndash;3 years. <a href="https://www.usbr.gov" target="_blank" style="font-size:10px;color:var(--blue);">USBR &#8599;</a></p>
+          <p class="sc-bottom">&#9654; Creates 1&ndash;3 year litigation-driven uncertainty</p>
+        </div>
+      </div>
+      <div class="scenario-card sc-red">
+        <div class="sc-header">Scenario 3 &mdash; Extended Negotiations</div>
+        <div class="sc-body">
+          <p class="sc-prob">~30%</p>
+          <p class="sc-name">No resolution &mdash; interim rules extended</p>
+          <p class="sc-text">States fail to agree. BOR extends interim operating rules. Prolonged uncertainty hits project financing and permitting hardest. Desert Southwest construction market faces multi-year permitting unpredictability. Data center and semiconductor development most affected. <a href="https://cleantechnica.com/2026/05/16/us-plan-to-allocate-water-from-the-colorado-river-will-severely-impact-california-arizona-nevada/" target="_blank" style="font-size:10px;color:var(--blue);">CleanTechnica &#8599;</a></p>
+          <p class="sc-bottom">&#9660; Worst for Desert Southwest &mdash; years of uncertainty</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATE WATER TABLE -->
+    <div class="section-rule" style="margin-top:1.5rem;"><div class="srl-thin"></div><span class="srt" style="font-size:11px;color:var(--ink3);">Colorado River Impact by State &mdash; Construction Lens</span><div class="srl-thin"></div></div>
+
+    <div class="state-table-wrap">
+      <table class="state-table">
+        <thead>
+          <tr>
+            <th>State</th>
+            <th>Proposed Cut</th>
+            <th>Most Affected Markets</th>
+            <th>Construction Impact</th>
+            <th>Risk</th>
           </tr>
-          <tr style="border-bottom:1px solid var(--bdr);background:var(--bg);">
-            <td style="padding:8px 12px;font-family:'Source Serif 4',serif;font-size:12px;color:var(--ink2);">April 2026</td>
-            <td style="padding:8px 12px;font-weight:600;color:var(--ink);">102.1 <span style="font-size:10px;color:var(--red);">&#9650; +2.1%</span></td>
-            <td style="padding:8px 12px;font-weight:600;color:var(--ink);">101.4 <span style="font-size:10px;color:var(--red);">&#9650; +1.4%</span></td>
-            <td style="padding:8px 12px;color:var(--ink3);">100.7 <span style="font-size:10px;color:var(--red);">&#9650; +0.7%</span></td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--bdr);background:var(--surf);">
-            <td style="padding:8px 12px;font-family:'Source Serif 4',serif;font-size:12px;color:var(--ink2);">May 2026</td>
-            <td style="padding:8px 12px;font-weight:600;color:var(--ink);">104.6 <span style="font-size:10px;color:var(--red);">&#9650; +2.5%</span></td>
-            <td style="padding:8px 12px;font-weight:600;color:var(--ink);">102.8 <span style="font-size:10px;color:var(--red);">&#9650; +1.4%</span></td>
-            <td style="padding:8px 12px;color:var(--ink3);">101.4 <span style="font-size:10px;color:var(--red);">&#9650; +0.7%</span></td>
-          </tr>
-          <tr style="background:rgba(201,168,76,0.06);font-weight:600;">
-            <td style="padding:8px 12px;font-family:'Source Serif 4',serif;font-size:12px;color:var(--ink);">June 2026 &#9733; Current</td>
-            <td style="padding:8px 12px;font-weight:700;color:#8a4e00;">105.0 <span style="font-size:10px;color:var(--red);">&#9650; +2.1%</span></td>
-            <td style="padding:8px 12px;font-weight:700;color:#1a3f72;">104.2 <span style="font-size:10px;color:var(--red);">&#9650; +1.4%</span></td>
-            <td style="padding:8px 12px;color:var(--ink3);">102.1 <span style="font-size:10px;color:var(--red);">&#9650; +0.7%</span></td>
-          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Arizona <a class="src-link" href="https://www.azwater.gov" target="_blank">ADWR &#8599;</a></td><td>&minus;760,000 AF</td><td>Phoenix, Tucson, Scottsdale, Mesa, Chandler, Gilbert</td><td>CAP-dependent cities require ADWR water availability certificates for large projects. Cuts directly constrain certificate issuance for data centers, semiconductor fabs, and large industrial. TSMC water agreements under review. <a href="https://cap-az.com" target="_blank" style="font-size:10px;">CAP &#8599;</a></td><td class="risk-high">Critical</td></tr>
+          <tr><td>California <a class="src-link" href="https://www.mwdh2o.com" target="_blank">MWD &#8599;</a></td><td>&minus;440,000 AF</td><td>SoCal &mdash; MWD service area, IE, San Diego</td><td>MWD has alternative supplies including State Water Project and local storage. Impact is real but more manageable than Arizona. IE data center and industrial projects most exposed. <a href="https://www.mwdh2o.com" target="_blank" style="font-size:10px;">MWD &#8599;</a></td><td class="risk-med">Moderate</td></tr>
+          <tr><td>Nevada <a class="src-link" href="https://www.snwa.com" target="_blank">SNWA &#8599;</a></td><td>&minus;50,000 AF</td><td>Las Vegas metro</td><td>SNWA has aggressively invested in water recycling and alternative supply. Las Vegas is more insulated than Phoenix despite Colorado River dependence. Data center permits face increased scrutiny. <a href="https://www.snwa.com" target="_blank" style="font-size:10px;">SNWA &#8599;</a></td><td class="risk-med">Moderate</td></tr>
+          <tr><td>Utah <a class="src-link" href="https://www.waterrights.utah.gov" target="_blank">Utah DWR &#8599;</a></td><td>Upper Basin &mdash; growth constraints</td><td>Salt Lake City, St. George</td><td>Upper Basin allocation uncertainty affects long-term Wasatch Front growth planning. Near-term project impact lower than Lower Basin states.</td><td class="risk-low">Lower</td></tr>
+          <tr><td>Colorado <a class="src-link" href="https://cwcb.colorado.gov" target="_blank">CWCB &#8599;</a></td><td>Upper Basin &mdash; growth constraints</td><td>Denver, Colorado Springs, Grand Junction</td><td>Western slope water rights most affected. Front Range (Denver) has alternative supplies. Long-term growth planning uncertainty. <a href="https://cwcb.colorado.gov" target="_blank" style="font-size:10px;">CWCB &#8599;</a></td><td class="risk-low">Lower</td></tr>
         </tbody>
       </table>
     </div>
 
-    <!-- METHODOLOGY SUMMARY -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-bottom:1.25rem;">
+    <!-- LAKE STATUS -->
+    <div class="section-rule" style="margin-top:1.5rem;"><div class="srl-thin"></div><span class="srt" style="font-size:11px;color:var(--ink3);">Lake Mead and Lake Powell &mdash; Current Status</span><div class="srl-thin"></div></div>
 
-      <div style="background:var(--surf);border:1px solid var(--bdr);border-radius:4px;overflow:hidden;">
-        <div style="background:var(--hbg);padding:8px 14px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);font-family:'Inter',sans-serif;">BIPPI-A &mdash; Asphalt Producer Weights</div>
-        <div style="padding:12px 14px;">
-          <div style="display:flex;align-items:center;gap:10px;padding:5px 0;border-bottom:1px solid var(--bdr);font-size:12px;">
-            <span style="flex:1;color:var(--ink2);">Asphalt oil binder</span>
-            <div style="width:60px;height:4px;background:var(--surf2);border-radius:99px;overflow:hidden;"><div style="width:100%;height:100%;background:var(--gold);border-radius:99px;"></div></div>
-            <span style="font-weight:700;color:var(--ink);min-width:30px;text-align:right;">40%</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:10px;padding:5px 0;border-bottom:1px solid var(--bdr);font-size:12px;">
-            <span style="flex:1;color:var(--ink2);">Diesel fuel (CA)</span>
-            <div style="width:60px;height:4px;background:var(--surf2);border-radius:99px;overflow:hidden;"><div style="width:25%;height:100%;background:var(--gold);border-radius:99px;"></div></div>
-            <span style="font-weight:700;color:var(--ink);min-width:30px;text-align:right;">10%</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:10px;padding:5px 0;border-bottom:1px solid var(--bdr);font-size:12px;">
-            <span style="flex:1;color:var(--ink2);">Aggregates</span>
-            <div style="width:60px;height:4px;background:var(--surf2);border-radius:99px;overflow:hidden;"><div style="width:62%;height:100%;background:var(--gold);border-radius:99px;"></div></div>
-            <span style="font-weight:700;color:var(--ink);min-width:30px;text-align:right;">25%</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:10px;padding:5px 0;border-bottom:1px solid var(--bdr);font-size:12px;">
-            <span style="flex:1;color:var(--ink2);">Labor</span>
-            <div style="width:60px;height:4px;background:var(--surf2);border-radius:99px;overflow:hidden;"><div style="width:37%;height:100%;background:var(--gold);border-radius:99px;"></div></div>
-            <span style="font-weight:700;color:var(--ink);min-width:30px;text-align:right;">15%</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:10px;padding:5px 0;font-size:12px;">
-            <span style="flex:1;color:var(--ink2);">Energy (natural gas + electricity)</span>
-            <div style="width:60px;height:4px;background:var(--surf2);border-radius:99px;overflow:hidden;"><div style="width:25%;height:100%;background:var(--gold);border-radius:99px;"></div></div>
-            <span style="font-weight:700;color:var(--ink);min-width:30px;text-align:right;">10%</span>
-          </div>
+    <div class="data-list">
+      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">Lake Mead &mdash; ~1,045 feet elevation <span class="badge badge-red">Tier 1 Shortage</span> <a class="src-link" href="https://www.usbr.gov/lc/region/g4000/riverops" target="_blank">USBR Lower CO &#8599;</a></p><p class="data-detail">Critically low. Tier 1 shortage conditions in effect. Forecasts through 2027 project continued pressure given current inflow conditions. No meaningful recovery expected without above-average snowpack. Each additional Tier level triggers mandatory additional cuts to Lower Basin allocations.</p></div></div>
+      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">Lake Powell &mdash; Upper Basin reservoir stressed <a class="src-link" href="https://www.usbr.gov/uc/water/crsp/cs/gcd.html" target="_blank">USBR Glen Canyon &#8599;</a></p><p class="data-detail">Upper Basin storage stressed. Glen Canyon Dam power generation affected at low elevations. Colorado, Utah, Wyoming, and New Mexico face increasing pressure to reduce Upper Basin consumption to protect minimum pool levels.</p></div></div>
+      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">Lower Basin bridge proposal &mdash; AZ, CA, NV joint submission <a class="src-link" href="https://www.usbr.gov/ColoradoRiverBasin/post2026/index.html" target="_blank">USBR Post-2026 &#8599;</a></p><p class="data-detail">Lower Basin states submitted a joint bridge proposal for 2026&ndash;2028 operating rules. No full seven-state consensus reached as of late June 2026. BOR Final EIS expected summer 2026 &mdash; watch for publication date announcement as it triggers the formal comment and decision timeline.</p></div></div>
+    </div>
+
+    <div class="high-impact-box"><strong>HIGH IMPACT &mdash; Water as a construction permit gating factor in Arizona:</strong> Phoenix, Scottsdale, Mesa, Chandler, and Gilbert require ADWR water availability certificates before issuing construction permits for large projects. A 760,000 acre-foot reduction in Arizona's CAP allocation directly reduces the water supply backing these certificates. This is now a pre-bid due diligence item for any Desert Southwest project in 2027 &mdash; not an environmental footnote. Verify certificate availability before pricing. <a class="src-link" href="https://www.azwater.gov" target="_blank">ADWR &#8599;</a> <a class="src-link" href="https://cap-az.com" target="_blank">CAP Arizona &#8599;</a> <a class="src-link" href="https://www.usbr.gov/ColoradoRiverBasin/post2026/index.html" target="_blank">USBR &#8599;</a></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- PART 3 — COMBINED -->
+  <div class="section-wrap">
+    <div class="section-rule"><div class="srl"></div><span class="srt">Part 3 &mdash; The Combined Impact</span><div class="srl"></div></div>
+
+    <p class="lede">The Desert Southwest is the only western market facing acute exposure to both deadlines simultaneously. Arizona sits at the intersection of the largest IIJA-funded DOT letting schedule in the desert region AND the largest proposed Colorado River water cut of any state.</p>
+
+    <p class="body-text">The combined scenario analysis reveals a clear geographic risk gradient. The Desert Southwest &mdash; particularly Arizona &mdash; carries compounding exposure no other western market faces. California is highly IIJA-dependent but has more water supply flexibility through MWD. <a class="src-link" href="https://www.mwdh2o.com" target="_blank">MWD &#8599;</a> Washington and Oregon face IIJA risk but are largely insulated from Colorado River water concerns. Wyoming and Idaho carry less IIJA exposure and no Colorado River dependency.</p>
+
+    <div class="scenario-grid">
+      <div class="scenario-card sc-green">
+        <div class="sc-header">Best Case &mdash; Both Resolve Favorably</div>
+        <div class="sc-body">
+          <p class="sc-prob">~10%</p>
+          <p class="sc-name">Full IIJA reauthorization + negotiated Colorado River agreement</p>
+          <p class="sc-text">Multi-year federal highway funding certainty. Water permits normalize across Desert Southwest. 2027 western construction spending accelerates 8&ndash;12% above current projections. Materials demand increases across all five regions. Position supply chains now for this scenario. <a href="https://www.artba.org" target="_blank" style="font-size:10px;color:var(--blue);">ARTBA &#8599;</a></p>
+          <p class="sc-bottom">&#9650; 2027 western construction boom scenario</p>
         </div>
       </div>
-
-      <div style="background:var(--surf);border:1px solid var(--bdr);border-radius:4px;overflow:hidden;">
-        <div style="background:var(--hbg);padding:8px 14px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#5b9bd5;font-family:'Inter',sans-serif;">BIPPI-C &mdash; Ready-Mix Concrete Producer Weights</div>
-        <div style="padding:12px 14px;">
-          <div style="display:flex;align-items:center;gap:10px;padding:5px 0;border-bottom:1px solid var(--bdr);font-size:12px;">
-            <span style="flex:1;color:var(--ink2);">Cement</span>
-            <div style="width:60px;height:4px;background:var(--surf2);border-radius:99px;overflow:hidden;"><div style="width:100%;height:100%;background:#5b9bd5;border-radius:99px;"></div></div>
-            <span style="font-weight:700;color:var(--ink);min-width:30px;text-align:right;">35%</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:10px;padding:5px 0;border-bottom:1px solid var(--bdr);font-size:12px;">
-            <span style="flex:1;color:var(--ink2);">Aggregates</span>
-            <div style="width:60px;height:4px;background:var(--surf2);border-radius:99px;overflow:hidden;"><div style="width:71%;height:100%;background:#5b9bd5;border-radius:99px;"></div></div>
-            <span style="font-weight:700;color:var(--ink);min-width:30px;text-align:right;">25%</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:10px;padding:5px 0;border-bottom:1px solid var(--bdr);font-size:12px;">
-            <span style="flex:1;color:var(--ink2);">Labor</span>
-            <div style="width:60px;height:4px;background:var(--surf2);border-radius:99px;overflow:hidden;"><div style="width:57%;height:100%;background:#5b9bd5;border-radius:99px;"></div></div>
-            <span style="font-weight:700;color:var(--ink);min-width:30px;text-align:right;">20%</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:10px;padding:5px 0;border-bottom:1px solid var(--bdr);font-size:12px;">
-            <span style="flex:1;color:var(--ink2);">Diesel fuel (CA)</span>
-            <div style="width:60px;height:4px;background:var(--surf2);border-radius:99px;overflow:hidden;"><div style="width:43%;height:100%;background:#5b9bd5;border-radius:99px;"></div></div>
-            <span style="font-weight:700;color:var(--ink);min-width:30px;text-align:right;">15%</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:10px;padding:5px 0;font-size:12px;">
-            <span style="flex:1;color:var(--ink2);">Water / energy</span>
-            <div style="width:60px;height:4px;background:var(--surf2);border-radius:99px;overflow:hidden;"><div style="width:14%;height:100%;background:#5b9bd5;border-radius:99px;"></div></div>
-            <span style="font-weight:700;color:var(--ink);min-width:30px;text-align:right;">5%</span>
-          </div>
+      <div class="scenario-card sc-amber">
+        <div class="sc-header">Base Case &mdash; CR + Partial Water Deal</div>
+        <div class="sc-body">
+          <p class="sc-prob">~45%</p>
+          <p class="sc-name">Short-term CR for IIJA + Lower Basin bridge agreement</p>
+          <p class="sc-text">Manageable uncertainty. Q4 2026 bidding slows temporarily then recovers. Desert Southwest water permits face increased scrutiny but do not freeze. 2027 spending flat to slightly down vs 2026 before recovering H2 2027. Plan conservatively for Q1 2027. <a href="https://www.usbr.gov/ColoradoRiverBasin/post2026/index.html" target="_blank" style="font-size:10px;color:var(--blue);">USBR &#8599;</a></p>
+          <p class="sc-bottom">&#9654; Most likely &mdash; cautious Q1 2027 then recovery</p>
         </div>
       </div>
-
+      <div class="scenario-card sc-red">
+        <div class="sc-header">Worst Case &mdash; Both Unresolved</div>
+        <div class="sc-body">
+          <p class="sc-prob">~10%</p>
+          <p class="sc-name">IIJA lapses + federal imposition + litigation</p>
+          <p class="sc-text">New federal highway obligations freeze. Water permit litigation creates multi-year uncertainty in Desert Southwest. Estimated $8.5B in deferred western construction spending in 2027. Materials demand drops sharply. Civil, highway, and Desert Southwest contractors face simultaneous backlog erosion. <a href="https://www.aashto.org" target="_blank" style="font-size:10px;color:var(--blue);">AASHTO &#8599;</a></p>
+          <p class="sc-bottom">&#9660; Significant 2027 western market contraction</p>
+        </div>
+      </div>
     </div>
 
-    <!-- CPI COMPARISON -->
-    <div style="background:var(--surf);border:1px solid var(--bdr);border-radius:4px;padding:1.25rem 1.5rem;margin-bottom:1rem;">
-      <p style="font-size:12px;font-weight:600;color:var(--ink);font-family:'Inter',sans-serif;margin-bottom:10px;">Why BIPPI differs from CPI &mdash; the methodology gap</p>
-      <p class="body-text" style="margin-bottom:8px;">The federal government reported 2.1% inflation over the past three months. An asphalt producer in California experienced 6.8% input cost inflation over the same period. A ready-mix concrete producer experienced 4.2%. That gap exists because CPI tracks consumer goods and applies hedonic quality adjustments, substitution bias, and owner&rsquo;s equivalent rent &mdash; none of which reflect what you actually pay for diesel, binder, aggregates, and labor.</p>
-      <p class="body-text" style="margin-bottom:0;">BIPPI tracks what you actually pay. No adjustments. No substitutions. Every data point sourced from BLS, EIA, USGS, and Caltrans &mdash; the same agencies that supply data to the Federal Reserve. <a href="bippi_methodology.html" style="color:var(--blue);font-weight:600;">Full methodology and source documentation &rarr;</a></p>
-    </div>
+    <!-- REGIONAL NET IMPACT -->
+    <div class="section-rule" style="margin-top:1.5rem;"><div class="srl-thin"></div><span class="srt" style="font-size:11px;color:var(--ink3);">Net Combined Impact by Western Region</span><div class="srl-thin"></div></div>
 
-    <div style="display:flex;gap:8px;flex-wrap:wrap;">
-      <a href="bippi.html" style="display:inline-block;background:var(--gold);color:#0f0f0f;font-size:11px;font-weight:700;padding:8px 18px;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-radius:2px;">View Full BIPPI Tracker &rarr;</a>
-      <a href="bippi_methodology.html" style="display:inline-block;background:var(--surf);border:1px solid var(--bdr);color:var(--ink);font-size:11px;font-weight:600;padding:8px 18px;text-decoration:none;letter-spacing:0.04em;border-radius:2px;">How It&rsquo;s Calculated &rarr;</a>
-    </div>
-
-  </div>
-  <div class="divider"></div>
-
-  <!-- LABOR -->
-  <div class="section-wrap">
-    <div class="section-rule"><div class="srl"></div><span class="srt">Labor Market Update</span><div class="srl"></div></div>
-    <div class="data-list">
-      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">Total compensation &mdash; $50.93/hour <span class="badge badge-red">Rising</span> <a class="src-link" href="https://www.amtec.us.com/blog/construction-workforce-report" target="_blank">AMTEC &#8599;</a></p><p class="data-detail">$35.47/hr wages + $15.46/hr benefits = $50.93/hr true cost. Wage component up 3.1% YoY. Western markets running above national average in CA and AZ. The $41.20/hr BLS figure is wages only — your true labor cost is significantly higher when benefits and burden are included.</p></div></div>
-      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">Construction labor shortage &mdash; 430,000 workers needed <span class="badge badge-red">Critical</span> <a class="src-link" href="https://quarrydogs.com/blogs/news/construction-and-quarry-trends-heading-into-2026" target="_blank">QuarryDogs &#8599;</a></p><p class="data-detail">Shortage projected to hit 430,000 workers in 2026. Tightest trades: equipment operators, concrete finishers, and steel erectors in Phoenix, Las Vegas, and Denver. TSMC Arizona alone sent 1,000+ engineers back to Taiwan for training — signaling intense competition for technical trades across the Desert Southwest.</p></div></div>
-      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">Immigration enforcement &mdash; CA and AZ workforce impact <a class="src-link" href="https://tspasemiconductor.substack.com/p/tsmcs-arizona-plant-has-pressed-the" target="_blank">TSP &#8599;</a></p><p class="data-detail">Increased I-9 audits in CA and AZ reducing available workforce. Contractors reporting 10&ndash;15% labor force uncertainty. Compounding existing skilled trade shortages in open-shop markets.</p></div></div>
-    </div>
-    <div class="alert-box"><strong>Takeaway:</strong> Your true labor cost is $50.93/hour — not the $41.20 BLS wage figure. Build that number into every bid. For Q3&ndash;Q4 projects in CA, AZ, or NV secure crews now with signed agreements and retention bonuses. The market is not loosening.</div>
-  </div>
-
-  <div class="divider"></div>
-
-  <!-- PIPELINE -->
-  <div class="section-wrap">
-    <div class="section-rule"><div class="srl"></div><span class="srt">Project Pipeline &mdash; What's Moving</span><div class="srl"></div></div>
-    <div class="pipeline-grid">
-      <div class="pipeline-card"><p class="pipeline-name">Data centers / chip factories <span class="badge badge-amber">Dominant demand driver</span></p><p class="pipeline-detail">TSMC Arizona second fab completed April 2026. Third fab announced. $165B total investment. Materials per 100MW facility: 40,000&ndash;60,000 tons crushed stone, 80,000&ndash;120,000 CY concrete, 10,000&ndash;20,000 tons steel. Arizona mega-project pipeline exceeds $200B including semiconductor supplier ecosystem.</p><a class="src-link" href="https://www.blackridgeresearch.com/project-profiles/tsmc-arizona-fab-united-states-us-details-cost-expansion-latest-update" target="_blank">Black Ridge &#8599;</a> <a class="src-link" href="https://www.weforum.org/stories/2025/12/securing-data-centre-materials/" target="_blank">WEF &#8599;</a></div>
-      <div class="pipeline-card"><p class="pipeline-name">Highway / freeway <span class="badge badge-red">IIJA cliff watch</span></p><p class="pipeline-detail">IIJA provides $350B for federal highway programs FY2022&ndash;2026. Authorization expires September 30, 2026. $2.3B already rescinded from NEVI program. Congress must act by September 30 to avoid funding cliff. Monitor closely — this affects every western state DOT letting schedule.</p><a class="src-link" href="https://fundinglandscape.com/answers/infrastructure-iija-funding-2026" target="_blank">Funding Landscape &#8599;</a></div>
-      <div class="pipeline-card"><p class="pipeline-name">Water treatment <span class="badge badge-green">Active awards</span></p><p class="pipeline-detail">IIJA providing $550B total through FY2026 with water infrastructure a priority. Bureau of Reclamation awards ongoing. Colorado River post-2026 uncertainty driving urgency around water infrastructure investment in AZ, NV, and CO.</p><a class="src-link" href="https://www.usbr.gov/ColoradoRiverBasin/post2026/index.html" target="_blank">USBR &#8599;</a></div>
-      <div class="pipeline-card"><p class="pipeline-name">Housing <span class="badge badge-red">Slowing</span></p><p class="pipeline-detail">May 2026 permits: 1,176,000 SAAR — down 15.4% MoM from April. Single-family starts 882,000 (down 1.9%). SoCal tracking below historical averages. Sun Belt metros comparatively stronger but showing moderation from 2024&ndash;2025 peaks.</p><a class="src-link" href="https://www.census.gov/construction/nrc/current/index.html" target="_blank">Census &#8599;</a></div>
-      <div class="pipeline-card"><p class="pipeline-name">Wildfire rebuilding <span class="badge badge-green">Accelerating</span></p><p class="pipeline-detail">LA Basin wildfire reconstruction activity beginning to accelerate. Adding residential and infrastructure demand to an already supply-constrained SoCal market. Ready-mix and aggregate suppliers in the region watching this closely.</p></div>
-      <div class="pipeline-card"><p class="pipeline-name">Military and FAA <span class="badge badge-green">Ongoing</span></p><p class="pipeline-detail">San Diego military construction active. WSDOT Contract XE3715 awarded May 5, 2026 for $6,414,000 to Central Washington Asphalt — a concrete example of active letting activity in the Pacific Northwest.</p><a class="src-link" href="https://wsdot.wa.gov/business-wsdot/contracts/about-public-works-contracts/bid-opening-results/bid-results-archive" target="_blank">WSDOT &#8599;</a></div>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-
-  <!-- WATER WATCH -->
-  <div class="section-wrap">
-    <div class="section-rule"><div class="srl"></div><span class="srt">Water Watch &mdash; Western US</span><div class="srl"></div></div>
-    <div class="high-impact-box"><strong>Colorado River — December 31, 2026 deadline:</strong> Bureau of Reclamation draft EIS released January 9, 2026. Proposed cuts: Arizona &minus;760,000 acre-feet, California &minus;440,000 acre-feet, Nevada &minus;50,000 acre-feet. Final EIS expected later this year with December 31, 2026 implementation. Factor water availability into site selection and permitting timelines for any project starting in 2027. <a class="src-link" href="https://cleantechnica.com/2026/05/16/us-plan-to-allocate-water-from-the-colorado-river-will-severely-impact-california-arizona-nevada/" target="_blank" style="color:var(--red)">CleanTechnica &#8599;</a> <a class="src-link" href="https://www.usbr.gov/ColoradoRiverBasin/post2026/index.html" target="_blank" style="color:var(--red)">USBR &#8599;</a></div>
-    <div class="water-grid">
-      <div class="water-card"><p class="water-city">Phoenix</p><p class="water-status">Facing &minus;760,000 acre-foot state reduction. Data center and semiconductor projects requiring water-use agreements. TSMC navigating active constraints.</p></div>
-      <div class="water-card"><p class="water-city">Las Vegas</p><p class="water-status">Nevada facing &minus;50,000 acre-foot reduction. SNWA managing allocations. Large industrial site selection increasingly water-constrained.</p></div>
-      <div class="water-card"><p class="water-city">Denver</p><p class="water-status">Colorado River negotiation participant. Western slope water rights affecting project feasibility in western CO.</p></div>
-      <div class="water-card"><p class="water-city">Salt Lake City</p><p class="water-status">Data center projects facing water-use scrutiny at local approval level alongside community opposition.</p></div>
-      <div class="water-card"><p class="water-city">Southern CA</p><p class="water-status">California facing &minus;440,000 acre-foot reduction. Largest allocation cut of any state. Factor into any large project starting in 2027.</p></div>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <p class="impact-type">Desert Southwest <span class="badge badge-red">Highest risk</span></p>
+        <p class="impact-title">Both deadlines hit simultaneously</p>
+        <p class="impact-text">Phoenix, Las Vegas, and Tucson face IIJA highway funding risk AND Colorado River water cuts simultaneously. Arizona's &minus;760,000 AF reduction is the largest of any state and directly affects construction permit issuance. TSMC water agreements, data center permits, and ADOT highway lettings all at risk in the same window. <a href="https://azdot.gov" target="_blank" style="font-size:10px;color:var(--blue);">ADOT &#8599;</a> <a href="https://www.azwater.gov" target="_blank" style="font-size:10px;color:var(--blue);">ADWR &#8599;</a></p>
+      </div>
+      <div class="impact-card">
+        <p class="impact-type">Southern California <span class="badge badge-amber">High IIJA, managed water</span></p>
+        <p class="impact-title">$41.9B IIJA exposure, MWD buffer on water</p>
+        <p class="impact-text">California's $41.9B IIJA total makes Caltrans the most IIJA-dependent DOT in the West. Colorado River &minus;440,000 AF cut is significant but MWD has alternative supply sources buffering immediate construction impact. Caltrans Q4 letting schedule is the primary watch item. <a href="https://dot.ca.gov/programs/procurement-and-contracts/bid-results" target="_blank" style="font-size:10px;color:var(--blue);">Caltrans bids &#8599;</a></p>
+      </div>
+      <div class="impact-card">
+        <p class="impact-type">Mountain West <span class="badge badge-amber">IIJA exposure, water insulated</span></p>
+        <p class="impact-title">CDOT, UDOT, ITD, WYDOT all at risk</p>
+        <p class="impact-text">Four active state DOT letting schedules dependent on IIJA funding. Colorado River Upper Basin uncertainty affects long-term planning but near-term project impact is lower. Denver and SLC have alternative water sources. <a href="https://codot.gov/business/bids-awards" target="_blank" style="font-size:10px;color:var(--blue);">CDOT &#8599;</a> <a href="https://udot.utah.gov" target="_blank" style="font-size:10px;color:var(--blue);">UDOT &#8599;</a></p>
+      </div>
+      <div class="impact-card">
+        <p class="impact-type">Pacific Northwest <span class="badge badge-green">IIJA only &mdash; water insulated</span></p>
+        <p class="impact-title">Most insulated market from combined risk</p>
+        <p class="impact-text">WSDOT and ODOT are IIJA-dependent for highway and bridge programs but the Pacific Northwest has zero Colorado River exposure. Water is abundant and not a permit gating factor. Monitor IIJA only &mdash; one risk not two. <a href="https://wsdot.wa.gov/business-wsdot/contracts" target="_blank" style="font-size:10px;color:var(--blue);">WSDOT &#8599;</a> <a href="https://oregon.gov/odot/business/pages/current-advertisements.aspx" target="_blank" style="font-size:10px;color:var(--blue);">ODOT &#8599;</a></p>
+      </div>
+      <div class="impact-card">
+        <p class="impact-type">Northern California <span class="badge badge-amber">Caltrans IIJA risk primary</span></p>
+        <p class="impact-title">Shares California IIJA exposure, secondary water risk</p>
+        <p class="impact-text">NorCal shares California's $41.9B IIJA exposure through Caltrans. Colorado River &minus;440,000 AF reduction hits MWD's SoCal allocation more than NorCal's State Water Project supply. Bay Area and Sacramento face IIJA risk primarily. <a href="https://dot.ca.gov/programs/procurement-and-contracts/bid-results" target="_blank" style="font-size:10px;color:var(--blue);">Caltrans &#8599;</a></p>
+      </div>
     </div>
   </div>
 
   <div class="divider"></div>
 
-  <!-- REGULATORY -->
-  <div class="section-wrap">
-    <div class="section-rule"><div class="srl"></div><span class="srt">Regulatory Radar</span><div class="srl"></div></div>
-    <div class="iija-box" style="margin-bottom:10px">
-      <p class="iija-label">&#9888; September 30, 2026 &mdash; 101 days &mdash; IIJA reauthorization deadline</p>
-      <p class="iija-text">The single most important regulatory date in western construction this year. Current IIJA authorization expires September 30. Without reauthorization, federal highway funding stops and state DOT letting schedules are disrupted. <strong>Monitor Congressional action weekly starting now.</strong> <a class="src-link" href="https://www.jpcengineering.com/jpc-blog/the-2026-infrastructure-funding-cliff-what-happens-when-the-iija-expires" target="_blank" style="color:var(--red)">JPC Engineering &#8599;</a></p>
-    </div>
-    <div class="data-list">
-      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">Colorado River Final EIS &mdash; December 31, 2026 implementation <span class="badge badge-red">Deadline</span></p><p class="data-detail">Comment period closed March 2, 2026. Final EIS expected later this year. Implementation deadline December 31, 2026. Proposed cuts of 760,000 acre-feet to Arizona and 440,000 acre-feet to California will affect project feasibility in Phoenix, Las Vegas, and SoCal starting 2027.</p></div></div>
-      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">Caltrans Standard Specifications &mdash; digital only <a class="src-link" href="https://dot.ca.gov" target="_blank">Caltrans &#8599;</a></p><p class="data-detail">Caltrans 2021 Edition Standard Specifications now digital-only. Hard copies no longer available. Ensure your estimating and field teams are accessing the digital version.</p></div></div>
-      <div class="data-row"><div class="data-dot"></div><div class="data-body"><p class="data-label">FHWA competitive grants &mdash; monitor for upcoming cycles <a class="src-link" href="https://highways.dot.gov/infrastructure-investment-and-jobs-act" target="_blank">FHWA &#8599;</a></p><p class="data-detail">IIJA funding continuing to flow through FY2026. Monitor FHWA competitive grant announcements for upcoming opportunities before the September 30 authorization expiration.</p></div></div>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-
-  <!-- WEST REGION -->
-  <div class="section-wrap">
-    <div class="section-rule"><div class="srl"></div><span class="srt">West Region Spotlight</span><div class="srl"></div></div>
-
-    <div class="sub-region">
-      <p class="sub-region-name">Southern California <span class="sub-region-priority">Priority sub-region</span></p>
-      <p class="sub-region-dollar">Caltrans SoCal letting active weekly &middot; Ready-mix prices elevated in SoCal &middot; Tariff cost pressure on cement imports &middot; Wildfire rebuilding accelerating</p>
-      <p class="sub-region-text">SoCal carries compounding pressure this week. The diesel relief this week — down to $6.784/gal from $7.018 last week — is welcome but the structural refinery problem is unchanged. Ready-mix pricing in SoCal is running $175&ndash;200/CY driven by the 25% tariff on Canadian and Mexican cement imports — a cost pressure story, not a supply shortage. Western US cement supply is adequate. The real squeeze is margin compression from input cost inflation hitting ready-mix producers. Wildfire rebuilding is beginning to accelerate in the LA Basin, adding residential and infrastructure demand on top of an already tight supply chain. Inland Empire industrial construction remains strong. San Diego military pipeline active. Data center development facing opposition in multiple jurisdictions. Any contractor working in SoCal right now is navigating the tightest cost environment in the western US.</p>
-      <div style="margin-top:8px"><a class="src-link" href="https://dot.ca.gov/programs/procurement-and-contracts/bid-results" target="_blank">Caltrans Bid Results &#8599;</a></div>
-    </div>
-
-    <div class="sub-region">
-      <p class="sub-region-name">Northern California (Bay Area, Sacramento, Central Valley)</p>
-      <p class="sub-region-dollar">Ready-mix at premium $200&ndash;225/CY &middot; Caltrans NorCal letting active &middot; Tech infrastructure ongoing</p>
-      <p class="sub-region-text">Bay Area ready-mix is running $200&ndash;225/CY — the highest in the West — driven by tariff cost pressure on cement imports, elevated transport costs from the Valero Benicia closure, and California's environmental compliance costs for cement production. Supply is adequate — this is a pricing story. Tech infrastructure and data center projects continuing despite power grid constraints in some Bay Area jurisdictions. Sacramento Valley and Central Valley more stable on pricing. Water infrastructure investments ongoing with IIJA funding.</p>
-    </div>
-
-    <div class="sub-region">
-      <p class="sub-region-name">Desert Southwest (Phoenix, Las Vegas, Tucson, Albuquerque)</p>
-      <p class="sub-region-dollar">TSMC Arizona $165B total investment &middot; Arizona mega-project pipeline exceeds $200B &middot; ADOT letting active</p>
-      <p class="sub-region-text">TSMC second fab completed April 2026, third fab announced. The $165B total TSMC investment is anchoring a broader semiconductor supplier ecosystem that the state estimates exceeds $200B in total project value. This is the single most materials-intensive construction market in the western US right now. Water constraints are a real go/no-go factor — Arizona faces proposed cuts of 760,000 acre-feet. Labor is the other constraint — TSMC alone sent 1,000+ engineers to Taiwan for training, reflecting how tight technical trades are in this market. Ready-mix at $155&ndash;175/CY remains the most affordable in the West but availability is tightening.</p>
-      <div style="margin-top:8px"><a class="src-link" href="https://www.blackridgeresearch.com/project-profiles/tsmc-arizona-fab-united-states-us-details-cost-expansion-latest-update" target="_blank">TSMC Arizona &#8599;</a></div>
-    </div>
-
-    <div class="sub-region">
-      <p class="sub-region-name">Mountain West (Denver, Salt Lake City, Boise, Colorado Springs)</p>
-      <p class="sub-region-dollar">CDOT and UDOT letting schedules active &middot; Data center construction increasing in Denver &middot; Housing moderating</p>
-      <p class="sub-region-text">Denver data center pipeline growing as the Mountain West becomes an alternative to water-constrained Desert Southwest markets. Transit and highway infrastructure ongoing with IIJA funding. Housing construction moderating from 2024&ndash;2025 peaks. Aggregate supply generally adequate but transport distances to urban markets increasing delivered costs. Colorado faces Colorado River allocation impacts beginning 2027.</p>
-    </div>
-
-    <div class="sub-region">
-      <p class="sub-region-name">Pacific Northwest (Seattle, Portland, Spokane)</p>
-      <p class="sub-region-dollar">WSDOT Contract XE3715 — $6,414,000 awarded May 5, 2026 &middot; Clark County aggregate crisis emerging</p>
-      <p class="sub-region-text">The Pacific Northwest has a story developing that deserves attention: Clark County, Washington has only 21 years of aggregate reserves remaining, and permitting restrictions are making it difficult to develop new quarry sites. Seattle's booming data center and tech infrastructure market is adding significant aggregate demand on top of an already constrained supply chain. WSDOT awarded Contract XE3715 to Central Washington Asphalt for $6,414,000 on May 5 — active letting continuing. Ready-mix running $190&ndash;210/CY. Washington State diesel at $6.78/gallon — highest in the West.</p>
-      <div style="margin-top:8px"><a class="src-link" href="https://www.pitandquarry.com/washingtons-rising-aggregate-supply-crisis/" target="_blank">Pit &amp; Quarry &#8599;</a> <a class="src-link" href="https://wsdot.wa.gov/business-wsdot/contracts/about-public-works-accounts/bid-opening-results/bid-results-archive" target="_blank">WSDOT &#8599;</a></div>
-    </div>
-
-    <div class="sub-region">
-      <p class="sub-region-name">Intermountain (Wyoming, Idaho outside Boise, Montana, Nevada outside Las Vegas)</p>
-      <p class="sub-region-dollar">Energy infrastructure and federal highway contracts providing steady pipeline</p>
-      <p class="sub-region-text">Energy infrastructure and mining construction providing primary pipeline. Transmission and renewable energy projects active across Wyoming and Montana. Highway construction at seasonal peak. Water availability generally adequate but isolated constraints in Nevada. Federal highway contracts available via state DOTs. Labor comparatively more available than coastal markets but tightening as Mountain West projects pull from the same regional pool.</p>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-
-  <!-- TAKEAWAYS -->
+  <!-- TOP TAKEAWAYS -->
   <div class="section-wrap">
     <div class="section-rule"><div class="srl"></div><span class="srt">Week in Review &mdash; Top 3 Takeaways</span><div class="srl"></div></div>
     <div class="takeaway-list">
       <div class="takeaway-item">
         <div class="t-num">1</div>
         <div class="t-body">
-          <p class="t-text">California diesel dropped to $6.784/gallon this week — down from $7.018 last week and off the April 9 all-time high of $7.747/gallon. That is real relief. Use this window. The structural problem is unchanged: 310,000 barrels per day of refining capacity is permanently offline and projections show CA diesel could hit $8.44/gallon by year-end as inventory buffers deplete in Q3-Q4. The YoY number tells the real story: CA diesel is up 32.5% from a year ago. This week's dip is the time to add fuel escalation clauses to open contracts and lock in fuel hedges — not a signal that the crisis is over.</p>
-          <div class="t-sources"><a class="src-link" href="https://www.eia.gov/petroleum/gasdiesel/" target="_blank">EIA &#8599;</a><a class="src-link" href="https://www.thecentersquare.com/california/article_35f4615b-2713-4589-9b15-daba0faa7a8a.html" target="_blank">The Center Square &#8599;</a></div>
+          <p class="t-text">The most likely IIJA outcome is a Continuing Resolution &mdash; not a lapse, not full reauthorization. But a CR is not a green light. State DOTs hesitate to let large multi-year contracts when their authorization expires in weeks. Civil and highway contractors should bid every IIJA-funded DOT letting before September 30. Check your state DOT calendar today. An estimated $5.4 billion in western state Q4 2026 lettings are IIJA-funded and on the clock.</p>
+          <div class="t-sources">
+            <a class="src-link" href="https://highways.dot.gov/infrastructure-investment-and-jobs-act" target="_blank">FHWA &#8599;</a>
+            <a class="src-link" href="https://www.artba.org/advocacy" target="_blank">ARTBA &#8599;</a>
+            <a class="src-link" href="https://www.aashto.org" target="_blank">AASHTO &#8599;</a>
+            <a class="src-link" href="https://fundinglandscape.com/answers/infrastructure-iija-funding-2026" target="_blank">Funding Landscape &#8599;</a>
+          </div>
         </div>
       </div>
       <div class="takeaway-item">
         <div class="t-num">2</div>
         <div class="t-body">
-          <p class="t-text">Data center construction is rewriting the western US materials market. A single 100MW hyperscale facility consumes 40,000&ndash;60,000 tons of crushed stone, 80,000&ndash;120,000 cubic yards of concrete, and 10,000&ndash;20,000 tons of steel. The western US has dozens of these in the pipeline. Flatbed spot rates are up 23&ndash;30% year over year because data center lanes are paying $3.50&ndash;5.00+/mile and pulling capacity from standard construction hauls. Secure your aggregate supply agreements and carrier rate locks now — before summer construction peak hits these markets full force.</p>
-          <div class="t-sources"><a class="src-link" href="https://www.weforum.org/stories/2025/12/securing-data-centre-materials/" target="_blank">World Economic Forum &#8599;</a><a class="src-link" href="https://www.dat.com/blog/flatbed-report-steel-output-rises-to-start-2026-signaling-firmer-flatbed-freight-demand/" target="_blank">DAT &#8599;</a></div>
+          <p class="t-text">Arizona contractors and suppliers face the most acute combined exposure of any western market. A proposed &minus;760,000 acre-foot Colorado River reduction directly constrains ADWR water availability certificates &mdash; the gating permit for large construction projects in Phoenix, Tucson, Scottsdale, Mesa, Chandler, and Gilbert. Any contractor bidding a data center, semiconductor facility, or large industrial project in the Phoenix market for 2027 delivery must verify water certificate availability before pricing the work. This is now pre-bid due diligence, not an environmental footnote.</p>
+          <div class="t-sources">
+            <a class="src-link" href="https://www.azwater.gov" target="_blank">ADWR &#8599;</a>
+            <a class="src-link" href="https://cap-az.com" target="_blank">CAP Arizona &#8599;</a>
+            <a class="src-link" href="https://www.usbr.gov/ColoradoRiverBasin/post2026/index.html" target="_blank">USBR &#8599;</a>
+            <a class="src-link" href="https://cleantechnica.com/2026/05/16/us-plan-to-allocate-water-from-the-colorado-river-will-severely-impact-california-arizona-nevada/" target="_blank">CleanTechnica &#8599;</a>
+          </div>
         </div>
       </div>
       <div class="takeaway-item">
         <div class="t-num">3</div>
         <div class="t-body">
-          <p class="t-text">The IIJA expires September 30, 2026 — 101 days from now. The Infrastructure Investment and Jobs Act has been the backbone of western US civil construction for four years. If Congress does not reauthorize, federal highway funding stops and state DOT letting schedules are disrupted. Simultaneously, Colorado River allocations are being cut — Arizona faces a 760,000 acre-foot reduction and California a 440,000 acre-foot reduction starting December 31. Both of these deadlines land in the same 6-month window. Factor both into any project planning that extends into 2027.</p>
-          <div class="t-sources"><a class="src-link" href="https://www.jpcengineering.com/jpc-blog/the-2026-infrastructure-funding-cliff-what-happens-when-the-iija-expires" target="_blank">JPC Engineering &#8599;</a><a class="src-link" href="https://www.usbr.gov/ColoradoRiverBasin/post2026/index.html" target="_blank">USBR &#8599;</a></div>
+          <p class="t-text">The Pacific Northwest is the most insulated western market from both deadlines. WSDOT and ODOT face IIJA reauthorization risk like every other western DOT. But the PNW has no Colorado River exposure and water is not a construction permit gating factor. If your business has geographic flexibility and you are evaluating where to allocate bidding resources in H2 2026 and early 2027 &mdash; the Pacific Northwest and Mountain West carry meaningfully lower combined risk than the Desert Southwest and California.</p>
+          <div class="t-sources">
+            <a class="src-link" href="https://wsdot.wa.gov/business-wsdot/contracts" target="_blank">WSDOT &#8599;</a>
+            <a class="src-link" href="https://oregon.gov/odot/business/pages/current-advertisements.aspx" target="_blank">ODOT &#8599;</a>
+            <a class="src-link" href="https://codot.gov/business/bids-awards" target="_blank">CDOT &#8599;</a>
+          </div>
         </div>
       </div>
     </div>
@@ -609,31 +500,31 @@
 
   <!-- SOURCES -->
   <div class="sources-footer">
-    <p class="sources-title">Source Index &mdash; Edition #4 &middot; June 21, 2026</p>
-    <p class="source-item">Aggregates: <a href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-stone-crushed.pdf" target="_blank">USGS Crushed Stone</a> &middot; <a href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-sand-gravel.pdf" target="_blank">USGS Sand and Gravel</a> &middot; <a href="https://www.pitandquarry.com/washingtons-rising-aggregate-supply-crisis/" target="_blank">Pit &amp; Quarry — Clark County WA</a></p>
-    <p class="source-item">Asphalt binder: <a href="https://dot.ca.gov/programs/construction/california-statewide-crude-oil-price-index" target="_blank">Caltrans Price Index</a></p>
-    <p class="source-item">Ready-mix concrete: <a href="https://www.concretenetwork.com/concrete-prices.html" target="_blank">Concrete Network</a></p>
-    <p class="source-item">Cement: <a href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-cement.pdf" target="_blank">USGS Cement Commodity Summary 2026</a> &middot; <a href="https://www.housingwire.com/articles/builder-material-costs-tariffs/" target="_blank">HousingWire — tariff cost pressure on cement</a> &middot; <a href="https://buildermuse.com/economy/concrete-costs-rise-11-year-over-year--cement/" target="_blank">BuilderMuse — PCA Q1 2026 regional data</a></p>
-    <p class="source-item">Steel and rebar: <a href="https://www.worldsteeldynamics.com/price-check-on-steel-aisle-usa-rebar-about-40-ton-above-hrc/" target="_blank">World Steel Dynamics</a> &middot; <a href="https://www.imarcgroup.com/steel-rebar-pricing-report" target="_blank">IMARC Rebar Report</a></p>
-    <p class="source-item">Diesel and fuel: <a href="https://gasprices.aaa.com/?state=CA" target="_blank">AAA Fuel Prices — California (primary)</a> &middot; <a href="https://www.eia.gov/petroleum/gasdiesel/" target="_blank">EIA Weekly Retail Prices</a> &middot; <a href="https://www.thecentersquare.com/california/article_35f4615b-2713-4589-9b15-daba0faa7a8a.html" target="_blank">The Center Square — $8.44 projection</a></p>
-    <p class="source-item">Trucking: <a href="https://www.dat.com/blog/flatbed-report-steel-output-rises-to-start-2026-signaling-firmer-flatbed-freight-demand/" target="_blank">DAT Freight Analytics</a></p>
-    <p class="source-item">Labor: <a href="https://www.amtec.us.com/blog/construction-workforce-report" target="_blank">AMTEC Construction Workforce Report</a> &middot; <a href="https://fred.stlouisfed.org/series/CES2000000003" target="_blank">FRED BLS</a></p>
-    <p class="source-item">TSMC / data centers: <a href="https://www.blackridgeresearch.com/project-profiles/tsmc-arizona-fab-united-states-us-details-cost-expansion-latest-update" target="_blank">Black Ridge Research</a> &middot; <a href="https://www.weforum.org/stories/2025/12/securing-data-centre-materials/" target="_blank">World Economic Forum — data center materials</a></p>
-    <p class="source-item">Housing: <a href="https://www.census.gov/construction/nrc/current/index.html" target="_blank">US Census Bureau — New Residential Construction</a></p>
-    <p class="source-item">Water: <a href="https://www.usbr.gov/ColoradoRiverBasin/post2026/index.html" target="_blank">Bureau of Reclamation</a> &middot; <a href="https://cleantechnica.com/2026/05/16/us-plan-to-allocate-water-from-the-colorado-river-will-severely-impact-california-arizona-nevada/" target="_blank">CleanTechnica — allocation cuts</a></p>
-    <p class="source-item">IIJA: <a href="https://fundinglandscape.com/answers/infrastructure-iija-funding-2026" target="_blank">Funding Landscape</a> &middot; <a href="https://www.jpcengineering.com/jpc-blog/the-2026-infrastructure-funding-cliff-what-happens-when-the-iija-expires" target="_blank">JPC Engineering — funding cliff</a></p>
-    <p class="source-item">WSDOT: <a href="https://wsdot.wa.gov/business-wsdot/contracts/about-public-works-contracts/bid-opening-results/bid-results-archive" target="_blank">WSDOT Bid Results</a></p>
+    <p class="sources-title">Source Index &mdash; Edition #5 &middot; June 28, 2026</p>
+    <p class="source-item">IIJA status and reauthorization: <a href="https://highways.dot.gov/infrastructure-investment-and-jobs-act" target="_blank">FHWA IIJA Hub</a> &middot; <a href="https://highways.dot.gov/iija/funding" target="_blank">FHWA Apportionment Data (verify state figures here)</a> &middot; <a href="https://fundinglandscape.com/answers/infrastructure-iija-funding-2026" target="_blank">Funding Landscape</a> &middot; <a href="https://www.jpcengineering.com/jpc-blog/the-2026-infrastructure-funding-cliff-what-happens-when-the-iija-expires" target="_blank">JPC Engineering</a></p>
+    <p class="source-item">Congressional action: <a href="https://transportation.house.gov" target="_blank">House T&amp;I Committee</a> &middot; <a href="https://www.epw.senate.gov" target="_blank">Senate EPW Committee</a> &middot; <a href="https://congress.gov" target="_blank">Congress.gov</a></p>
+    <p class="source-item">Industry advocacy: <a href="https://www.artba.org/advocacy" target="_blank">ARTBA Build America Now</a> &middot; <a href="https://www.agc.org/news" target="_blank">AGC</a> &middot; <a href="https://www.aashto.org" target="_blank">AASHTO</a></p>
+    <p class="source-item">Colorado River Post-2026: <a href="https://www.usbr.gov/ColoradoRiverBasin/post2026/index.html" target="_blank">Bureau of Reclamation Post-2026 Operations</a></p>
+    <p class="source-item">Lake levels: <a href="https://www.usbr.gov/lc/region/g4000/riverops" target="_blank">USBR Lower Colorado River Operations</a> &middot; <a href="https://www.usbr.gov/uc/water/crsp/cs/gcd.html" target="_blank">USBR Glen Canyon Dam</a></p>
+    <p class="source-item">Water allocation analysis: <a href="https://cleantechnica.com/2026/05/16/us-plan-to-allocate-water-from-the-colorado-river-will-severely-impact-california-arizona-nevada/" target="_blank">CleanTechnica &mdash; allocation cut analysis</a></p>
+    <p class="source-item">State water authorities: <a href="https://www.azwater.gov" target="_blank">ADWR Arizona</a> &middot; <a href="https://cap-az.com" target="_blank">CAP Arizona</a> &middot; <a href="https://www.snwa.com" target="_blank">SNWA Nevada</a> &middot; <a href="https://www.mwdh2o.com" target="_blank">MWD Southern California</a> &middot; <a href="https://cwcb.colorado.gov" target="_blank">CWCB Colorado</a></p>
+    <p class="source-item">FTA transit programs: <a href="https://www.transit.dot.gov/funding/grant-programs/capital-investments" target="_blank">FTA Capital Investment Grants</a></p>
+    <p class="source-item">State DOT bid results: <a href="https://dot.ca.gov/programs/procurement-and-contracts/bid-results" target="_blank">Caltrans</a> &middot; <a href="https://azdot.gov/business/contracts-and-specifications" target="_blank">ADOT</a> &middot; <a href="https://wsdot.wa.gov/business-wsdot/contracts" target="_blank">WSDOT</a> &middot; <a href="https://codot.gov/business/bids-awards" target="_blank">CDOT</a> &middot; <a href="https://udot.utah.gov/go/business-industry/contracts" target="_blank">UDOT</a> &middot; <a href="https://oregon.gov/odot/business/pages/current-advertisements.aspx" target="_blank">ODOT</a> &middot; <a href="https://itd.idaho.gov/business/contracts" target="_blank">ITD</a> &middot; <a href="https://dot.state.wy.us/home/doing_business_wydot/contracting/bid_letting.html" target="_blank">WYDOT</a></p>
+    <p class="source-item" style="margin-top:8px;font-style:italic;">Note: State IIJA obligation and Q4 letting figures are estimates based on available public data. Verify all figures against official FHWA apportionment data at <a href="https://highways.dot.gov/iija/funding" target="_blank">highways.dot.gov/iija/funding</a> and each state DOT's current letting calendar before making business decisions.</p>
+  </div>
+
+  <div style="margin-top:2rem;padding-top:1.25rem;border-top:1px solid var(--bdr);text-align:center;font-size:11px;color:var(--ink3);font-family:'Inter',sans-serif;">
+    <span style="font-size:10px;color:#aaa;letter-spacing:0.06em;text-transform:uppercase;">Archive</span><br>
+    <a href="edition-004.html" style="color:var(--gold);">Edition #4 &mdash; June 21, 2026</a> &nbsp;&middot;&nbsp;
+    <a href="edition-003.html" style="color:var(--gold);">Edition #3 &mdash; June 15, 2026</a> &nbsp;&middot;&nbsp;
+    <a href="https://thebuildintel.substack.com/" target="_blank" style="color:var(--gold);">All editions on Substack &rarr;</a>
   </div>
 </div>
 
 <div class="page-footer">
-  <strong>The Build Intel</strong> &middot; West Region Construction Intelligence &middot; Edition #4 &middot; June 21, 2026<br>
-  Compiled by Matt Pound &middot; Data sourced from EIA, USGS, BLS, Caltrans, USBR, Fastmarkets, DAT, Census, WEF &middot; For informational purposes only<br>
-  <a href="https://thebuildintel.substack.com/">Subscribe at thebuildintel.substack.com &rarr;</a><br><br>
-  <span style="font-size:11px;color:#666;letter-spacing:0.06em;text-transform:uppercase;">Archive</span><br>
-  <a href="edition-004.html">Edition #4 &mdash; June 21, 2026</a> &nbsp;&middot;&nbsp;
-  <a href="edition-003.html">Edition #3 &mdash; June 15, 2026</a> &nbsp;&middot;&nbsp;
-  <a href="https://thebuildintel.substack.com/" target="_blank">All editions on Substack &rarr;</a>
+  <strong>The Build Intel</strong> &middot; West Region Construction Intelligence &middot; Edition #5 &middot; June 28, 2026<br>
+  Compiled by Matt Pound &middot; Data sourced from USBR, FHWA, ARTBA, ADWR, SNWA, MWD, State DOTs &middot; For informational purposes only<br>
+  <a href="https://thebuildintel.substack.com/">Subscribe at thebuildintel.substack.com &rarr;</a>
 </div>
 
 </body>
